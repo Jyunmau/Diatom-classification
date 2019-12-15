@@ -1,5 +1,5 @@
 import image_processing.image_read as imread
-import image_processing.image_feature as imfeature
+import image_processing.geometric_feature as imfeature
 from sklearn.preprocessing import scale
 from sklearn.preprocessing import StandardScaler
 import image_processing.image_segmentation as imseg
