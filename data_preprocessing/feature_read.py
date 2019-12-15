@@ -4,7 +4,7 @@ path = './features/'
 
 
 def feature_read():
-    features = np.loadtxt(path + 'feature.txt')
+    features = np.loadtxt(path + 'feature5.txt')
     labels = np.loadtxt(path + 'label.txt')
     return features, labels
 

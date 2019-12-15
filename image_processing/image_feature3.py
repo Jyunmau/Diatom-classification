@@ -5,13 +5,13 @@ import matplotlib.pyplot as plt
 
 
 class Hog_descriptor():
-    def __init__(self, img, cell_size=16, bin_size=8):
+    def __init__(self, img, cell_size=16, bin_size=9):
         self.img = img
         self.img = np.sqrt(img / np.max(img))
         self.img = img * 255
         self.cell_size = cell_size
         self.bin_size = bin_size
-        self.angle_unit = 360 / self.bin_size
+        self.angle_unit = int(360 / self.bin_size)
         assert type(self.bin_size) == int, "bin_size should be integer,"
         assert type(self.cell_size) == int, "cell_size should be integer,"
         assert type(self.angle_unit) == int, "bin_size should be divisible by 360"
@@ -20,7 +20,7 @@ class Hog_descriptor():
         height, width = self.img.shape
         gradient_magnitude, gradient_angle = self.global_gradient()
         gradient_magnitude = abs(gradient_magnitude)
-        cell_gradient_vector = np.zeros((height / self.cell_size, width / self.cell_size, self.bin_size))
+        cell_gradient_vector = np.zeros((int(height / self.cell_size), int(width / self.cell_size), self.bin_size))
         for i in range(cell_gradient_vector.shape[0]):
             for j in range(cell_gradient_vector.shape[1]):
                 cell_magnitude = gradient_magnitude[i * self.cell_size:(i + 1) * self.cell_size,
@@ -89,9 +89,27 @@ class Hog_descriptor():
         return image
 
 
-img = cv2.imread('person_037.png', cv2.IMREAD_GRAYSCALE)
-hog = Hog_descriptor(img, cell_size=8, bin_size=8)
-vector, image = hog.extract()
-print(np.array(vector).shape)
-plt.imshow(image, cmap=plt.cm.gray)
-plt.show()
+def hog_compute(gray_img):
+    gray_img = 255 - gray_img
+    winSize = (256, 256)
+    blockSize = (32, 32)
+    blockStride = (32, 32)
+    cellSize = (16, 16)
+    nbins = 9
+    hog = cv2.HOGDescriptor(winSize, blockSize, blockStride, cellSize, nbins)
+    # y = gray_img.shape[0] - winSize[0]
+    # x = gray_img.shape[1] - winSize[1]
+    # h = gray_img.shape[0]
+    # w = gray_img.shape[1]
+    # roi = gray_img[y: y + h, x: x + w]
+    gray_img = np.resize(gray_img, (256, 256))
+    hist = hog.compute(gray_img, winStride=(32, 32))
+    print(hist.shape)
+    return hist
+
+# img = cv2.imread('person_037.png', cv2.IMREAD_GRAYSCALE)
+# hog = Hog_descriptor(img, cell_size=8, bin_size=8)
+# vector, image = hog.extract()
+# print(np.array(vector).shape)
+# plt.imshow(image, cmap=plt.cm.gray)
+# plt.show()

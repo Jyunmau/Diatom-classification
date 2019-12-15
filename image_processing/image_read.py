@@ -27,6 +27,7 @@ def image_read(is_cvt2gray=True, file_type='jpg', data_type='train'):
         if is_cvt2gray and len(image.shape) == 3:
             grayimg = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
             grayimg = cv2.resize(grayimg, (1024, 1024))
+            grayimg = cv2.medianBlur(grayimg, 5)
             images.append(grayimg)
             labels.append(label)
         else:

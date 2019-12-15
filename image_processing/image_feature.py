@@ -157,7 +157,7 @@ class GeometricFeatures:
         perimeter_ratio = 2 * (rect_width + rect_height) / db_length
         roundness = 4 * np.pi * db_area / (db_length * db_length)
         shape_complexity = (db_length * db_length) / db_area
-        return rectangularity, extension, perimeter_ratio, roundness, shape_complexity
+        return np.array([rectangularity, extension, perimeter_ratio, roundness, shape_complexity])
 
     def fourier_descriptor(self, contour):
         pass
@@ -168,14 +168,16 @@ class GeometricFeatures:
         :param gray_img:
         :return:
         """
+        gray_img = 255 - gray_img
         moments = cv2.moments(gray_img)
+        m = np.array([moments['m11'], moments['m12'],
+                      moments['m02'], moments['m20'], moments['m21'], moments['m30'], moments['m03']])
+        # print(m.shape)
         humoments = cv2.HuMoments(moments)
-        return humoments[0]
+        return np.concatenate([humoments[:2].flatten(), m])
 
     def get_geometric_features(self, gray_img):
         cont = self.contours(gray_img)
         hu = self.hu_moments(gray_img)
-        features = np.zeros((6), np.float)
-        features[:5] = np.array(list(cont))
-        features[5:] = hu
+        features = np.concatenate([cont, hu])
         return features
