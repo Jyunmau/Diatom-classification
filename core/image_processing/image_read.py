@@ -3,6 +3,8 @@ import configparser
 import glob
 import numpy as np
 
+from core.path_some import PathSome
+
 path = '../config.cfg'
 
 
@@ -18,7 +20,8 @@ def image_read(is_cvt2gray=True, file_type='jpg', data_type='train'):
     """
     config = configparser.ConfigParser()
     config.read(path, encoding="utf-8-sig")
-    imgfiles = glob.glob(config['IMGPATH']['ClassTest'] + '/' + data_type + '/*/*' + file_type)
+    cls = PathSome()
+    imgfiles = cls.seg_img()
     images = []
     labels = []
     for imgfile in imgfiles:
