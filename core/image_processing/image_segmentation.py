@@ -9,6 +9,7 @@ def strokEdges(blurKsize=7, edgeKsize=5):
     # grayimg = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)  # 转为灰度图
     gray_images, _ = imgr.image_read()
     for grayimg in gray_images:
+        grayimg = cv2.GaussianBlur(grayimg, (5, 5), 0)
         equimg = cv2.equalizeHist(grayimg)  # 直方图均衡化
         # img_1 = cv2.adaptiveThreshold(equimg, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 5, 10)
         # 边缘检测
