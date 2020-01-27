@@ -1,4 +1,4 @@
-# TODO(特征提取主脚本feature_main)
+import cv2
 
 import core.path_some as ps
 import core.image_processing.image_read as imr
@@ -9,7 +9,7 @@ import numpy as np
 
 def fetch_proc():
     cls = ps.PathSome()
-    img_it = cls.img_path()
+    img_it = cls.img()
     features = []
     labels = []
     while True:
@@ -28,7 +28,8 @@ def fetch_proc():
             # hog_vector = hog_hist.flatten()
             # hog = imfeature3.hog_compute(image)
             # hog = np.array(hog).flatten()
-            feature = np.concatenate([texture, geometric])
+            # feature = np.concatenate([texture, geometric])
+            feature = texture
             # print(feature)
             # feature = hog
             features.append(feature)
@@ -41,7 +42,7 @@ def fetch_proc():
     print(labels.shape)
     print(features.shape)
     print(labels.shape)
-    np.savetxt(cls.fetch_path(5), features)
+    np.savetxt(cls.fetch_path(6), features)
     # np.savetxt(path + "label5.txt", labels)
     # TODO(可选何种特征)
     # TODO(保存文件特征，类别)

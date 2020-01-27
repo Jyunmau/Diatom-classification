@@ -14,7 +14,7 @@ def image_read(file_path: str, is_cvt2gray=True):
     """
     image = cv2.imdecode(np.fromfile(file_path, dtype=np.uint8), -1)
     # and len(image.shape) == 3
-    if is_cvt2gray:
+    if is_cvt2gray and len(image.shape) == 3:
         grayimg = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         grayimg = cv2.resize(grayimg, (1024, 1024))
         grayimg = cv2.medianBlur(grayimg, 5)
