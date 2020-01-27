@@ -21,7 +21,7 @@ class PathSome(object):
     """
 
     SegTest = '../ data - images / img4seg /'
-    images = 'H:/硅藻图像库/基于形状与纹理特征的硅藻分类算法/图像集'
+    images = 'H:/硅藻图像库/硅藻分类（张雨）/图像集'
     images1 = 'H: / 硅藻图像库 / 图像集'
     image_segmentation = 'H:/硅藻图像库/综合'
     features = 'C:\\Users\\JyunmauChan\\Documents\\GitHub\\Diatom-classification\\features'
@@ -32,8 +32,8 @@ class PathSome(object):
         self.fetch_path = glob.glob(self.features + '/' + '*' + 'txt')
         self.seg_path = glob.glob(self.image_segmentation + '/' + '*' + '/*' + 'jpg')
         # self.seg_path.append(glob.glob(self.image_segmentation + '/' + '*' + '/*' + 'png'))
-        print(self.seg_path[0])
-        print(len(self.seg_path))
+        # print(self.img_path[0])
+        # print(len(self.seg_path))
 
     def img(self):
         for image in self.img_path:
