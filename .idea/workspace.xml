@@ -1,20 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b31d3feb-a8b4-4948-90aa-7afcc679c769" name="Default Changelist" comment="改进特征提取和路径读取的架构">
-      <change afterPath="$PROJECT_DIR$/core/classifier/svm_classifier.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/data_preprocessing/PCA_processing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/data_preprocessing/feature_read.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/data_preprocessing/format_processing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/feature_processing/feature_extract.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/feature_processing/geometric_feature.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/feature_processing/hog_feature.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/feature_processing/image_feature.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/feature_processing/image_feature2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/feature_processing/image_read.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/feature_processing/lbp_feature.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/image_processing/image_segmentation.py" afterDir="false" />
+    <list default="true" id="b31d3feb-a8b4-4948-90aa-7afcc679c769" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/feature_processing/image_feature.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/feature_processing/image_feature.py" afterDir="false" />
     </list>
     <ignored path="venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,9 +13,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Diatom_classification$image_segmentation.coverage" NAME="image_segmentation Coverage Results" MODIFIED="1574668421743" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_processing" />
     <SUITE FILE_PATH="coverage/Diatom_classification$feature_extract.coverage" NAME="feature_extract Coverage Results" MODIFIED="1575296688656" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_processing" />
-    <SUITE FILE_PATH="coverage/Diatom_classification$starter.coverage" NAME="starter Coverage Results" MODIFIED="1575338286363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Diatom_classification$image_segmentation.coverage" NAME="image_segmentation Coverage Results" MODIFIED="1580118140980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/core/image_processing" />
+    <SUITE FILE_PATH="coverage/Diatom_classification$cv_help.coverage" NAME="cv_help Coverage Results" MODIFIED="1581752040903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Diatom_classification$starter.coverage" NAME="starter Coverage Results" MODIFIED="1578283595361" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Diatom_classification$image_feature.coverage" NAME="image_feature Coverage Results" MODIFIED="1578368235591" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/core/feature_processing" />
     <SUITE FILE_PATH="coverage/Diatom_classification$image_read.coverage" NAME="image_read Coverage Results" MODIFIED="1574870549788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_processing" />
     <SUITE FILE_PATH="coverage/Diatom_classification$feature_extract__1_.coverage" NAME="feature_extract (1) Coverage Results" MODIFIED="1575124693207" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_preprocessing" />
     <SUITE FILE_PATH="coverage/Diatom_classification$feature_read.coverage" NAME="feature_read Coverage Results" MODIFIED="1575126488442" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_preprocessing" />
@@ -36,37 +27,40 @@
     <session id="-7988649">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="34" />
+          <entry key="project.closed" value="50" />
           <entry key="project.open.time.0" value="5" />
-          <entry key="project.open.time.1" value="3" />
-          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.1" value="4" />
+          <entry key="project.open.time.10" value="4" />
           <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.14" value="2" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.5" value="9" />
-          <entry key="project.open.time.6" value="3" />
-          <entry key="project.open.time.7" value="6" />
-          <entry key="project.open.time.8" value="1" />
+          <entry key="project.open.time.5" value="11" />
+          <entry key="project.open.time.6" value="5" />
+          <entry key="project.open.time.7" value="9" />
+          <entry key="project.open.time.8" value="5" />
           <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="36" />
+          <entry key="project.opened" value="52" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="cfg" value="4" />
           <entry key="jpg" value="3" />
+          <entry key="md" value="2" />
           <entry key="png" value="5" />
-          <entry key="py" value="37" />
-          <entry key="txt" value="13" />
+          <entry key="py" value="67" />
+          <entry key="txt" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="8" />
           <entry key="Ini" value="4" />
-          <entry key="PLAIN_TEXT" value="13" />
-          <entry key="Python" value="37" />
+          <entry key="Markdown" value="2" />
+          <entry key="PLAIN_TEXT" value="15" />
+          <entry key="Python" value="67" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -74,71 +68,75 @@
           <entry key="Python Console" value="14" />
           <entry key="cfg" value="63" />
           <entry key="dummy" value="22" />
-          <entry key="py" value="9645" />
-          <entry key="txt" value="61" />
+          <entry key="md" value="1" />
+          <entry key="py" value="10910" />
+          <entry key="txt" value="131" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Ini" value="63" />
-          <entry key="PLAIN_TEXT" value="83" />
-          <entry key="Python" value="9659" />
+          <entry key="Markdown" value="1" />
+          <entry key="PLAIN_TEXT" value="153" />
+          <entry key="Python" value="10924" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/feature_processing/image_feature.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+            <state relative-caret-position="558">
+              <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
               <folding>
-                <element signature="e#29#56#0" expanded="true" />
-                <marker date="1576399900350" expanded="true" signature="1577:1582" ph="..." />
+                <element signature="e#0#10#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/image_processing/image_read.py">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/core/feature_processing/image_feature2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/starter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="43" selection-start-line="43" selection-end-line="43" />
+            <state relative-caret-position="270">
+              <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/feature_processing/feature_extract.py">
+        <entry file="file://$PROJECT_DIR$/core/feature_processing/fourier_descriptor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+            <state relative-caret-position="936">
+              <caret line="53" column="37" selection-start-line="53" selection-start-column="37" selection-end-line="53" selection-end-column="37" />
               <folding>
-                <element signature="e#0#44#0" expanded="true" />
-                <marker date="1576393522654" expanded="true" signature="391:396" ph="..." />
+                <element signature="e#0#10#0" expanded="true" />
+                <marker date="1581842352386" expanded="true" signature="80:85" ph="..." />
+                <marker date="1581842352386" expanded="true" signature="195:231" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/data_preprocessing/format_processing.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/data_preprocessing/PCA_processing.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+        <entry file="file://$PROJECT_DIR$/help_cv2.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="231174">
+                <caret line="12843" column="49" selection-start-line="12843" selection-start-column="44" selection-end-line="12843" selection-end-column="49" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -146,47 +144,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/image_processing/image_segmentation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/feature_processing/image_read.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/path_some.py">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="630">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
-              <folding>
-                <marker date="1576397094872" expanded="true" signature="942:948" ph="..." />
-              </folding>
+              <caret line="39" column="51" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/data_preprocessing/feature_read.py">
+        <entry file="file://$PROJECT_DIR$/core/feature_processing/geometric_feature.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
-              <folding>
-                <marker date="1576394265993" expanded="true" signature="86:91" ph="..." />
-              </folding>
+            <state relative-caret-position="396">
+              <caret line="23" column="37" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/classifier/svm_classifier.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="18">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/feature_processing/hog_feature.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1674">
+              <caret line="96" column="23" selection-start-line="96" selection-start-column="23" selection-end-line="96" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -199,6 +185,16 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>morphologyEx</find>
+      <find>MorphTypes</find>
+      <find>getStructuringElement</find>
+      <find>drawcontours</find>
+      <find>PI</find>
+      <find>CV_PI</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -227,15 +223,21 @@
         <option value="$PROJECT_DIR$/image_processing/image_read.py" />
         <option value="$PROJECT_DIR$/data_preprocessing/feature_read.py" />
         <option value="$PROJECT_DIR$/data_preprocessing/feature_extract.py" />
-        <option value="$PROJECT_DIR$/starter.py" />
         <option value="$PROJECT_DIR$/image_processing/image_feature.py" />
         <option value="$PROJECT_DIR$/feature_processing/image_feature.py" />
         <option value="$PROJECT_DIR$/core/feature_processing/geometric_feature.py" />
         <option value="$PROJECT_DIR$/core/feature_processing/feature_extract.py" />
         <option value="$PROJECT_DIR$/core/data_preprocessing/feature_read.py" />
-        <option value="$PROJECT_DIR$/core/path_some.py" />
-        <option value="$PROJECT_DIR$/core/feature_processing/image_feature.py" />
+        <option value="$PROJECT_DIR$/starter.py" />
         <option value="$PROJECT_DIR$/core/feature_processing/image_read.py" />
+        <option value="$PROJECT_DIR$/core/image_processing/image_read.py" />
+        <option value="$PROJECT_DIR$/core/path_some.py" />
+        <option value="$PROJECT_DIR$/core/image_processing/image_segmentation.py" />
+        <option value="$PROJECT_DIR$/help_cv2.py" />
+        <option value="$PROJECT_DIR$/cv_help.py" />
+        <option value="$PROJECT_DIR$/help_cv2.md" />
+        <option value="$PROJECT_DIR$/core/feature_processing/fourier_descriptor.py" />
+        <option value="$PROJECT_DIR$/core/feature_processing/image_feature.py" />
       </list>
     </option>
   </component>
@@ -246,16 +248,17 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1912" />
-    <option name="y" value="26" />
-    <option name="width" value="1696" />
-    <option name="height" value="1026" />
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="1940" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -267,6 +270,12 @@
               <item name="Diatom-classification" type="b2602c69:ProjectViewProjectNode" />
               <item name="Diatom-classification" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Diatom-classification" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diatom-classification" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="classifier" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Diatom-classification" type="b2602c69:ProjectViewProjectNode" />
@@ -286,11 +295,15 @@
               <item name="core" type="462c0819:PsiDirectoryNode" />
               <item name="image_processing" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Diatom-classification" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diatom-classification" type="462c0819:PsiDirectoryNode" />
+              <item name="features" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -299,7 +312,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/venv" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.statistic.project.settings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -326,8 +339,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.path_some">
-    <configuration name="feature_extract (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.cv_help">
+    <configuration name="cv_help" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Diatom-classification" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -335,12 +348,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data_preprocessing" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data_preprocessing/feature_extract.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cv_help.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -349,7 +362,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="feature_extract" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="image_feature" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Diatom-classification" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -357,12 +370,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/image_processing" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/core/feature_processing" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\JyunmauChan\Documents\GitHub\Diatom-classification\data_preprocessing\feature_extract.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/core/feature_processing/image_feature.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -371,7 +384,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="feature_read" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="image_segmentation" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Diatom-classification" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -379,12 +392,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data_preprocessing" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/core/image_processing" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data_preprocessing/feature_read.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/core/image_processing/image_segmentation.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -439,18 +452,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.starter" />
-      <item itemvalue="Python.feature_extract" />
-      <item itemvalue="Python.feature_extract (1)" />
-      <item itemvalue="Python.feature_read" />
       <item itemvalue="Python.path_some" />
+      <item itemvalue="Python.image_segmentation" />
+      <item itemvalue="Python.image_feature" />
+      <item itemvalue="Python.cv_help" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.path_some" />
+        <item itemvalue="Python.cv_help" />
+        <item itemvalue="Python.image_segmentation" />
+        <item itemvalue="Python.image_feature" />
         <item itemvalue="Python.starter" />
-        <item itemvalue="Python.feature_extract" />
-        <item itemvalue="Python.feature_read" />
-        <item itemvalue="Python.feature_extract (1)" />
+        <item itemvalue="Python.path_some" />
       </list>
     </recent_temporary>
   </component>
@@ -486,7 +499,42 @@
       <option name="project" value="LOCAL" />
       <updated>1576399949081</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="改进特征提取和路径读取的架构">
+      <created>1578150876064</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1578150876064</updated>
+    </task>
+    <task id="LOCAL-00005" summary="图像分割">
+      <created>1578244279352</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1578244279352</updated>
+    </task>
+    <task id="LOCAL-00006" summary="预处理引入高斯滤波&amp;分类器增加多层感知机">
+      <created>1578284490218</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1578284490218</updated>
+    </task>
+    <task id="LOCAL-00007" summary="工程结构调整">
+      <created>1580118354144</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1580118354144</updated>
+    </task>
+    <task id="LOCAL-00008" summary="傅里叶描述字实现">
+      <created>1581842397138</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1581842397139</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -499,25 +547,25 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="26" width="1696" height="1026" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15220049" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20442359" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32765958" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49938875" weight="0.4466891" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49816626" weight="0.564539" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4944988" visible="true" weight="0.32884398" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4932763" weight="0.32719547" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32996634" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5055012" side_tool="true" visible="true" weight="0.32884398" />
-      <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50183374" side_tool="true" weight="0.4466891" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32907802" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32996634" />
-      <window_info anchor="bottom" id="Statistic" order="13" weight="0.32884398" />
+      <window_info anchor="bottom" id="Statistic" order="13" weight="0.32765958" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -561,7 +609,11 @@
     <MESSAGE value="新增hog特征" />
     <MESSAGE value="修改多组特征和数据预处理、保存" />
     <MESSAGE value="改进特征提取和路径读取的架构" />
-    <option name="LAST_COMMIT_MESSAGE" value="改进特征提取和路径读取的架构" />
+    <MESSAGE value="图像分割" />
+    <MESSAGE value="预处理引入高斯滤波&amp;分类器增加多层感知机" />
+    <MESSAGE value="工程结构调整" />
+    <MESSAGE value="傅里叶描述字实现" />
+    <option name="LAST_COMMIT_MESSAGE" value="傅里叶描述字实现" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
@@ -585,17 +637,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/classifier/svm_classifier.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/features/feature.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/features/label.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/features/feature2.txt">
@@ -616,31 +658,10 @@
     <entry file="file://$PROJECT_DIR$/images/img4seg/脆杆藻 (2).jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/feature_processing/image_feature2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/feature_processing/lbp_feature.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="511">
           <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/feature_processing/geometric_feature.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-            <marker date="1576370965485" expanded="true" signature="146:148" ph="..." />
-            <marker date="1576370965485" expanded="true" signature="456:465" ph="..." />
-            <marker date="1576370965485" expanded="true" signature="4007:4025" ph="..." />
-            <marker date="1576370965485" expanded="true" signature="5240:5259" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -651,48 +672,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/feature_processing/hog_feature.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1674">
-          <caret line="96" column="23" selection-start-line="96" selection-start-column="23" selection-end-line="96" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/feature_processing/image_feature.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
-          <folding>
-            <element signature="e#29#56#0" expanded="true" />
-            <marker date="1576399900350" expanded="true" signature="1577:1582" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/image_processing/image_read.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/starter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/feature_processing/feature_extract.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-            <marker date="1576393522654" expanded="true" signature="391:396" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/data_preprocessing/format_processing.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/data_preprocessing/PCA_processing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -700,43 +679,129 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/image_processing/image_segmentation.py">
+    <entry file="file://$PROJECT_DIR$/core/data_preprocessing/format_processing.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/features/label2.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-2863" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/features/label.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2863" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/data_preprocessing/feature_read.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/feature_processing/image_read.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+        <state relative-caret-position="468">
+          <caret line="29" column="16" lean-forward="true" selection-start-line="5" selection-end-line="29" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/image_processing/image_read.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/path_some.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-234">
+          <caret line="23" column="17" lean-forward="true" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/feature_processing/feature_extract.py" />
+    <entry file="file://$PROJECT_DIR$/help_cv2.py" />
+    <entry file="file://$PROJECT_DIR$/cv_help.py" />
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/feature_processing/image_feature.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/path_some.py">
+    <entry file="file://$PROJECT_DIR$/core/feature_processing/image_feature2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
+        <state relative-caret-position="90">
+          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/starter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/feature_processing/fourier_descriptor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="936">
+          <caret line="53" column="37" selection-start-line="53" selection-start-column="37" selection-end-line="53" selection-end-column="37" />
           <folding>
-            <marker date="1576397094872" expanded="true" signature="942:948" ph="..." />
+            <element signature="e#0#10#0" expanded="true" />
+            <marker date="1581842352386" expanded="true" signature="80:85" ph="..." />
+            <marker date="1581842352386" expanded="true" signature="195:231" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/data_preprocessing/feature_read.py">
+    <entry file="file://$PROJECT_DIR$/help_cv2.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="231174">
+            <caret line="12843" column="49" selection-start-line="12843" selection-start-column="44" selection-end-line="12843" selection-end-column="49" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/image_processing/image_segmentation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
-          <folding>
-            <marker date="1576394265993" expanded="true" signature="86:91" ph="..." />
-          </folding>
+        <state relative-caret-position="630">
+          <caret line="39" column="51" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/feature_processing/geometric_feature.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="23" column="37" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/feature_processing/hog_feature.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1674">
+          <caret line="96" column="23" selection-start-line="96" selection-start-column="23" selection-end-line="96" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/classifier/svm_classifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
