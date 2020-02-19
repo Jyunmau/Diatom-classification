@@ -3,6 +3,7 @@ import cv2
 import core.path_some as ps
 import core.image_processing.image_read as imr
 import core.feature_processing.geometric_feature as imfeature
+import core.feature_processing.fourier_descriptor as fd_feature
 
 import numpy as np
 
