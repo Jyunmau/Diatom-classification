@@ -6,7 +6,7 @@ path = './features/'
 # TODO(仅读取单个文件，路径处理提出来)
 
 def feature_read():
-    features = np.loadtxt(path + 'feature4.txt')
+    features = np.loadtxt(path + 'feature.txt')
     labels = np.loadtxt(path + 'label.txt')
     return features, labels
 
