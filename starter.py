@@ -15,8 +15,8 @@ from sklearn.neural_network import MLPClassifier
 
 
 def main():
-    features, labels = fr.feature_read()
-    # features = pca.pca_reduce(features)
+    features, labels = fr.feature_read(2, 1)
+    features = pca.pca_reduce(features)
     print(labels)
     labels = labels.reshape((labels.shape[0], 1))
     # labels = labels.reshape((labels.shape[0]))
@@ -30,19 +30,20 @@ def main():
     # print(labels.shape)
     # print(rand_f_l.shape)
 
-    # parameters = {'svc__gamma': [0.009, 0.01, 0.011, 0.012, 0.013, 0.014, 0.04, 0.05, 0.06, 0.08, 0.09, 0.1, 0.11, 1],
-    #               'svc__C': [0.001, 0.01, 0.1, 1, 2, 3, 4, 5, 6, 7, 10, 13, 14, 15, 16, 17, 18, 20]}
-    # clf = Pipeline([('ss', StandardScaler()), ('svc', SVC())])
-    # # clf = Pipeline([('svc', SVC())])
-    # gs = GridSearchCV(clf, parameters, refit=True, cv=10, verbose=1, n_jobs=-1)
-    # gs.fit(features, labels)  # Run fit with all sets of parameters.
-    # print('最优参数: ', gs.best_params_)
-    # print('最佳性能: ', gs.best_score_)
+    parameters = {
+        'svc__gamma': [0.009, 0.01, 0.011, 0.012, 0.013, 0.014, 0.04, 0.05, 0.06, 0.08, 0.09, 0.1, 0.11, 0.3, 0.5, 1],
+        'svc__C': [0.001, 0.01, 0.1, 1, 2, 3, 4, 5, 6, 7, 10, 13, 14, 15, 16, 17, 18, 20, 22]}
+    clf = Pipeline([('ss', StandardScaler()), ('svc', SVC())])
+    # clf = Pipeline([('svc', SVC())])
+    gs = GridSearchCV(clf, parameters, refit=True, cv=10, verbose=1, n_jobs=-1)
+    gs.fit(features, labels)  # Run fit with all sets of parameters.
+    print('最优参数: ', gs.best_params_)
+    print('最佳性能: ', gs.best_score_)
 
-    clf = MLPClassifier(solver='sgd', activation='relu', alpha=1e-4, hidden_layer_sizes=(20, 50), random_state=1
-                        , verbose=10, learning_rate_init=.1, max_iter=500)
-    clf.fit(features, labels)
-    print(clf.score(features, labels))
+    # clf = MLPClassifier(solver='sgd', activation='relu', alpha=1e-4, hidden_layer_sizes=(20, 50), random_state=1
+    #                     , verbose=10, learning_rate_init=.1, max_iter=500)
+    # clf.fit(features, labels)
+    # print(clf.score(features, labels))
 
 
 if __name__ == '__main__':
