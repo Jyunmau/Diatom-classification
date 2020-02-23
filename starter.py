@@ -15,8 +15,8 @@ from sklearn.neural_network import MLPClassifier
 
 
 def main():
-    features, labels = fr.feature_read(2, 1)
-    features = pca.pca_reduce(features)
+    features, labels = fr.feature_read(2, '000010')
+    # features = pca.pca_reduce(features)
     print(labels)
     labels = labels.reshape((labels.shape[0], 1))
     # labels = labels.reshape((labels.shape[0]))

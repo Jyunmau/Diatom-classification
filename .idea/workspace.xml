@@ -1,13 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b31d3feb-a8b4-4948-90aa-7afcc679c769" name="Default Changelist" comment="">
+    <list default="true" id="b31d3feb-a8b4-4948-90aa-7afcc679c769" name="Default Changelist" comment="测试代码微调&amp;新数据集的特征">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/feature_processing/glcm_based_feature.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/features/ds1_feature1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/features/ds1_feature2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/features/ds1_label1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/features/ds1_label2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/features/ds2_feature000010.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/features/ds2_feature110000.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/features/ds2_label.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/get _opencv_doc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Diatom-classification.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Diatom-classification.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/classifier/svm_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/classifier/svm_classifier.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/data_preprocessing/feature_read.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/data_preprocessing/feature_read.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/feature_processing/fourier_descriptor.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/feature_processing/fourier_descriptor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/feature_processing/geometric_feature.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/feature_processing/geometric_feature.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/feature_processing/hog_feature.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/feature_processing/hog_feature.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/feature_processing/image_feature.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/feature_processing/image_feature.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/feature_processing/image_feature2.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/feature_processing/glcm_feature.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/feature_processing/lbp_feature.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/feature_processing/lbp_feature.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/feature_processing/sift_feature.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/feature_processing/sift_feature.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/image_processing/image_read.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/image_processing/image_read.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/path_some.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/path_some.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/ds2_feature1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/features/ds2_feature1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/ds2_feature2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/features/ds2_feature2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/ds2_label1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/features/ds2_label1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/ds2_label2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/features/ds2_label2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/starter.py" beforeDir="false" afterPath="$PROJECT_DIR$/starter.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,16 +53,6 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>morphologyEx</find>
-      <find>MorphTypes</find>
-      <find>getStructuringElement</find>
-      <find>drawcontours</find>
-      <find>PI</find>
-      <find>CV_PI</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -61,24 +71,25 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SearchEverywhereHistoryKey" value="git repos&#9;ACTION&#9;Git.Log&#10;git re&#9;ACTION&#9;Git.Init" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/venv" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\JyunmauChan\Documents\GitHub\Diatom-classification\core\image_processing" />
+      <recent name="C:\Users\JyunmauChan\Documents\GitHub\Diatom-classification\data-images\img4seg" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="C:\Users\JyunmauChan\Documents\GitHub\Diatom-classification\core\feature_processing" />
       <recent name="C:\Users\JyunmauChan\Documents\GitHub\Diatom-classification\core" />
       <recent name="C:\Users\JyunmauChan\Documents\GitHub\Diatom-classification\feature_processing" />
       <recent name="C:\Users\JyunmauChan\Documents\GitHub\Diatom-classification\data_preprocessing" />
-      <recent name="C:\Users\JyunmauChan\Documents\GitHub\Diatom-classification\data-images\img4seg" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\JyunmauChan\Documents\GitHub\Diatom-classification\core\image_processing" />
-      <recent name="C:\Users\JyunmauChan\Documents\GitHub\Diatom-classification\data-images\img4seg" />
     </key>
   </component>
   <component name="RunManager" selected="Python.starter">
@@ -104,6 +115,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="get _opencv_doc" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Diatom-classification" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/get _opencv_doc.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="image_feature" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Diatom-classification" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -118,28 +150,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/core/feature_processing/image_feature.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="image_segmentation" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Diatom-classification" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/core/image_processing" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/core/image_processing/image_segmentation.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -195,17 +205,17 @@
     <list>
       <item itemvalue="Python.cv_help" />
       <item itemvalue="Python.image_feature" />
-      <item itemvalue="Python.image_segmentation" />
       <item itemvalue="Python.path_some" />
       <item itemvalue="Python.starter" />
+      <item itemvalue="Python.get _opencv_doc" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.starter" />
         <item itemvalue="Python.image_feature" />
+        <item itemvalue="Python.get _opencv_doc" />
         <item itemvalue="Python.path_some" />
         <item itemvalue="Python.cv_help" />
-        <item itemvalue="Python.image_segmentation" />
       </list>
     </recent_temporary>
   </component>
@@ -290,7 +300,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582210080469</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="测试代码微调&amp;新数据集的特征">
+      <created>1582384982551</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1582384982551</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,54 +336,81 @@
     <MESSAGE value="傅里叶描述字实现" />
     <MESSAGE value="sift特征" />
     <MESSAGE value="别人的svm实现" />
-    <option name="LAST_COMMIT_MESSAGE" value="别人的svm实现" />
+    <MESSAGE value="测试代码微调&amp;新数据集的特征" />
+    <option name="LAST_COMMIT_MESSAGE" value="测试代码微调&amp;新数据集的特征" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="425" y="98" key="CommitChangelistDialog2" timestamp="1582384922351">
+    <state x="1183" y="294" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1582456531598">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="425" y="98" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1582384922351" />
+    <state x="1183" y="294" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1582456531598" />
+    <state x="425" y="98" key="CommitChangelistDialog2" timestamp="1582385029860">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="425" y="98" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1582385029860" />
     <state x="425" y="112" key="CommitChangelistDialog2/0.23.1920.977@0.23.1920.977" timestamp="1582168367545" />
-    <state width="933" height="228" key="GridCell.Tab.0.bottom" timestamp="1582384837206">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1166" height="160" key="GridCell.Tab.0.bottom" timestamp="1582466555384">
+      <screen x="0" y="23" width="1920" height="979" />
     </state>
-    <state width="933" height="228" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1582384837206" />
+    <state width="1899" height="166" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1582458747827" />
     <state width="1379" height="250" key="GridCell.Tab.0.bottom/0.23.1920.977@0.23.1920.977" timestamp="1582126730153" />
-    <state width="1180" height="228" key="GridCell.Tab.0.bottom/0.23.1920.979@0.23.1920.979" timestamp="1582358070897" />
-    <state width="933" height="228" key="GridCell.Tab.0.center" timestamp="1582384837204">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1166" height="160" key="GridCell.Tab.0.bottom/0.23.1920.979@0.23.1920.979" timestamp="1582466555384" />
+    <state width="1166" height="160" key="GridCell.Tab.0.center" timestamp="1582466555383">
+      <screen x="0" y="23" width="1920" height="979" />
     </state>
-    <state width="933" height="228" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1582384837204" />
+    <state width="1899" height="166" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1582458747826" />
     <state width="1379" height="250" key="GridCell.Tab.0.center/0.23.1920.977@0.23.1920.977" timestamp="1582126730152" />
-    <state width="1180" height="228" key="GridCell.Tab.0.center/0.23.1920.979@0.23.1920.979" timestamp="1582358070897" />
-    <state width="933" height="228" key="GridCell.Tab.0.left" timestamp="1582384837203">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1166" height="160" key="GridCell.Tab.0.center/0.23.1920.979@0.23.1920.979" timestamp="1582466555383" />
+    <state width="1166" height="160" key="GridCell.Tab.0.left" timestamp="1582466555382">
+      <screen x="0" y="23" width="1920" height="979" />
     </state>
-    <state width="933" height="228" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1582384837203" />
+    <state width="1899" height="166" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1582458747825" />
     <state width="1379" height="250" key="GridCell.Tab.0.left/0.23.1920.977@0.23.1920.977" timestamp="1582126730152" />
-    <state width="1180" height="228" key="GridCell.Tab.0.left/0.23.1920.979@0.23.1920.979" timestamp="1582358070896" />
-    <state width="933" height="228" key="GridCell.Tab.0.right" timestamp="1582384837205">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1166" height="160" key="GridCell.Tab.0.left/0.23.1920.979@0.23.1920.979" timestamp="1582466555382" />
+    <state width="1166" height="160" key="GridCell.Tab.0.right" timestamp="1582466555383">
+      <screen x="0" y="23" width="1920" height="979" />
     </state>
-    <state width="933" height="228" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1582384837205" />
+    <state width="1899" height="166" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1582458747827" />
     <state width="1379" height="250" key="GridCell.Tab.0.right/0.23.1920.977@0.23.1920.977" timestamp="1582126730152" />
-    <state width="1180" height="228" key="GridCell.Tab.0.right/0.23.1920.979@0.23.1920.979" timestamp="1582358070897" />
-    <state x="469" y="150" key="SettingsEditor" timestamp="1582162591434">
-      <screen x="0" y="23" width="1920" height="977" />
+    <state width="1166" height="160" key="GridCell.Tab.0.right/0.23.1920.979@0.23.1920.979" timestamp="1582466555383" />
+    <state width="929" height="375" key="GridCell.Tab.1.bottom" timestamp="1582461617398">
+      <screen x="0" y="23" width="1920" height="979" />
     </state>
+    <state width="929" height="375" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1582456548071" />
+    <state width="929" height="375" key="GridCell.Tab.1.bottom/0.23.1920.979@0.23.1920.979" timestamp="1582461617398" />
+    <state width="929" height="375" key="GridCell.Tab.1.center" timestamp="1582461617397">
+      <screen x="0" y="23" width="1920" height="979" />
+    </state>
+    <state width="929" height="375" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1582456548071" />
+    <state width="929" height="375" key="GridCell.Tab.1.center/0.23.1920.979@0.23.1920.979" timestamp="1582461617397" />
+    <state width="929" height="375" key="GridCell.Tab.1.left" timestamp="1582461617397">
+      <screen x="0" y="23" width="1920" height="979" />
+    </state>
+    <state width="929" height="375" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1582456548070" />
+    <state width="929" height="375" key="GridCell.Tab.1.left/0.23.1920.979@0.23.1920.979" timestamp="1582461617397" />
+    <state width="929" height="375" key="GridCell.Tab.1.right" timestamp="1582461617397">
+      <screen x="0" y="23" width="1920" height="979" />
+    </state>
+    <state width="929" height="375" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1582456548071" />
+    <state width="929" height="375" key="GridCell.Tab.1.right/0.23.1920.979@0.23.1920.979" timestamp="1582461617397" />
+    <state x="469" y="150" key="SettingsEditor" timestamp="1582465982595">
+      <screen x="0" y="23" width="1920" height="979" />
+    </state>
+    <state x="469" y="140" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1582458412310" />
     <state x="469" y="150" key="SettingsEditor/0.23.1920.977@0.23.1920.977" timestamp="1582162591434" />
-    <state x="560" y="252" key="Vcs.Push.Dialog.v2" timestamp="1582210082969">
+    <state x="469" y="150" key="SettingsEditor/0.23.1920.979@0.23.1920.979" timestamp="1582465982595" />
+    <state x="560" y="252" key="Vcs.Push.Dialog.v2" timestamp="1582385296891">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="560" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1582210082969" />
+    <state x="560" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1582385296891" />
     <state x="560" y="251" key="Vcs.Push.Dialog.v2/0.23.1920.977@0.23.1920.977" timestamp="1582168375016" />
-    <state x="653" y="355" key="com.intellij.ide.util.TipDialog" timestamp="1582357846161">
+    <state x="653" y="355" key="com.intellij.ide.util.TipDialog" timestamp="1582465947700">
       <screen x="0" y="23" width="1920" height="979" />
     </state>
     <state x="653" y="366" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1582210023499" />
     <state x="653" y="344" key="com.intellij.ide.util.TipDialog/0.23.1920.977@0.23.1920.977" timestamp="1582162486023" />
-    <state x="653" y="355" key="com.intellij.ide.util.TipDialog/0.23.1920.979@0.23.1920.979" timestamp="1582357846161" />
+    <state x="653" y="355" key="com.intellij.ide.util.TipDialog/0.23.1920.979@0.23.1920.979" timestamp="1582465947700" />
     <state x="717" y="252" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1582168403128">
       <screen x="0" y="23" width="1920" height="977" />
     </state>

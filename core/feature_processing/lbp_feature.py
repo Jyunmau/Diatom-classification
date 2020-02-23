@@ -20,6 +20,7 @@ def LBP(image):
                     temp = temp + '0'
             # print int(temp, 2)
             res[i - 1][j - 1] = int(temp, 2)  # 写入结果中
+    res.flatten()
     return res
 
 
@@ -41,7 +42,3 @@ def Tran(src, drc):
             print("error in " + i)
 
 
-src = "/home/rui/ttt/val"
-drc = "/home/rui/ttt/end"
-
-Tran(src, drc)

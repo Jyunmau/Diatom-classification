@@ -1,7 +1,6 @@
 import cv2
 import numpy as np
 import math
-import matplotlib.pyplot as plt
 
 
 class Hog_descriptor():
@@ -90,18 +89,12 @@ class Hog_descriptor():
 
 
 def hog_compute(gray_img):
-    gray_img = 255 - gray_img
     winSize = (256, 256)
     blockSize = (32, 32)
     blockStride = (32, 32)
     cellSize = (16, 16)
     nbins = 9
     hog = cv2.HOGDescriptor(winSize, blockSize, blockStride, cellSize, nbins)
-    # y = gray_img.shape[0] - winSize[0]
-    # x = gray_img.shape[1] - winSize[1]
-    # h = gray_img.shape[0]
-    # w = gray_img.shape[1]
-    # roi = gray_img[y: y + h, x: x + w]
     gray_img = np.resize(gray_img, (256, 256))
     hist = hog.compute(gray_img, winStride=(32, 32))
     print(hist.shape)
