@@ -6,6 +6,10 @@ class GlcmBasedFeature:
 
     # 灰度共生矩阵
     ret = None
+    # 均值
+    mean = None
+    # 方差
+    variance = None
 
     def glcm(self, grayimg, d_x=2, d_y=2, gray_level=32):
         """
@@ -34,10 +38,9 @@ class GlcmBasedFeature:
         self.ret = ret
         return ret
 
-    def angular_second_moment(self):
+    def _angular_second_moment(self):
         """
         计算角二阶矩，图像纹理均一规则时值大
-        :param ret: 灰度共生矩阵
         :return: 角二阶矩
         """
         if self.ret is None:
@@ -51,11 +54,10 @@ class GlcmBasedFeature:
                 asm += (self.ret[j][i] * self.ret[j][i])
         return asm
 
-    def entropy(self):
+    def _entropy(self):
         """
         计算熵，图像纹理复杂时值大
         （灰度共生矩阵值分布均等，即其随机性大）
-        :param ret: 灰度共生矩阵
         :return: 熵
         """
         if self.ret is None:
@@ -71,10 +73,9 @@ class GlcmBasedFeature:
                 ent += self.ret[j][i] * np.log(self.ret[j][i])
         return -ent
 
-    def contrast_ratio(self):
+    def _contrast_ratio(self):
         """
         计算对比度，纹理越清晰值越大
-        :param ret: 灰度共生矩阵
         :return: 对比度
         """
         if self.ret is None:
@@ -88,10 +89,9 @@ class GlcmBasedFeature:
                 con += self.ret[j][i] * np.square(j - i)
         return con
 
-    def inverse_differential_moment(self):
+    def _inverse_differential_moment(self):
         """
         计算反差分矩(逆方差)，纹理清晰规律性强值越大
-        :param ret: 灰度共生矩阵
         :return: 反差分矩
         """
         if self.ret is None:
@@ -105,6 +105,80 @@ class GlcmBasedFeature:
                 idm += self.ret[j][i] / (1 + np.square(j - i))
         return idm
 
+    def _mean(self):
+        """
+        计算均值，纹理规律性强数值大
+        :return: 均值
+        """
+        if self.ret is None:
+            print("In class 'GlcmBasedFeature': variable 'ret' is None, "
+                  "please run method 'glcm()' for calculate glcm first.")
+            return
+        height, width = self.ret.shape
+        m: np.float = 0.0
+        for j in range(height):
+            for i in range(width):
+                m += self.ret[j][i] * j
+        self.mean = m
+        return m
+
+    def _variance(self):
+        """
+        计算方差，图像灰度变化大时数值大
+        :return: 方差
+        """
+        if self.ret is None:
+            print("In class 'GlcmBasedFeature': variable 'ret' is None, "
+                  "please run method 'glcm()' for calculate glcm first.")
+            return
+        height, width = self.ret.shape
+        v: np.float = 0.0
+        for j in range(height):
+            for i in range(width):
+                v += self.ret[j][i] * np.square(j - self.mean)
+        self.variance = v
+        return v
+
+    def _standard_deviation(self):
+        """
+        计算标准差，图像灰度变化大时数值大
+        :return: 标准差
+        """
+        std = np.sqrt(self.variance)
+        return std
+
+    def _dissimilarity(self):
+        """
+        计算非相似性，局部对比度搞也会导致数值高
+        :return: 非相似性
+        """
+        if self.ret is None:
+            print("In class 'GlcmBasedFeature': variable 'ret' is None, "
+                  "please run method 'glcm()' for calculate glcm first.")
+            return
+        height, width = self.ret.shape
+        ds: np.float = 0.0
+        for j in range(height):
+            for i in range(width):
+                ds += self.ret[j][i] * np.abs(j - i)
+        return ds
+
+    def _correlation(self):
+        """
+        计算相关性，灰度沿着某方向延伸长则数值高
+        :return: 非相似性
+        """
+        if self.ret is None:
+            print("In class 'GlcmBasedFeature': variable 'ret' is None, "
+                  "please run method 'glcm()' for calculate glcm first.")
+            return
+        height, width = self.ret.shape
+        cl: np.float = 0.0
+        for j in range(height):
+            for i in range(width):
+                cl += (np.square(self.ret[j][i]) * (j - self.mean) * (i - self.mean)) / self.variance
+        return cl
+
     def get_glcm_features(self, grayimg):
         """
         获得四种基于灰度共生矩阵的纹理特征
@@ -117,8 +191,8 @@ class GlcmBasedFeature:
                   "please run method 'glcm()' for calculate glcm first.")
             return
         features = np.zeros((4), np.float)
-        features[0] = self.angular_second_moment()
-        features[1] = self.contrast_ratio()
-        features[2] = self.entropy()
-        features[3] = self.inverse_differential_moment()
+        features[0] = self._angular_second_moment()
+        features[1] = self._contrast_ratio()
+        features[2] = self._entropy()
+        features[3] = self._inverse_differential_moment()
         return features

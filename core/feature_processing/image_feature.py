@@ -6,6 +6,7 @@ import core.feature_processing.fourier_descriptor as fd_feature
 import core.feature_processing.hog_feature as hog_feature
 import core.feature_processing.sift_feature as sift_feature
 import core.feature_processing.lbp_feature as lbp_feature
+import cv2
 
 import numpy as np
 
@@ -131,5 +132,5 @@ class ImageFeature:
 
 
 if __name__ == "__main__":
-    img_f = ImageFeature(False, False, False, False, True, False, 2)
+    img_f = ImageFeature(True, True, False, False, False, False, 2)
     img_f.fetch_proc()
