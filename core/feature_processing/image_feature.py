@@ -1,3 +1,5 @@
+import cv2
+
 import core.path_some as ps
 import core.image_processing.image_read as imr
 import core.feature_processing.geometric_feature as gmt_feature
@@ -6,7 +8,6 @@ import core.feature_processing.fourier_descriptor as fd_feature
 import core.feature_processing.hog_feature as hog_feature
 import core.feature_processing.sift_feature as sift_feature
 import core.feature_processing.lbp_feature as lbp_feature
-import cv2
 
 import numpy as np
 
@@ -57,6 +58,13 @@ class ImageFeature:
 
     def fetch_proc(self):
         cls = ps.PathSome(self.data_set_num)
+        if cls.is_file_exists(self.data_set_num, self.feature_code(), 'feature'):
+            print("this feature combination has been fetched, do you want to rewrite it ?")
+            proc = input("y / n :")
+            if proc == 'y':
+                cls.delete_file(self.data_set_num, self.feature_code(), 'feature')
+            else:
+                return
         img_it = cls.img()
         while True:
             try:
@@ -125,12 +133,12 @@ class ImageFeature:
         print(labels.shape)
         print(features.shape)
         print(labels.shape)
-        np.savetxt(cls.fetch(self.data_set_num, self.feature_code(), 'feature'), features)
-        # np.savetxt(cls.fetch(self.data_set_num, '', 'label'), labels)
-        # TODO(处理多进程问题)
-        pass
+        if not cls.is_file_exists(self.data_set_num, self.feature_code(), 'feature'):
+            np.savetxt(cls.fetch(self.data_set_num, self.feature_code(), 'feature'), features)
+        if not cls.is_file_exists(self.data_set_num, '', 'label'):
+            np.savetxt(cls.fetch(self.data_set_num, '', 'label'), labels)
 
 
 if __name__ == "__main__":
-    img_f = ImageFeature(True, True, False, False, False, False, 2)
+    img_f = ImageFeature(False, False, False, False, False, True, 2)
     img_f.fetch_proc()

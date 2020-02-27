@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 import glob
+import os
 
 
 # # 单例模式的装饰器
@@ -58,6 +59,15 @@ class PathSome(object):
     def mod(self, s_n=''):
         mod_path = self.models + '/' + 'model' + str(s_n) + '.cvs'
         return mod_path
+
+    def is_file_exists(self, data_set_num: int, s_n: str, f_or_l):
+        fetch_path = self.features + '/' + 'ds' + str(data_set_num) + '_' + f_or_l + s_n + '.txt'
+        ife = os.path.exists(fetch_path)
+        return ife
+
+    def delete_file(self, data_set_num: int, s_n: str, f_or_l):
+        fetch_path = self.features + '/' + 'ds' + str(data_set_num) + '_' + f_or_l + s_n + '.txt'
+        os.remove(fetch_path)
 
 
 if __name__ == '__main__':
