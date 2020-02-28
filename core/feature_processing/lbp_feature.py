@@ -78,7 +78,7 @@ class LbpFeature:
         self.lbp_img = lbp
         return lbp
 
-    def calculate_lbp_histogram(self, h_count=7, w_count=5, max_lbp_value=255):
+    def calculate_lbp_histogram(self, h_count=3, w_count=3, max_lbp_value=255):
         """分块计算lbp直方图"""
         height, width = self.lbp_img.shape
         res = np.zeros((h_count * w_count, max(self.g_mapping) + 1), dtype=np.float)
@@ -98,6 +98,7 @@ class LbpFeature:
     def get_lbp_feature(self, gray_image):
         self.calculate_lbp_img(gray_image)
         res = self.calculate_lbp_histogram()
+        res = res.flatten()
         return res
 
 
@@ -123,8 +124,7 @@ if __name__ == "__main__":
     print(type(lbp_image))
     print(dst.shape)
     dst *= 255
-    dst.astype(np.int16)
-    np.uint8(dst)
+    dst = np.uint8(dst)
     dst.dtype = 'uint8'
     cv2.namedWindow("lbp_img", 0)
     cv2.resizeWindow("lbp_img", 640, 640)

@@ -131,6 +131,8 @@ class GlcmBasedFeature:
             print("In class 'GlcmBasedFeature': variable 'ret' is None, "
                   "please run method 'glcm()' for calculate glcm first.")
             return
+        if self.mean is None:
+            self._mean()
         height, width = self.ret.shape
         v: np.float = 0.0
         for j in range(height):
@@ -144,6 +146,8 @@ class GlcmBasedFeature:
         计算标准差，图像灰度变化大时数值大
         :return: 标准差
         """
+        if self.variance is None:
+            self._variance()
         std = np.sqrt(self.variance)
         return std
 
@@ -172,6 +176,8 @@ class GlcmBasedFeature:
             print("In class 'GlcmBasedFeature': variable 'ret' is None, "
                   "please run method 'glcm()' for calculate glcm first.")
             return
+        if self.variance is None:
+            self._variance()
         height, width = self.ret.shape
         cl: np.float = 0.0
         for j in range(height):
@@ -195,4 +201,7 @@ class GlcmBasedFeature:
         features[1] = self._contrast_ratio()
         features[2] = self._entropy()
         features[3] = self._inverse_differential_moment()
+        # features[4] = self._standard_deviation()
+        # features[5] = self._correlation()
+        # features[6] = self._dissimilarity()
         return features

@@ -59,6 +59,7 @@ class ImageFeature:
     def fetch_proc(self):
         cls = ps.PathSome(self.data_set_num)
         if cls.is_file_exists(self.data_set_num, self.feature_code(), 'feature'):
+            # todo: ui要处理这个选择
             print("this feature combination has been fetched, do you want to rewrite it ?")
             proc = input("y / n :")
             if proc == 'y':
@@ -117,7 +118,9 @@ class ImageFeature:
                     else:
                         feature = np.concatenate([feature, sift])
                 if self.lbp_feature:
-                    lbp = lbp_feature.LBP(image)
+                    # lbp = lbp_feature.LBP(image)
+                    lbp_f = lbp_feature.LbpFeature()
+                    lbp = lbp_f.get_lbp_feature(image)
                     if feature is None:
                         feature = lbp
                     else:
@@ -140,5 +143,5 @@ class ImageFeature:
 
 
 if __name__ == "__main__":
-    img_f = ImageFeature(False, False, False, False, False, True, 2)
+    img_f = ImageFeature(False, False, False, True, False, False, 2)
     img_f.fetch_proc()
