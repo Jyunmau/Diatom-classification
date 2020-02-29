@@ -12,4 +12,5 @@ class SiftFeature:
 
     def get_sift_feature(self, img):
         self.calculate_sift(img)
+        print(self.dest.shape)
         return self.dest[1]

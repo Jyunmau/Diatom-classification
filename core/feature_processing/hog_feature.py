@@ -89,15 +89,15 @@ class Hog_descriptor():
 
 
 def hog_compute(gray_img):
-    winSize = (128, 128)
-    blockSize = (64, 64)
-    blockStride = (8, 8)
-    cellSize = (16, 16)
+    winSize = (256, 256)
+    blockSize = (128, 128)
+    blockStride = (128, 128)
+    cellSize = (64, 64)
     nbins = 9
     hog = cv2.HOGDescriptor(winSize, blockSize, blockStride, cellSize, nbins)
     gray_img = np.resize(gray_img, (256, 256))
     hist = hog.compute(gray_img, winStride=(32, 32))
-    # print(hist.shape)
+    print(hist.shape)
     return hist
 
 # img = cv2.imread('person_037.png', cv2.IMREAD_GRAYSCALE)

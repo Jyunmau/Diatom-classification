@@ -17,7 +17,7 @@ class FourierDescriptorFeature:
 
     def _extract_contour(self):
         """取得目标轮廓"""
-        contours, hier = cv2.findContours(self.binary_image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        _, contours, hier = cv2.findContours(self.binary_image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
         area = []
         for i in range(len(contours)):
             area.append(cv2.contourArea(contours[i]))
@@ -25,27 +25,32 @@ class FourierDescriptorFeature:
         # self.binary_image = cv2.drawContours(self.binary_image, contours[max_idx], -1, (255, 255, 255), 1, 8, hier)
         self.image_contour = contours[max_idx]
 
-    def _calculate_fourier_descriptor(self):
+    def _calculate_fourier_descriptor(self, is_lib: bool = True):
         """计算傅里叶描述子"""
-        s = len(self.image_contour)
-        print(s)
-        f = []
-        for u in range(s):
-            sum_x = 0
-            sum_y = 0
-            for j in range(s):
-                p = self.image_contour[j]
-                x = p[0][0]
-                y = p[0][1]
-                sum_x += (x * np.cos(2 * np.pi * u * j / s) + y * np.sin(2 * np.pi * u * j / s))
-                sum_y += (y * np.cos(2 * np.pi * u * j / s) - x * np.sin(2 * np.pi * u * j / s))
-            f.append(np.sqrt((sum_x * sum_x) + (sum_y * sum_y)))
-        fd = []
-        fd.append(np.float(0))
-        for k in range(2, 15):
-            f[k] = f[k] / f[1]
-            fd.append(f[k])
-        self.fd = fd
+        if is_lib:
+            self.image_contour = cv2.ximgproc.contourSampling(self.image_contour, 2000)
+            fd = cv2.ximgproc.fourierDescriptor(self.image_contour, nbFD=16)
+            self.fd = fd.flatten()
+        else:
+            s = len(self.image_contour)
+            print(s)
+            f = []
+            for u in range(s):
+                sum_x = 0
+                sum_y = 0
+                for j in range(s):
+                    p = self.image_contour[j]
+                    x = p[0][0]
+                    y = p[0][1]
+                    sum_x += (x * np.cos(2 * np.pi * u * j / s) + y * np.sin(2 * np.pi * u * j / s))
+                    sum_y += (y * np.cos(2 * np.pi * u * j / s) - x * np.sin(2 * np.pi * u * j / s))
+                f.append(np.sqrt((sum_x * sum_x) + (sum_y * sum_y)))
+            fd = []
+            fd.append(np.float(0))
+            for k in range(2, 17):
+                f[k] = f[k] / f[1]
+                fd.append(f[k])
+            self.fd = fd
         return fd
 
     def get_fourier_descriptor(self, gray_image):

@@ -70,6 +70,7 @@ class ImageFeature:
         while True:
             try:
                 imgfile = next(img_it)
+                print(imgfile)
                 image = imr.image_read(imgfile, self.data_set_num)
                 if self.data_set_num == 1:
                     label = imgfile.split('/')[5]
@@ -137,7 +138,7 @@ class ImageFeature:
         print(features.shape)
         print(labels.shape)
         if not cls.is_file_exists(self.data_set_num, self.feature_code(), 'feature'):
-            np.savetxt(cls.fetch(self.data_set_num, self.feature_code(), 'feature'), features)
+            np.savetxt(cls.fetch(self.data_set_num, self.feature_code(), 'feature'), features, fmt="%s")
         if not cls.is_file_exists(self.data_set_num, '', 'label'):
             np.savetxt(cls.fetch(self.data_set_num, '', 'label'), labels)
 
