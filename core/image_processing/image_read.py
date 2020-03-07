@@ -29,5 +29,11 @@ def image_read(file_path: str, data_set_num: int, is_cvt2gray=True):
         return image
 
 
+def label_read(file_path: str, data_set_num: int, is_cvt2gray=True):
+    """
+    读取标签值
+    """
+
+
 if __name__ == "__main__":
     image_read()

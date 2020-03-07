@@ -24,6 +24,7 @@ class PathSome(object):
     """
 
     img_path = None
+    standard_set_dict = None
     images = 'H:/硅藻图像库/硅藻分类（张雨）/图像集'
     images1 = 'H: / 硅藻图像库 / 图像集'
     image_segmentation = 'H:/硅藻图像库/综合'
@@ -42,7 +43,7 @@ class PathSome(object):
 
     def data_set_num(self, data_set_num: int):
         if data_set_num == 0:
-            self.img_path = None
+            self.img_path = self.standard_set_dict['data']
         elif data_set_num == 1:
             self.img_path = glob.glob(self.data_set_1 + '/' + '*' + '/*/*' + 'jpg')
         elif data_set_num == 2:
@@ -62,7 +63,7 @@ class PathSome(object):
         fetch_path = self.features + '/' + 'ds' + str(data_set_num) + '_' + f_or_l + s_n + '.txt'
         return fetch_path
 
-    def standard_set(self):
+    def _standard_set(self):
         def unpickle(file):
             import pickle
             with open(file, 'rb') as fo:
@@ -79,6 +80,10 @@ class PathSome(object):
         data_train = np.concatenate(xs)
         label_train = np.concatenate(ys)
         data_test, label_test = unpickle(os.path.join(self.data_set_standard, 'test_batch'))
+        xs.append(data_test)
+        ys.append(label_test)
+        self.standard_set_dict['data'] = np.concatenate(xs)
+        self.standard_set_dict['label'] = np.concatenate(ys)
         return data_train, label_train, data_test, label_test
 
     def mod(self, s_n=''):
