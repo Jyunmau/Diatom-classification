@@ -24,7 +24,6 @@ class PathSome(object):
     """
 
     img_path = None
-    standard_set_dict = None
     images = 'H:/硅藻图像库/硅藻分类（张雨）/图像集'
     images1 = 'H: / 硅藻图像库 / 图像集'
     image_segmentation = 'H:/硅藻图像库/综合'
@@ -41,19 +40,15 @@ class PathSome(object):
         self.fetch_path = glob.glob(self.features + '/' + '*' + 'txt')
         self.seg_path = glob.glob(self.image_segmentation + '/' + '*' + '/*' + 'jpg')
 
-    def data_set_num(self, data_set_num: int):
+    def img(self, data_set_num: int):
         if data_set_num == 0:
-            self.img_path = self.standard_set_dict['data']
+            self.img_path = self.data_set_standard
         elif data_set_num == 1:
-            self.img_path = glob.glob(self.data_set_1 + '/' + '*' + '/*/*' + 'jpg')
+            self.img_path = self.data_set_1
         elif data_set_num == 2:
-            self.img_path = glob.glob(self.data_set_2 + '/' + '*' + '/*/*' + 'png')
+            self.img_path = self.data_set_2
         else:
             pass
-
-    def img(self):
-        for image in self.img_path:
-            yield image
 
     def seg_img(self):
         for image in self.seg_path:
@@ -69,7 +64,6 @@ class PathSome(object):
             with open(file, 'rb') as fo:
                 data_dict = pickle.load(fo, encoding='bytes')
             return data_dict['data'], data_dict['label']
-
         xs = []
         ys = []
         for b in range(1, 6):
