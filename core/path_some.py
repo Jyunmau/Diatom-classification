@@ -58,28 +58,6 @@ class PathSome(object):
         fetch_path = self.features + '/' + 'ds' + str(data_set_num) + '_' + f_or_l + s_n + '.txt'
         return fetch_path
 
-    def _standard_set(self):
-        def unpickle(file):
-            import pickle
-            with open(file, 'rb') as fo:
-                data_dict = pickle.load(fo, encoding='bytes')
-            return data_dict['data'], data_dict['label']
-        xs = []
-        ys = []
-        for b in range(1, 6):
-            f = os.path.join(self.data_set_standard, 'data_batch_%d' % (b,))
-            data, label = unpickle(f)
-            xs.append(data)
-            ys.append(label)
-        data_train = np.concatenate(xs)
-        label_train = np.concatenate(ys)
-        data_test, label_test = unpickle(os.path.join(self.data_set_standard, 'test_batch'))
-        xs.append(data_test)
-        ys.append(label_test)
-        self.standard_set_dict['data'] = np.concatenate(xs)
-        self.standard_set_dict['label'] = np.concatenate(ys)
-        return data_train, label_train, data_test, label_test
-
     def mod(self, s_n=''):
         mod_path = self.models + '/' + 'model' + str(s_n) + '.cvs'
         return mod_path

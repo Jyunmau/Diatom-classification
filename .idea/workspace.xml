@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b31d3feb-a8b4-4948-90aa-7afcc679c769" name="Default Changelist" comment="refactor">
-      <change afterPath="$PROJECT_DIR$/core/main_process.py" afterDir="false" />
+    <list default="true" id="b31d3feb-a8b4-4948-90aa-7afcc679c769" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/feature_processing/feature_interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/feature_processing/feature_interface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/data_preprocessing/data_read.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/data_preprocessing/data_read.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/data_preprocessing/feature_read.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/data_preprocessing/feature_read.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/feature_processing/image_feature.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/feature_processing/image_feature.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/path_some.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/path_some.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +70,7 @@
       <recent name="C:\Users\JyunmauChan\Documents\GitHub\Diatom-classification\data_preprocessing" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.starter">
+  <component name="RunManager" selected="Python.mysdsfsa">
     <configuration name="get _opencv_doc" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Diatom-classification" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -133,7 +135,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="path_some" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="mysdsfsa" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Diatom-classification" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -145,8 +147,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/core/path_some.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/core/mysdsfsa.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -181,16 +182,16 @@
       <item itemvalue="Python.get _opencv_doc" />
       <item itemvalue="Python.image_feature" />
       <item itemvalue="Python.lbp_feature" />
-      <item itemvalue="Python.path_some" />
       <item itemvalue="Python.starter" />
+      <item itemvalue="Python.mysdsfsa" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.mysdsfsa" />
         <item itemvalue="Python.starter" />
         <item itemvalue="Python.image_feature" />
         <item itemvalue="Python.lbp_feature" />
         <item itemvalue="Python.get _opencv_doc" />
-        <item itemvalue="Python.path_some" />
       </list>
     </recent_temporary>
   </component>
@@ -338,7 +339,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583683082788</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="refactor: 定下架构">
+      <created>1583762920519</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1583762920519</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -377,7 +385,8 @@
     <MESSAGE value="feat:cifar-10&amp;opencv_svm&amp;freak" />
     <MESSAGE value="生日快乐！" />
     <MESSAGE value="结构调整" />
-    <option name="LAST_COMMIT_MESSAGE" value="结构调整" />
+    <MESSAGE value="refactor: 定下架构" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: 定下架构" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -393,34 +402,34 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="675" y="454" key="#com.jetbrains.python.refactoring.move.PyMakeFunctionTopLevelDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1582777833901" />
-    <state x="1113" y="65" key="CommitChangelistDialog2" timestamp="1583736954429">
+    <state x="1113" y="65" key="CommitChangelistDialog2" timestamp="1583762920314">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="1113" y="65" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1583736954429" />
+    <state x="1113" y="65" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1583762920314" />
     <state x="425" y="112" key="CommitChangelistDialog2/0.23.1920.977@0.23.1920.977" timestamp="1582168367545" />
     <state x="425" y="112" key="CommitChangelistDialog2/0.23.1920.979@0.23.1920.979" timestamp="1582468832136" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1582982700110">
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1583847939161">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1582982700110" />
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1583847939161" />
     <state width="1379" height="250" key="GridCell.Tab.0.bottom/0.23.1920.977@0.23.1920.977" timestamp="1582126730153" />
     <state width="933" height="245" key="GridCell.Tab.0.bottom/0.23.1920.979@0.23.1920.979" timestamp="1582818757389" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1582982700105">
+    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1583847939159">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1582982700105" />
+    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1583847939159" />
     <state width="1379" height="250" key="GridCell.Tab.0.center/0.23.1920.977@0.23.1920.977" timestamp="1582126730152" />
     <state width="933" height="245" key="GridCell.Tab.0.center/0.23.1920.979@0.23.1920.979" timestamp="1582818757388" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1582982700105">
+    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1583847939158">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1582982700105" />
+    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1583847939158" />
     <state width="1379" height="250" key="GridCell.Tab.0.left/0.23.1920.977@0.23.1920.977" timestamp="1582126730152" />
     <state width="933" height="245" key="GridCell.Tab.0.left/0.23.1920.979@0.23.1920.979" timestamp="1582818757388" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1582982700109">
+    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1583847939160">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1582982700109" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1583847939160" />
     <state width="1379" height="250" key="GridCell.Tab.0.right/0.23.1920.977@0.23.1920.977" timestamp="1582126730152" />
     <state width="933" height="245" key="GridCell.Tab.0.right/0.23.1920.979@0.23.1920.979" timestamp="1582818757389" />
     <state width="929" height="375" key="GridCell.Tab.1.bottom" timestamp="1582461617398">
@@ -449,16 +458,16 @@
     <state x="475" y="101" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1583759781978" />
     <state x="469" y="150" key="SettingsEditor/0.23.1920.977@0.23.1920.977" timestamp="1582162591434" />
     <state x="469" y="150" key="SettingsEditor/0.23.1920.979@0.23.1920.979" timestamp="1582465982595" />
-    <state x="560" y="252" key="Vcs.Push.Dialog.v2" timestamp="1583683084691">
+    <state x="560" y="252" key="Vcs.Push.Dialog.v2" timestamp="1583762922633">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="560" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1583683084691" />
+    <state x="560" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1583762922633" />
     <state x="560" y="251" key="Vcs.Push.Dialog.v2/0.23.1920.977@0.23.1920.977" timestamp="1582168375016" />
     <state x="560" y="251" key="Vcs.Push.Dialog.v2/0.23.1920.979@0.23.1920.979" timestamp="1582468835324" />
-    <state x="653" y="366" key="com.intellij.ide.util.TipDialog" timestamp="1583727672533">
+    <state x="653" y="366" key="com.intellij.ide.util.TipDialog" timestamp="1583828139594">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="653" y="366" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1583727672533" />
+    <state x="653" y="366" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1583828139594" />
     <state x="653" y="344" key="com.intellij.ide.util.TipDialog/0.23.1920.977@0.23.1920.977" timestamp="1582162486023" />
     <state x="653" y="366" key="com.intellij.ide.util.TipDialog/0.23.1920.979@0.23.1920.979" timestamp="1583382672686" />
     <state x="717" y="252" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1582168403128">

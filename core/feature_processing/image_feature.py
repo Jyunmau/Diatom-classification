@@ -28,7 +28,7 @@ class ImageFeature:
         self.lbp_feature = lbp_feature
         self.data_set_num = data_set_num
 
-    def feature_code(self):
+    def _feature_code(self) -> str:
         res = ''
         if self.geometric_feature:
             res += '1'
@@ -56,17 +56,16 @@ class ImageFeature:
             res += '0'
         return res
 
-    def fetch_proc(self):
-        cls = ps.PathSome(self.data_set_num)
-        if cls.is_file_exists(self.data_set_num, self.feature_code(), 'feature'):
+    def fetch_proc(self, img_it):
+        cls = ps.PathSome()
+        if cls.is_file_exists(self.data_set_num, self._feature_code, 'feature'):
             # todo: ui要处理这个选择
             print("this feature combination has been fetched, do you want to rewrite it ?")
             proc = input("y / n :")
             if proc == 'y':
-                cls.delete_file(self.data_set_num, self.feature_code(), 'feature')
+                cls.delete_file(self.data_set_num, self._feature_code, 'feature')
             else:
                 return
-        img_it = cls.img()
         while True:
             try:
                 imgfile = next(img_it)
@@ -137,8 +136,8 @@ class ImageFeature:
         print(labels.shape)
         print(features.shape)
         print(labels.shape)
-        if not cls.is_file_exists(self.data_set_num, self.feature_code(), 'feature'):
-            np.savetxt(cls.fetch(self.data_set_num, self.feature_code(), 'feature'), features, fmt="%s")
+        if not cls.is_file_exists(self.data_set_num, self.feature_code, 'feature'):
+            np.savetxt(cls.fetch(self.data_set_num, self.feature_code, 'feature'), features, fmt="%s")
         if not cls.is_file_exists(self.data_set_num, '', 'label'):
             np.savetxt(cls.fetch(self.data_set_num, '', 'label'), labels)
 
