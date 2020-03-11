@@ -11,7 +11,7 @@ class Singleton(object):
         self._cls = cls
         self._instance = {}
 
-    def __call__(self, data_set_num: int):
+    def __call__(self):
         if self._cls not in self._instance:
             self._instance[self._cls] = self._cls()
         return self._instance[self._cls]
@@ -42,11 +42,11 @@ class PathSome(object):
 
     def img(self, data_set_num: int):
         if data_set_num == 0:
-            self.img_path = self.data_set_standard
+            return self.data_set_standard
         elif data_set_num == 1:
-            self.img_path = self.data_set_1
+            return self.data_set_1
         elif data_set_num == 2:
-            self.img_path = self.data_set_2
+            return self.data_set_2
         else:
             pass
 
@@ -74,7 +74,3 @@ class PathSome(object):
 
 if __name__ == '__main__':
     cls = PathSome()
-    str1 = cls.img()
-    print(str1)
-    str1 = cls.img()
-    print(str1)
