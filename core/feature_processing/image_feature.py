@@ -1,3 +1,5 @@
+import abc
+
 import cv2
 
 import core.path_some as ps
@@ -12,23 +14,28 @@ import core.feature_processing.lbp_feature as lbp_feature
 import numpy as np
 
 
-class ImageFeature:
+class ImageFeatureInterface(metaclass=abc.ABCMeta):
+    @abc.abstractmethod
+    def fetch_proc(self, image_it, img_read: imr.ImageReadInterface, data_set_num: int):
+        pass
+
+
+class ImageFeature(ImageFeatureInterface):
     label_id = {"Coscinodiscus": "0", "Cyclotella": "1", "Diatome": "2", "Melosira": "3", "Navicula": "4",
                 "Nitzschia": "5", "Stephanodiscus": "6", "Synedra": "7", "Thalassiosira": "8"}
     features = []
     labels = []
 
     def __init__(self, geometric_feature: bool, glcm_feature: bool, fourier_descriptor_feature: bool, hog_feature: bool,
-                 sift_feature: bool, lbp_feature: bool, data_set_num: int):
+                 sift_feature: bool, lbp_feature: bool):
         self.geometric_feature = geometric_feature
         self.glcm_feature = glcm_feature
         self.fourier_descriptor_feature = fourier_descriptor_feature
         self.hog_feature = hog_feature
         self.sift_feature = sift_feature
         self.lbp_feature = lbp_feature
-        self.data_set_num = data_set_num
 
-    def _feature_code(self) -> str:
+    def _get_feature_code(self):
         res = ''
         if self.geometric_feature:
             res += '1'
@@ -54,27 +61,25 @@ class ImageFeature:
             res += '1'
         else:
             res += '0'
+        self.feature_code = res
         return res
 
-    def fetch_proc(self, img_it):
+    def fetch_proc(self, img_it, img_read: imr.ImageReadInterface, data_set_num: int):
+        self._get_feature_code()
         cls = ps.PathSome()
-        if cls.is_file_exists(self.data_set_num, self._feature_code, 'feature'):
+        if cls.is_file_exists(data_set_num, self.feature_code, 'feature'):
             # todo: ui要处理这个选择
             print("this feature combination has been fetched, do you want to rewrite it ?")
             proc = input("y / n :")
             if proc == 'y':
-                cls.delete_file(self.data_set_num, self._feature_code, 'feature')
+                cls.delete_file(data_set_num, self.feature_code, 'feature')
             else:
                 return
         while True:
             try:
                 imgfile = next(img_it)
                 print(imgfile)
-                image = imr.image_read(imgfile, self.data_set_num)
-                if self.data_set_num == 1:
-                    label = imgfile.split('/')[5]
-                else:
-                    label = self.label_id[imgfile.split('/')[4]]
+                image = img_read.get_image(imgfile, data_set_num)
                 feature = None
                 if self.geometric_feature:
                     gf = gmt_feature.GeometricFeatures()
@@ -127,7 +132,7 @@ class ImageFeature:
                         feature = np.concatenate([feature, lbp])
 
                 self.features.append(feature)
-                self.labels.append(label)
+                # self.labels.append(label)
             except StopIteration:
                 break
         features = np.array(self.features)
@@ -138,10 +143,10 @@ class ImageFeature:
         print(labels.shape)
         if not cls.is_file_exists(self.data_set_num, self.feature_code, 'feature'):
             np.savetxt(cls.fetch(self.data_set_num, self.feature_code, 'feature'), features, fmt="%s")
-        if not cls.is_file_exists(self.data_set_num, '', 'label'):
-            np.savetxt(cls.fetch(self.data_set_num, '', 'label'), labels)
+        # if not cls.is_file_exists(self.data_set_num, '', 'label'):
+        #     np.savetxt(cls.fetch(self.data_set_num, '', 'label'), labels)
 
 
 if __name__ == "__main__":
-    img_f = ImageFeature(False, False, False, True, False, False, 2)
+    img_f = ImageFeature(False, False, False, True, False, False)
     img_f.fetch_proc()

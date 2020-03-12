@@ -2,14 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b31d3feb-a8b4-4948-90aa-7afcc679c769" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/core/data_preprocessing/data_set_read.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/main_precess_interface.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/statistic.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/statistic.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/classifier/image_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/classifier/image_classifier.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/data_preprocessing/data_read.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/data_preprocessing/data_read.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/data_preprocessing/data_set_read.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/data_preprocessing/data_set_read.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/data_preprocessing/feature_read.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/data_preprocessing/feature_read.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/feature_processing/geometric_feature.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/feature_processing/geometric_feature.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/feature_processing/image_feature.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/feature_processing/image_feature.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/feature_processing/image_read.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/core/image_processing/image_read.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/image_processing/image_read.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/path_some.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/path_some.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/main_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/main_process.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/starter.py" beforeDir="false" afterPath="$PROJECT_DIR$/starter.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +76,7 @@
       <recent name="C:\Users\JyunmauChan\Documents\GitHub\Diatom-classification\data_preprocessing" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.data_set_read">
+  <component name="RunManager" selected="Python.starter">
     <configuration name="data_set_read" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Diatom-classification" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -117,7 +120,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="lbp_feature" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="main_process" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Diatom-classification" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -125,11 +128,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/core/feature_processing" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/core" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/core/feature_processing/lbp_feature.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/core/main_process.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -183,20 +186,32 @@
     </configuration>
     <list>
       <item itemvalue="Python.image_feature" />
-      <item itemvalue="Python.lbp_feature" />
       <item itemvalue="Python.starter" />
       <item itemvalue="Python.path_some" />
       <item itemvalue="Python.data_set_read" />
+      <item itemvalue="Python.main_process" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.starter" />
+        <item itemvalue="Python.main_process" />
         <item itemvalue="Python.data_set_read" />
         <item itemvalue="Python.path_some" />
-        <item itemvalue="Python.starter" />
         <item itemvalue="Python.image_feature" />
-        <item itemvalue="Python.lbp_feature" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -356,7 +371,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583852307375</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="refactor: 数据读取">
+      <created>1583941068144</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1583941068144</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -397,7 +419,8 @@
     <MESSAGE value="结构调整" />
     <MESSAGE value="refactor: 定下架构" />
     <MESSAGE value="refactor: data_read" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: data_read" />
+    <MESSAGE value="refactor: 数据读取" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: 数据读取" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -417,34 +440,34 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="675" y="454" key="#com.jetbrains.python.refactoring.move.PyMakeFunctionTopLevelDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1582777833901" />
-    <state x="1113" y="65" key="CommitChangelistDialog2" timestamp="1583852307153">
+    <state x="1113" y="65" key="CommitChangelistDialog2" timestamp="1583941067895">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="1113" y="65" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1583852307153" />
+    <state x="1113" y="65" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1583941067895" />
     <state x="425" y="112" key="CommitChangelistDialog2/0.23.1920.977@0.23.1920.977" timestamp="1582168367545" />
     <state x="425" y="112" key="CommitChangelistDialog2/0.23.1920.979@0.23.1920.979" timestamp="1582468832136" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1583934121884">
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1584027449318">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1583934121884" />
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1584027449318" />
     <state width="1379" height="250" key="GridCell.Tab.0.bottom/0.23.1920.977@0.23.1920.977" timestamp="1582126730153" />
     <state width="933" height="245" key="GridCell.Tab.0.bottom/0.23.1920.979@0.23.1920.979" timestamp="1582818757389" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1583934121882">
+    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1584027449317">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1583934121882" />
+    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1584027449317" />
     <state width="1379" height="250" key="GridCell.Tab.0.center/0.23.1920.977@0.23.1920.977" timestamp="1582126730152" />
     <state width="933" height="245" key="GridCell.Tab.0.center/0.23.1920.979@0.23.1920.979" timestamp="1582818757388" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1583934121881">
+    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1584027449316">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1583934121881" />
+    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1584027449316" />
     <state width="1379" height="250" key="GridCell.Tab.0.left/0.23.1920.977@0.23.1920.977" timestamp="1582126730152" />
     <state width="933" height="245" key="GridCell.Tab.0.left/0.23.1920.979@0.23.1920.979" timestamp="1582818757388" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1583934121883">
+    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1584027449318">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1583934121883" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1584027449318" />
     <state width="1379" height="250" key="GridCell.Tab.0.right/0.23.1920.977@0.23.1920.977" timestamp="1582126730152" />
     <state width="933" height="245" key="GridCell.Tab.0.right/0.23.1920.979@0.23.1920.979" timestamp="1582818757389" />
     <state width="929" height="375" key="GridCell.Tab.1.bottom" timestamp="1582461617398">
@@ -473,16 +496,16 @@
     <state x="475" y="101" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1583914520203" />
     <state x="469" y="150" key="SettingsEditor/0.23.1920.977@0.23.1920.977" timestamp="1582162591434" />
     <state x="469" y="150" key="SettingsEditor/0.23.1920.979@0.23.1920.979" timestamp="1582465982595" />
-    <state x="560" y="252" key="Vcs.Push.Dialog.v2" timestamp="1583852308773">
+    <state x="560" y="252" key="Vcs.Push.Dialog.v2" timestamp="1583941070319">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="560" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1583852308773" />
+    <state x="560" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1583941070319" />
     <state x="560" y="251" key="Vcs.Push.Dialog.v2/0.23.1920.977@0.23.1920.977" timestamp="1582168375016" />
     <state x="560" y="251" key="Vcs.Push.Dialog.v2/0.23.1920.979@0.23.1920.979" timestamp="1582468835324" />
-    <state x="653" y="366" key="com.intellij.ide.util.TipDialog" timestamp="1583913393884">
+    <state x="653" y="366" key="com.intellij.ide.util.TipDialog" timestamp="1583994336186">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="653" y="366" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1583913393884" />
+    <state x="653" y="366" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1583994336186" />
     <state x="653" y="344" key="com.intellij.ide.util.TipDialog/0.23.1920.977@0.23.1920.977" timestamp="1582162486023" />
     <state x="653" y="366" key="com.intellij.ide.util.TipDialog/0.23.1920.979@0.23.1920.979" timestamp="1583382672686" />
     <state x="717" y="252" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1582168403128">

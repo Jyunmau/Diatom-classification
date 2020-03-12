@@ -16,7 +16,7 @@ class GeometricFeatures:
         gray_img = 255 - gray_img
         _, binary_img = cv2.threshold(gray_img, maxval=255, thresh=2, type=cv2.THRESH_BINARY)
         # 找物体边界
-        contours, hierarchy = cv2.findContours(binary_img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+        _, contours, hierarchy = cv2.findContours(binary_img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         # 最大物体边界，以确认是目标物体硅藻
         area = []
         for i in range(len(contours)):

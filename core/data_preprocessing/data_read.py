@@ -1,12 +1,24 @@
+import abc
+
 import numpy as np
 import core.data_preprocessing.data_set_read as dsr
 
 
-class DataRead(object):
-    """处理数据的读取问题"""
-
-    def __init__(self, data_set: dsr.DataSetRead):
+class DataReadInterface(metaclass=abc.ABCMeta):
+    def __init__(self, data_set: dsr.DataSetReadInterface):
         self.data_set = data_set
+
+    @abc.abstractmethod
+    def get_images_iter(self):
+        pass
+
+    @abc.abstractmethod
+    def get_labels(self):
+        pass
+
+
+class DataRead(DataReadInterface):
+    """处理数据的读取问题"""
 
     def get_images_iter(self):
         """

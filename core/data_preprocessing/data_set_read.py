@@ -1,3 +1,4 @@
+import abc
 import glob
 import os
 
@@ -7,11 +8,7 @@ import core.path_some as ps
 max_data_set_num = 2
 
 
-class DataSetRead(object):
-    """处理用于特征提取的各数据集的读取"""
-    label_id = {"Coscinodiscus": "0", "Cyclotella": "1", "Diatome": "2", "Melosira": "3", "Navicula": "4",
-                "Nitzschia": "5", "Stephanodiscus": "6", "Synedra": "7", "Thalassiosira": "8"}
-
+class DataSetReadInterface(metaclass=abc.ABCMeta):
     @property
     def data_set_num(self):
         return self._data_set_num
@@ -31,6 +28,16 @@ class DataSetRead(object):
         """
         self.data_set_num = data_set_num
         self.path_some = path_some
+
+    @abc.abstractmethod
+    def get_data(self):
+        pass
+
+
+class DataSetRead(DataSetReadInterface):
+    """处理用于特征提取的各数据集的读取"""
+    label_id = {"Coscinodiscus": "0", "Cyclotella": "1", "Diatome": "2", "Melosira": "3", "Navicula": "4",
+                "Nitzschia": "5", "Stephanodiscus": "6", "Synedra": "7", "Thalassiosira": "8"}
 
     def get_data(self):
         """

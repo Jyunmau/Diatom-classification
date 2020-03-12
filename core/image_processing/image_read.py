@@ -1,3 +1,5 @@
+import abc
+
 import cv2
 import configparser
 import glob
@@ -6,10 +8,20 @@ import numpy as np
 from core.path_some import PathSome
 
 
-class ImageRead(object):
+class ImageReadInterface(metaclass=abc.ABCMeta):
+    @abc.abstractmethod
+    def get_image(self, *v):
+        pass
+
+    @abc.abstractmethod
+    def image_preprocessing(self, *v):
+        pass
+
+
+class ImageRead(ImageReadInterface):
     """图像的读取和预处理"""
 
-    def image_read(self, file_path: str, data_set_num: int, is_cvt2gray=True):
+    def get_image(self, file_path: str, data_set_num: int, is_cvt2gray=True):
         """
         读取图像并转为灰度图, 大小统一到1024*1024
         :param file_path: 图片的路径
@@ -17,7 +29,10 @@ class ImageRead(object):
         :param is_cvt2gray: 是否将读取的图像转为灰度图输出
         :return: 图像
         """
-        image = cv2.imdecode(np.fromfile(file_path, dtype=np.uint8), -1)
+        if not data_set_num == 0:
+            image = cv2.imdecode(np.fromfile(file_path, dtype=np.uint8), -1)
+        else:
+            image = file_path
         if is_cvt2gray and len(image.shape) == 3:
             grayimg = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
             grayimg = cv2.resize(grayimg, (1024, 1024))
