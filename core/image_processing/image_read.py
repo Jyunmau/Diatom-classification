@@ -21,14 +21,16 @@ class ImageReadInterface(metaclass=abc.ABCMeta):
 class ImageRead(ImageReadInterface):
     """图像的读取和预处理"""
 
-    def get_image(self, file_path: str, data_set_num: int, is_cvt2gray=True):
+    def get_image(self, file_path: str, data_set_num: int, is_cvt2gray=True, is_preprocess=True):
         """
         读取图像并转为灰度图, 大小统一到1024*1024
+        :param is_preprocess: 是否需要对图片做预处理
         :param file_path: 图片的路径
         :param data_set_num: 数据集编号，2是新建的
         :param is_cvt2gray: 是否将读取的图像转为灰度图输出
         :return: 图像
         """
+        gray_image = None
         if not data_set_num == 0:
             image = cv2.imdecode(np.fromfile(file_path, dtype=np.uint8), -1)
         else:
@@ -40,9 +42,12 @@ class ImageRead(ImageReadInterface):
             # 这里是处理上届数据集的白色底问题
             if data_set_num == 1:
                 grayimg = 255 - grayimg
-            return grayimg
+            gray_image = grayimg
         else:
-            return image
+            gray_image = image
+        if is_preprocess:
+            gray_image = self.image_preprocessing(gray_image)
+        return gray_image
 
     def image_preprocessing(self, image):
         img = cv2.GaussianBlur(image, (5, 5), 0)

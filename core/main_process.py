@@ -37,7 +37,7 @@ class MainProcess(MainProcessInterface):
 
 
 if __name__ == '__main__':
-    mp = MainProcess(dr.DataRead(dsr.DataSetRead(0, ps.PathSome())), imr.ImageRead(),
+    mp = MainProcess(dr.DataRead(dsr.DataSetRead(2, ps.PathSome())), imr.ImageRead(),
                      imf.ImageFeature(True, True, False, False, False, True), fr.FeatureRead(),
                      imc.ImageClassifier())
     mp.do_flow()

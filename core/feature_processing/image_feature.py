@@ -141,8 +141,8 @@ class ImageFeature(ImageFeatureInterface):
         print(labels.shape)
         print(features.shape)
         print(labels.shape)
-        if not cls.is_file_exists(self.data_set_num, self.feature_code, 'feature'):
-            np.savetxt(cls.fetch(self.data_set_num, self.feature_code, 'feature'), features, fmt="%s")
+        if not cls.is_file_exists(data_set_num, self.feature_code, 'feature'):
+            np.savetxt(cls.fetch(data_set_num, self.feature_code, 'feature'), features, fmt="%s")
         # if not cls.is_file_exists(self.data_set_num, '', 'label'):
         #     np.savetxt(cls.fetch(self.data_set_num, '', 'label'), labels)
 
