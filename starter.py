@@ -53,8 +53,8 @@ def main():
     # labels = rand_f_l[:, -1]
     # features = rand_f_l[:, :-1]
     # print(features)
-    # print(features.shape)
-    # print(labels.shape)
+    print(features.shape)
+    print(labels.shape)
     # print(rand_f_l.shape)
     #
     # parameters = {
