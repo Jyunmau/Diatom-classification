@@ -1,4 +1,5 @@
 import abc
+import time
 
 import cv2
 
@@ -11,23 +12,29 @@ import core.feature_processing.hog_feature as hog_feature
 import core.feature_processing.sift_feature as sift_feature
 import core.feature_processing.lbp_feature as lbp_feature
 
+from PySide2.QtCore import QObject, Signal
+
+import core.public_signal as public_signal
+
 import numpy as np
 
 
-class ImageFeatureInterface(metaclass=abc.ABCMeta):
-    @abc.abstractmethod
-    def fetch_proc(self, image_it, img_read: imr.ImageReadInterface, data_set_num: int):
-        pass
+# class ImageFeatureInterface(metaclass=abc.ABCMeta):
+#     @abc.abstractmethod
+#     def fetch_proc(self, image_it, img_read: imr.ImageReadInterface, data_set_num: int):
+#         pass
 
 
-class ImageFeature(ImageFeatureInterface):
+class ImageFeature(QObject):
     label_id = {"Coscinodiscus": "0", "Cyclotella": "1", "Diatome": "2", "Melosira": "3", "Navicula": "4",
                 "Nitzschia": "5", "Stephanodiscus": "6", "Synedra": "7", "Thalassiosira": "8"}
     features = []
     labels = []
+    signal_path = Signal(str)
 
     def __init__(self, geometric_feature: bool, glcm_feature: bool, fourier_descriptor_feature: bool, hog_feature: bool,
                  sift_feature: bool, lbp_feature: bool):
+        super(ImageFeature, self).__init__()
         self.geometric_feature = geometric_feature
         self.glcm_feature = glcm_feature
         self.fourier_descriptor_feature = fourier_descriptor_feature
@@ -64,6 +71,9 @@ class ImageFeature(ImageFeatureInterface):
         self.feature_code = res
         return res
 
+    def send(self, imgfile):
+        self.signal_path.emit(imgfile)
+
     def fetch_proc(self, img_it, img_read: imr.ImageReadInterface, data_set_num: int):
         self._get_feature_code()
         cls = ps.PathSome()
@@ -79,6 +89,7 @@ class ImageFeature(ImageFeatureInterface):
             try:
                 imgfile = next(img_it)
                 print(imgfile)
+                self.send(imgfile)
                 image = img_read.get_image(imgfile, data_set_num)
                 feature = None
                 if self.geometric_feature:

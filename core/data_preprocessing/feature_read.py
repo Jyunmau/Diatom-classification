@@ -7,6 +7,9 @@ import core.path_some as ps
 ##todo: 处理batch的问题
 
 class FeatureReadInterface(metaclass=abc.ABCMeta):
+    data_set_num: int
+    feature_code: str
+
     @abc.abstractmethod
     def get_feature_label(self, data_set_num: int, feature_code: str):
         pass
@@ -15,8 +18,10 @@ class FeatureReadInterface(metaclass=abc.ABCMeta):
 class FeatureRead(FeatureReadInterface):
     # def __init__(self, path_some: ps.PathSome):
     #     self.path_some = path_some
-    @staticmethod
-    def get_feature_label(data_set_num: int, feature_code: str, batch_num: int = 5):
+
+    def get_feature_label(self, data_set_num: int = 2, feature_code: str = '110001', batch_num: int = 0):
+        self.data_set_num = data_set_num
+        self.feature_code = feature_code
         cls = ps.PathSome()
         features = np.loadtxt(cls.fetch(data_set_num, feature_code, 'feature'))
         labels = np.loadtxt(cls.fetch(data_set_num, '', 'label'))

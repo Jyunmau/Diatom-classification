@@ -21,13 +21,16 @@ class DataSetReadInterface(metaclass=abc.ABCMeta):
             raise ValueError('data_set_num out of range!')
         self._data_set_num = value
 
-    def __init__(self, data_set_num: int, path_some: ps.PathSome):
+    def __init__(self, path_some: ps.PathSome, data_set_num: int = 2):
         """
         :param data_set_num: 数据集编号
         :param path_some: 用于提供路径的单例对象
         """
         self.data_set_num = data_set_num
         self.path_some = path_some
+
+    def set_data_set_num(self, data_set_num: int):
+        self.data_set_num = data_set_num
 
     @abc.abstractmethod
     def get_data(self):

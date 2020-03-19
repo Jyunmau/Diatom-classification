@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b31d3feb-a8b4-4948-90aa-7afcc679c769" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Qt_Ui/untitled.ui" afterDir="false" />
+    <list default="true" id="b31d3feb-a8b4-4948-90aa-7afcc679c769" name="Default Changelist" comment="feat：主窗体逻辑">
+      <change afterPath="$PROJECT_DIR$/Qt_Ui/MainWin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Qt_Ui/MainWin.ui" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/public_signal.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/qt_controller/main_win.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/statistic.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/statistic.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Qt_Ui/untitled.ui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/classifier/image_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/classifier/image_classifier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/data_preprocessing/data_set_read.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/data_preprocessing/data_set_read.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/data_preprocessing/feature_read.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/data_preprocessing/feature_read.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/feature_processing/image_feature.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/feature_processing/image_feature.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/main_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/main_process.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +64,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/venv" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.externalTools" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.statistic.project.settings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -67,7 +79,7 @@
       <recent name="C:\Users\JyunmauChan\Documents\GitHub\Diatom-classification\data_preprocessing" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.starter">
+  <component name="RunManager" selected="Python.main">
     <configuration name="feature_read" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Diatom-classification" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -110,7 +122,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="get _opencv_doc" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Diatom-classification" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -122,7 +134,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/get _opencv_doc.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -177,17 +189,17 @@
     <list>
       <item itemvalue="Python.feature_read" />
       <item itemvalue="Python.freak_descriptor" />
-      <item itemvalue="Python.get _opencv_doc" />
       <item itemvalue="Python.main_process" />
       <item itemvalue="Python.starter" />
+      <item itemvalue="Python.main" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main" />
         <item itemvalue="Python.starter" />
         <item itemvalue="Python.main_process" />
         <item itemvalue="Python.feature_read" />
         <item itemvalue="Python.freak_descriptor" />
-        <item itemvalue="Python.get _opencv_doc" />
       </list>
     </recent_temporary>
   </component>
@@ -396,7 +408,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584277752667</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="feat：主窗体UI设计">
+      <created>1584550257179</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1584550257179</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -416,7 +435,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修改多组特征和数据预处理、保存" />
     <MESSAGE value="改进特征提取和路径读取的架构" />
     <MESSAGE value="图像分割" />
     <MESSAGE value="预处理引入高斯滤波&amp;分类器增加多层感知机" />
@@ -441,7 +459,8 @@
     <MESSAGE value="feat: freak_descriptor" />
     <MESSAGE value="feat: knn&amp;batch&amp;filter&amp;confusion_matrix&#10;test：上述所有内容" />
     <MESSAGE value="test：对不同特征和分类器的实验" />
-    <option name="LAST_COMMIT_MESSAGE" value="test：对不同特征和分类器的实验" />
+    <MESSAGE value="feat：主窗体UI设计" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat：主窗体UI设计" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -461,42 +480,42 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="1183" y="294" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1584111131913" />
-    <state x="737" y="299" key="#com.intellij.tools.ToolEditorDialog" timestamp="1584258769278">
+    <state x="737" y="299" key="#com.intellij.tools.ToolEditorDialog" timestamp="1584589440856">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="737" y="299" key="#com.intellij.tools.ToolEditorDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1584258769278" />
+    <state x="737" y="299" key="#com.intellij.tools.ToolEditorDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1584589440856" />
     <state x="675" y="454" key="#com.jetbrains.python.refactoring.move.PyMakeFunctionTopLevelDialog" timestamp="1582777833901">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="675" y="454" key="#com.jetbrains.python.refactoring.move.PyMakeFunctionTopLevelDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1582777833901" />
-    <state x="1113" y="65" key="CommitChangelistDialog2" timestamp="1584277752398">
+    <state x="1113" y="65" key="CommitChangelistDialog2" timestamp="1584617021170">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="1113" y="65" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1584277752398" />
+    <state x="1113" y="65" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1584617021170" />
     <state x="425" y="112" key="CommitChangelistDialog2/0.23.1920.977@0.23.1920.977" timestamp="1582168367545" />
     <state x="425" y="112" key="CommitChangelistDialog2/0.23.1920.979@0.23.1920.979" timestamp="1582468832136" />
-    <state width="1899" height="485" key="GridCell.Tab.0.bottom" timestamp="1584277768087">
+    <state width="1899" height="485" key="GridCell.Tab.0.bottom" timestamp="1584616972489">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="485" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1584277768087" />
+    <state width="1899" height="485" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1584616972489" />
     <state width="1379" height="250" key="GridCell.Tab.0.bottom/0.23.1920.977@0.23.1920.977" timestamp="1582126730153" />
     <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.23.1920.979@0.23.1920.979" timestamp="1584115807789" />
-    <state width="1899" height="485" key="GridCell.Tab.0.center" timestamp="1584277768086">
+    <state width="1899" height="485" key="GridCell.Tab.0.center" timestamp="1584616972488">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="485" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1584277768086" />
+    <state width="1899" height="485" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1584616972488" />
     <state width="1379" height="250" key="GridCell.Tab.0.center/0.23.1920.977@0.23.1920.977" timestamp="1582126730152" />
     <state width="1899" height="282" key="GridCell.Tab.0.center/0.23.1920.979@0.23.1920.979" timestamp="1584115807788" />
-    <state width="1899" height="485" key="GridCell.Tab.0.left" timestamp="1584277768085">
+    <state width="1899" height="485" key="GridCell.Tab.0.left" timestamp="1584616972487">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="485" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1584277768085" />
+    <state width="1899" height="485" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1584616972487" />
     <state width="1379" height="250" key="GridCell.Tab.0.left/0.23.1920.977@0.23.1920.977" timestamp="1582126730152" />
     <state width="1899" height="282" key="GridCell.Tab.0.left/0.23.1920.979@0.23.1920.979" timestamp="1584115807787" />
-    <state width="1899" height="485" key="GridCell.Tab.0.right" timestamp="1584277768086">
+    <state width="1899" height="485" key="GridCell.Tab.0.right" timestamp="1584616972489">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="485" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1584277768086" />
+    <state width="1899" height="485" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1584616972489" />
     <state width="1379" height="250" key="GridCell.Tab.0.right/0.23.1920.977@0.23.1920.977" timestamp="1582126730152" />
     <state width="1899" height="282" key="GridCell.Tab.0.right/0.23.1920.979@0.23.1920.979" timestamp="1584115807788" />
     <state width="929" height="375" key="GridCell.Tab.1.bottom" timestamp="1582461617398">
@@ -519,24 +538,24 @@
     </state>
     <state width="929" height="375" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1582456548071" />
     <state width="929" height="375" key="GridCell.Tab.1.right/0.23.1920.979@0.23.1920.979" timestamp="1582461617397" />
-    <state x="475" y="101" key="SettingsEditor" timestamp="1584258772699">
+    <state x="475" y="101" key="SettingsEditor" timestamp="1584589482944">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="475" y="101" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1584258772699" />
+    <state x="475" y="101" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1584589482944" />
     <state x="469" y="150" key="SettingsEditor/0.23.1920.977@0.23.1920.977" timestamp="1582162591434" />
     <state x="469" y="150" key="SettingsEditor/0.23.1920.979@0.23.1920.979" timestamp="1582465982595" />
-    <state x="560" y="252" key="Vcs.Push.Dialog.v2" timestamp="1584277755012">
+    <state x="560" y="252" key="Vcs.Push.Dialog.v2" timestamp="1584550321473">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="560" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1584277755012" />
+    <state x="560" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1584550321473" />
     <state x="560" y="251" key="Vcs.Push.Dialog.v2/0.23.1920.977@0.23.1920.977" timestamp="1582168375016" />
     <state x="560" y="251" key="Vcs.Push.Dialog.v2/0.23.1920.979@0.23.1920.979" timestamp="1582468835324" />
-    <state x="653" y="366" key="com.intellij.ide.util.TipDialog" timestamp="1584517278859">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="653" y="366" key="com.intellij.ide.util.TipDialog" timestamp="1584588429430">
+      <screen x="0" y="23" width="1920" height="979" />
     </state>
-    <state x="653" y="366" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1584517278859" />
+    <state x="653" y="366" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1584550307840" />
     <state x="653" y="344" key="com.intellij.ide.util.TipDialog/0.23.1920.977@0.23.1920.977" timestamp="1582162486023" />
-    <state x="653" y="366" key="com.intellij.ide.util.TipDialog/0.23.1920.979@0.23.1920.979" timestamp="1583382672686" />
+    <state x="653" y="366" key="com.intellij.ide.util.TipDialog/0.23.1920.979@0.23.1920.979" timestamp="1584588429430" />
     <state x="717" y="252" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1582168403128">
       <screen x="0" y="23" width="1920" height="977" />
     </state>

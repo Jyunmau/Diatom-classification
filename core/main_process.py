@@ -12,7 +12,7 @@ import core.classifier.image_classifier as imc
 
 class MainProcessInterface(metaclass=abc.ABCMeta):
     def __init__(self, vdr: dr.DataReadInterface, vimr: imr.ImageReadInterface,
-                 vimf: imf.ImageFeatureInterface, vfr: fr.FeatureReadInterface,
+                 vimf: imf.ImageFeature, vfr: fr.FeatureReadInterface,
                  vimc: imc.ImageClassifierInterface):
         # self.data_set_read = vdsr vdsr: dsr.DataSetReadInterface,
         self.data_read = vdr
@@ -37,7 +37,7 @@ class MainProcess(MainProcessInterface):
 
 
 if __name__ == '__main__':
-    mp = MainProcess(dr.DataRead(dsr.DataSetRead(2, ps.PathSome())), imr.ImageRead(),
+    mp = MainProcess(dr.DataRead(dsr.DataSetRead(ps.PathSome())), imr.ImageRead(),
                      imf.ImageFeature(True, True, False, False, False, True), fr.FeatureRead(),
                      imc.ImageClassifier())
     mp.do_flow()
