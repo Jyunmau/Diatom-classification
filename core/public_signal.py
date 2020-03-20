@@ -3,6 +3,8 @@ import glob
 import os
 import numpy as np
 from PyQt5.QtCore import QObject, pyqtSignal
+from PySide2.QtCore import QThread, Signal
+
 import core.qt_controller.main_win as mw
 
 
@@ -18,11 +20,20 @@ def singleton(cls, *args, **kw):
 
 
 @singleton
-class PublicSignal(QObject):
-    image_path: str
-    image: np.array
-    signal_1 = pyqtSignal(str)
+class PublicSignal(QThread):
+    signal_path = Signal(str)
+    signal_finish = Signal()
+    signal_rewrite = Signal()
+    signal_rewrite_choose = Signal(str)
 
-    def set_image_path(self, image_path: str):
-        self.image_path = image_path
-        self.signal_1.emit(image_path)
+    def send_image_path(self, image_path: str):
+        self.signal_path.emit(image_path)
+
+    def send_finished(self):
+        self.signal_finish.emit()
+
+    def send_rewrite(self):
+        self.signal_rewrite.emit()
+
+    def send_rewrite_choose(self, choose: str):
+        self.signal_rewrite_choose.emit(choose)

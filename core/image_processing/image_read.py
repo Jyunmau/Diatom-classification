@@ -21,7 +21,7 @@ class ImageReadInterface(metaclass=abc.ABCMeta):
 class ImageRead(ImageReadInterface):
     """图像的读取和预处理"""
 
-    def get_image(self, file_path: str, data_set_num: int, is_cvt2gray=True, is_preprocess=True):
+    def get_image(self, file_path: str, data_set_num: int = 2, is_cvt2gray=True, is_preprocess=True):
         """
         读取图像并转为灰度图, 大小统一到1024*1024
         :param is_preprocess: 是否需要对图片做预处理

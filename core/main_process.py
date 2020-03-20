@@ -28,12 +28,17 @@ class MainProcessInterface(metaclass=abc.ABCMeta):
 
 
 class MainProcess(MainProcessInterface):
-    def do_flow(self):
-        img_it = self.data_read.get_images_iter()
-        labels = self.data_read.get_labels()
-        if not self.data_read.data_set.path_some.is_file_exists(self.data_set_num, '', 'label'):
-            np.savetxt(self.data_read.data_set.path_some.fetch(self.data_set_num, '', 'label'), labels)
-        self.image_feature.fetch_proc(img_it, self.image_read, self.data_read.data_set.data_set_num)
+    def do_flow(self, is_feature_fetch: bool = False, is_train_model=False, is_predict=True):
+        if is_feature_fetch:
+            img_it = self.data_read.get_images_iter()
+            labels = self.data_read.get_labels()
+            if not self.data_read.data_set.path_some.is_file_exists(self.data_set_num, '', 'label'):
+                np.savetxt(self.data_read.data_set.path_some.fetch(self.data_set_num, '', 'label'), labels)
+            self.image_feature.fetch_proc(img_it, self.image_read, self.data_read.data_set.data_set_num)
+        elif is_train_model:
+            self.image_classifier.fit(self.feature_read)
+        elif is_predict:
+            self.image_classifier.predict()
 
 
 if __name__ == '__main__':

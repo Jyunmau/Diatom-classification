@@ -11,7 +11,7 @@
             </rect>
         </property>
         <property name="windowTitle">
-            <string>MainWindow</string>
+            <string>基于多特征组合的硅藻识别演示程序</string>
         </property>
         <widget class="QWidget" name="centralwidget">
             <widget class="QWidget" name="horizontalLayoutWidget">
@@ -37,7 +37,26 @@
                                 </widget>
                             </item>
                             <item>
-                                <widget class="QGraphicsView" name="graphicsView"/>
+                                <widget class="QLabel" name="imageLabel">
+                                    <property name="sizePolicy">
+                                        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                                            <horstretch>0</horstretch>
+                                            <verstretch>0</verstretch>
+                                        </sizepolicy>
+                                    </property>
+                                    <property name="baseSize">
+                                        <size>
+                                            <width>600</width>
+                                            <height>600</height>
+                                        </size>
+                                    </property>
+                                    <property name="text">
+                                        <string/>
+                                    </property>
+                                    <property name="alignment">
+                                        <set>Qt::AlignCenter</set>
+                                    </property>
+                                </widget>
                             </item>
                         </layout>
                     </item>
@@ -46,9 +65,12 @@
                             <item>
                                 <layout class="QHBoxLayout" name="horizontalLayout_2">
                                     <item>
-                                        <widget class="QRadioButton" name="dataSetRadioButton">
+                                        <widget class="QCheckBox" name="dataSetCheckBox">
                                             <property name="text">
                                                 <string>加载图片集</string>
+                                            </property>
+                                            <property name="checked">
+                                                <bool>true</bool>
                                             </property>
                                         </widget>
                                     </item>
@@ -64,9 +86,12 @@
                             <item>
                                 <layout class="QHBoxLayout" name="horizontalLayout_10">
                                     <item>
-                                        <widget class="QRadioButton" name="imageRadioButton">
+                                        <widget class="QCheckBox" name="imageCheckBox">
                                             <property name="text">
                                                 <string>图片预处理</string>
+                                            </property>
+                                            <property name="checked">
+                                                <bool>true</bool>
                                             </property>
                                         </widget>
                                     </item>
@@ -82,9 +107,12 @@
                             <item>
                                 <layout class="QHBoxLayout" name="horizontalLayout_6">
                                     <item>
-                                        <widget class="QRadioButton" name="featureFetchRadioButton">
+                                        <widget class="QCheckBox" name="featureFetchCheckBox">
                                             <property name="text">
                                                 <string>特征提取</string>
+                                            </property>
+                                            <property name="checked">
+                                                <bool>true</bool>
                                             </property>
                                         </widget>
                                     </item>
@@ -100,7 +128,7 @@
                             <item>
                                 <layout class="QHBoxLayout" name="horizontalLayout_9">
                                     <item>
-                                        <widget class="QRadioButton" name="featureReadRadioButton">
+                                        <widget class="QCheckBox" name="featureReadCheckBox">
                                             <property name="text">
                                                 <string>特征组合</string>
                                             </property>
@@ -118,7 +146,7 @@
                             <item>
                                 <layout class="QHBoxLayout" name="horizontalLayout_3">
                                     <item>
-                                        <widget class="QRadioButton" name="modelRadioButton">
+                                        <widget class="QCheckBox" name="modelCheckBox">
                                             <property name="text">
                                                 <string>模型训练</string>
                                             </property>
@@ -136,7 +164,7 @@
                             <item>
                                 <layout class="QHBoxLayout" name="horizontalLayout_11">
                                     <item>
-                                        <widget class="QRadioButton" name="predictRadioButton">
+                                        <widget class="QCheckBox" name="predictCheckBox">
                                             <property name="text">
                                                 <string>图片预测</string>
                                             </property>

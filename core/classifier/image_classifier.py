@@ -118,10 +118,13 @@ class ImageClassifier(ImageClassifierInterface):
                 clf = SVC(C=2, gamma=0.009)
             clf.fit(train_features, train_labels)
             self.clf = clf
-            print(clf.score(train_features, train_labels))
+            print("\n>>====== train finished with %s samples ======<<\n" % train_labels.shape[0])
+            print('>>======train_set score:======<<')
+            print("acc:%s" % clf.score(train_features, train_labels))
             predicted = clf.predict(train_features)
             print("Confusion matrix:\n%s" % metrics.confusion_matrix(train_labels, predicted))
-            print(clf.score(test_features, test_labels))
+            print('\n>>======test_set score:======<<')
+            print("acc:%s" % clf.score(test_features, test_labels))
             predicted = clf.predict(test_features)
             # print("Classification report for classifier %s:\n%s\n"
             #       % (clf, metrics.classification_report(expected, predicted)))

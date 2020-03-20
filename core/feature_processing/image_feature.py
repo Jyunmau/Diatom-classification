@@ -2,6 +2,7 @@ import abc
 import time
 
 import cv2
+from sklearn.preprocessing import StandardScaler
 
 import core.path_some as ps
 import core.image_processing.image_read as imr
@@ -30,10 +31,9 @@ class ImageFeature(QObject):
                 "Nitzschia": "5", "Stephanodiscus": "6", "Synedra": "7", "Thalassiosira": "8"}
     features = []
     labels = []
-    signal_path = Signal(str)
 
     def __init__(self, geometric_feature: bool, glcm_feature: bool, fourier_descriptor_feature: bool, hog_feature: bool,
-                 sift_feature: bool, lbp_feature: bool):
+                 sift_feature: bool, lbp_feature: bool, is_scale_1by1: bool = True):
         super(ImageFeature, self).__init__()
         self.geometric_feature = geometric_feature
         self.glcm_feature = glcm_feature
@@ -41,6 +41,13 @@ class ImageFeature(QObject):
         self.hog_feature = hog_feature
         self.sift_feature = sift_feature
         self.lbp_feature = lbp_feature
+        self.public_signal = public_signal.PublicSignal()
+        self.proc = None
+        self.public_signal.signal_rewrite_choose.connect(self._set_proc)
+        self.is_scale_1by1 = is_scale_1by1
+
+    def _set_proc(self, choose: str):
+        self.proc = choose
 
     def _get_feature_code(self):
         res = ''
@@ -71,17 +78,17 @@ class ImageFeature(QObject):
         self.feature_code = res
         return res
 
-    def send(self, imgfile):
-        self.signal_path.emit(imgfile)
-
     def fetch_proc(self, img_it, img_read: imr.ImageReadInterface, data_set_num: int):
         self._get_feature_code()
         cls = ps.PathSome()
         if cls.is_file_exists(data_set_num, self.feature_code, 'feature'):
             # todo: ui要处理这个选择
             print("this feature combination has been fetched, do you want to rewrite it ?")
-            proc = input("y / n :")
-            if proc == 'y':
+            self.public_signal.send_rewrite()
+            while self.proc is None:
+                continue
+            # proc = input("y / n :")
+            if self.proc == 'y':
                 cls.delete_file(data_set_num, self.feature_code, 'feature')
             else:
                 return
@@ -89,12 +96,16 @@ class ImageFeature(QObject):
             try:
                 imgfile = next(img_it)
                 print(imgfile)
-                self.send(imgfile)
+                self.public_signal.send_image_path(imgfile)
                 image = img_read.get_image(imgfile, data_set_num)
                 feature = None
                 if self.geometric_feature:
                     gf = gmt_feature.GeometricFeatures()
                     geometric = gf.get_geometric_features(image)
+                    if self.is_scale_1by1:
+                        scaler = StandardScaler()
+                        scaler.fit(geometric)
+                        geometric = scaler.transform(geometric)
                     if feature is None:
                         feature = geometric
                     else:
@@ -102,6 +113,10 @@ class ImageFeature(QObject):
                 if self.glcm_feature:
                     gbf = glcm_feature.GlcmBasedFeature()
                     texture = gbf.get_glcm_features(image)
+                    if self.is_scale_1by1:
+                        scaler = StandardScaler()
+                        scaler.fit(texture)
+                        texture = scaler.transform(texture)
                     if feature is None:
                         feature = texture
                     else:
@@ -109,6 +124,10 @@ class ImageFeature(QObject):
                 if self.fourier_descriptor_feature:
                     fdf = fd_feature.FourierDescriptorFeature()
                     fourier = fdf.get_fourier_descriptor(image)
+                    if self.is_scale_1by1:
+                        scaler = StandardScaler()
+                        scaler.fit(fourier)
+                        fourier = scaler.transform(fourier)
                     if feature is None:
                         feature = fourier
                     else:
@@ -122,6 +141,10 @@ class ImageFeature(QObject):
                     # cv的hog
                     hog = hog_feature.hog_compute(image)
                     hog = np.array(hog).flatten()
+                    if self.is_scale_1by1:
+                        scaler = StandardScaler()
+                        scaler.fit(hog)
+                        hog = scaler.transform(hog)
                     if feature is None:
                         feature = hog
                     else:
@@ -129,6 +152,10 @@ class ImageFeature(QObject):
                 if self.sift_feature:
                     sf = sift_feature.SiftFeature()
                     sift = sf.get_sift_feature(image)
+                    if self.is_scale_1by1:
+                        scaler = StandardScaler()
+                        scaler.fit(sift)
+                        sift = scaler.transform(sift)
                     if feature is None:
                         feature = sift
                     else:
@@ -137,6 +164,10 @@ class ImageFeature(QObject):
                     # lbp = lbp_feature.LBP(image)
                     lbp_f = lbp_feature.LbpFeature()
                     lbp = lbp_f.get_lbp_feature(image)
+                    if self.is_scale_1by1:
+                        scaler = StandardScaler()
+                        scaler.fit(lbp)
+                        lbp = scaler.transform(lbp)
                     if feature is None:
                         feature = lbp
                     else:
@@ -148,6 +179,8 @@ class ImageFeature(QObject):
                 break
         features = np.array(self.features)
         labels = np.array(self.labels, dtype=np.int)
+        print('>>>>===============================<<<<')
+        print('特征提取完成！，文件已保存')
         print(features.shape)
         print(labels.shape)
         print(features.shape)
@@ -156,6 +189,8 @@ class ImageFeature(QObject):
             np.savetxt(cls.fetch(data_set_num, self.feature_code, 'feature'), features, fmt="%s")
         # if not cls.is_file_exists(self.data_set_num, '', 'label'):
         #     np.savetxt(cls.fetch(self.data_set_num, '', 'label'), labels)
+        print('特征提取完成！，文件已保存')
+        self.public_signal.send_finished()
 
 
 if __name__ == "__main__":
