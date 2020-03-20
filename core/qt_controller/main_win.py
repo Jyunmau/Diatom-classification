@@ -79,16 +79,7 @@ class MainWin(QtWidgets.QMainWindow, ui_MainWin.Ui_MainWindow):
             self.public_signal.send_rewrite_choose('n')
 
     def set_feature_fetch_flow(self):
-        if self.dataSetCheckBox.checkState() == Qt.Unchecked and self.imageCheckBox.checkState() == Qt.Checked and self.featureFetchCheckBox.checkState() == Qt.Checked:
-            self.imageCheckBox.setCheckState(Qt.Unchecked)
-            self.featureFetchCheckBox.setCheckState(Qt.Unchecked)
-        elif self.imageCheckBox.checkState() == Qt.Unchecked and self.dataSetCheckBox.checkState() == Qt.Checked and self.featureFetchCheckBox.checkState() == Qt.Checked:
-            self.dataSetCheckBox.setCheckState(Qt.Unchecked)
-            self.featureFetchCheckBox.setCheckState(Qt.Unchecked)
-        elif self.featureFetchCheckBox.checkState() == Qt.Unchecked and self.imageCheckBox.checkState() == Qt.Checked and self.dataSetCheckBox.checkState() == Qt.Checked:
-            self.dataSetCheckBox.setCheckState(Qt.Unchecked)
-            self.imageCheckBox.setCheckState(Qt.Unchecked)
-        else:
+        if self.dataSetCheckBox.checkState() == Qt.Checked or self.imageCheckBox.checkState() == Qt.Checked or self.featureFetchCheckBox.checkState() == Qt.Checked:
             self.dataSetCheckBox.setCheckState(Qt.Checked)
             self.imageCheckBox.setCheckState(Qt.Checked)
             self.featureFetchCheckBox.setCheckState(Qt.Checked)
@@ -97,13 +88,7 @@ class MainWin(QtWidgets.QMainWindow, ui_MainWin.Ui_MainWindow):
             self.predictCheckBox.setCheckState(Qt.Unchecked)
 
     def set_feature_model_flow(self):
-        if self.featureReadCheckBox.checkState() == Qt.Unchecked and self.modelCheckBox.checkState() == Qt.Checked and self.predictCheckBox.checkState() == Qt.Unchecked and self.imageCheckBox.checkState() == Qt.Unchecked:
-            # self.featureReadCheckBox.setCheckState(Qt.Unchecked)
-            self.modelCheckBox.setCheckState(Qt.Unchecked)
-        elif self.modelCheckBox.checkState() == Qt.Unchecked and self.featureReadCheckBox.checkState() == Qt.Checked and self.predictCheckBox.checkState() == Qt.Unchecked and self.imageCheckBox.checkState() == Qt.Unchecked:
-            self.featureReadCheckBox.setCheckState(Qt.Unchecked)
-            # self.modelCheckBox.setCheckState(Qt.Unchecked)
-        elif (self.modelCheckBox.checkState() == Qt.Checked or self.featureReadCheckBox.checkState() == Qt.Checked):
+        if self.modelCheckBox.checkState() == Qt.Checked or self.featureReadCheckBox.checkState() == Qt.Checked:
             self.featureReadCheckBox.setCheckState(Qt.Checked)
             self.modelCheckBox.setCheckState(Qt.Checked)
             self.dataSetCheckBox.setCheckState(Qt.Unchecked)
@@ -113,10 +98,7 @@ class MainWin(QtWidgets.QMainWindow, ui_MainWin.Ui_MainWindow):
 
     def set_predict_flow(self):
         if self.predictCheckBox.checkState() == Qt.Checked:
-            self.dataSetCheckBox.setCheckState(Qt.Unchecked)
             self.imageCheckBox.setCheckState(Qt.Unchecked)
             self.featureFetchCheckBox.setCheckState(Qt.Unchecked)
             self.featureReadCheckBox.setCheckState(Qt.Unchecked)
             self.modelCheckBox.setCheckState(Qt.Unchecked)
-        else:
-            pass
