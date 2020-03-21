@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+    <class>modelWIdget</class>
+    <widget class="QWidget" name="modelWIdget">
+        <property name="geometry">
+            <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>500</width>
+                <height>350</height>
+            </rect>
+        </property>
+        <property name="windowTitle">
+            <string>分类器训练设置</string>
+        </property>
+        <widget class="QWidget" name="verticalLayoutWidget">
+            <property name="geometry">
+                <rect>
+                    <x>9</x>
+                    <y>9</y>
+                    <width>481</width>
+                    <height>331</height>
+                </rect>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout">
+                <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_4">
+                        <item>
+                            <widget class="QCheckBox" name="saveCheckBox">
+                                <property name="text">
+                                    <string>是否保存模型</string>
+                                </property>
+                                <property name="checked">
+                                    <bool>true</bool>
+                                </property>
+                            </widget>
+                        </item>
+                        <item>
+                            <widget class="QCheckBox" name="crossCheckBox">
+                                <property name="text">
+                                    <string>是否交叉验证</string>
+                                </property>
+                                <property name="checked">
+                                    <bool>true</bool>
+                                </property>
+                            </widget>
+                        </item>
+                    </layout>
+                </item>
+                <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_3">
+                        <item>
+                            <widget class="QRadioButton" name="knnRadioButton">
+                                <property name="text">
+                                    <string>KNN</string>
+                                </property>
+                                <property name="checked">
+                                    <bool>true</bool>
+                                </property>
+                            </widget>
+                        </item>
+                        <item>
+                            <layout class="QVBoxLayout" name="verticalLayout_8">
+                                <item>
+                                    <widget class="QLabel" name="label_7">
+                                        <property name="text">
+                                            <string>n_neighbors：</string>
+                                        </property>
+                                    </widget>
+                                </item>
+                                <item>
+                                    <widget class="QSpinBox" name="knnNeighborSpinBox">
+                                        <property name="maximum">
+                                            <number>7</number>
+                                        </property>
+                                        <property name="value">
+                                            <number>5</number>
+                                        </property>
+                                    </widget>
+                                </item>
+                            </layout>
+                        </item>
+                        <item>
+                            <layout class="QVBoxLayout" name="verticalLayout_2">
+                                <item>
+                                    <widget class="QLabel" name="label">
+                                        <property name="text">
+                                            <string>algorithm：</string>
+                                        </property>
+                                    </widget>
+                                </item>
+                                <item>
+                                    <widget class="QComboBox" name="knnAlgorithmComboBox">
+                                        <item>
+                                            <property name="text">
+                                                <string>auto</string>
+                                            </property>
+                                        </item>
+                                        <item>
+                                            <property name="text">
+                                                <string>ball_tree</string>
+                                            </property>
+                                        </item>
+                                        <item>
+                                            <property name="text">
+                                                <string>kd_tree</string>
+                                            </property>
+                                        </item>
+                                        <item>
+                                            <property name="text">
+                                                <string>brute</string>
+                                            </property>
+                                        </item>
+                                    </widget>
+                                </item>
+                            </layout>
+                        </item>
+                    </layout>
+                </item>
+                <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout">
+                        <item>
+                            <widget class="QRadioButton" name="svmRadioButton">
+                                <property name="text">
+                                    <string>SVM</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item>
+                            <layout class="QVBoxLayout" name="verticalLayout_3">
+                                <item>
+                                    <widget class="QLabel" name="label_2">
+                                        <property name="text">
+                                            <string>C：</string>
+                                        </property>
+                                    </widget>
+                                </item>
+                                <item>
+                                    <widget class="QSpinBox" name="svmCSpinBox">
+                                        <property name="minimum">
+                                            <number>1</number>
+                                        </property>
+                                        <property name="maximum">
+                                            <number>5</number>
+                                        </property>
+                                        <property name="singleStep">
+                                            <number>1</number>
+                                        </property>
+                                        <property name="value">
+                                            <number>2</number>
+                                        </property>
+                                    </widget>
+                                </item>
+                            </layout>
+                        </item>
+                        <item>
+                            <layout class="QVBoxLayout" name="verticalLayout_4">
+                                <item>
+                                    <widget class="QLabel" name="label_3">
+                                        <property name="text">
+                                            <string>gamma(1e-3)：</string>
+                                        </property>
+                                    </widget>
+                                </item>
+                                <item>
+                                    <widget class="QSpinBox" name="svmGammaSpinBox">
+                                        <property name="singleStep">
+                                            <number>1</number>
+                                        </property>
+                                        <property name="value">
+                                            <number>9</number>
+                                        </property>
+                                        <property name="displayIntegerBase">
+                                            <number>10</number>
+                                        </property>
+                                    </widget>
+                                </item>
+                            </layout>
+                        </item>
+                    </layout>
+                </item>
+                <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_2">
+                        <item>
+                            <widget class="QRadioButton" name="annRadioButton">
+                                <property name="text">
+                                    <string>ANN</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item>
+                            <layout class="QVBoxLayout" name="verticalLayout_7">
+                                <item>
+                                    <widget class="QLabel" name="label_4">
+                                        <property name="text">
+                                            <string>activation：</string>
+                                        </property>
+                                    </widget>
+                                </item>
+                                <item>
+                                    <widget class="QComboBox" name="annActivationComboBox">
+                                        <item>
+                                            <property name="text">
+                                                <string>relu</string>
+                                            </property>
+                                        </item>
+                                        <item>
+                                            <property name="text">
+                                                <string>logistic</string>
+                                            </property>
+                                        </item>
+                                        <item>
+                                            <property name="text">
+                                                <string>tanh</string>
+                                            </property>
+                                        </item>
+                                        <item>
+                                            <property name="text">
+                                                <string>identity</string>
+                                            </property>
+                                        </item>
+                                    </widget>
+                                </item>
+                            </layout>
+                        </item>
+                        <item>
+                            <layout class="QVBoxLayout" name="verticalLayout_6">
+                                <item>
+                                    <widget class="QLabel" name="label_5">
+                                        <property name="text">
+                                            <string>solver：</string>
+                                        </property>
+                                    </widget>
+                                </item>
+                                <item>
+                                    <widget class="QComboBox" name="annSolverComboBox">
+                                        <item>
+                                            <property name="text">
+                                                <string>adam</string>
+                                            </property>
+                                        </item>
+                                        <item>
+                                            <property name="text">
+                                                <string>sgd</string>
+                                            </property>
+                                        </item>
+                                        <item>
+                                            <property name="text">
+                                                <string>lbfgs</string>
+                                            </property>
+                                        </item>
+                                    </widget>
+                                </item>
+                            </layout>
+                        </item>
+                        <item>
+                            <layout class="QVBoxLayout" name="verticalLayout_5">
+                                <item>
+                                    <widget class="QLabel" name="label_6">
+                                        <property name="text">
+                                            <string>learning_rate(1e-3)：</string>
+                                        </property>
+                                    </widget>
+                                </item>
+                                <item>
+                                    <widget class="QSpinBox" name="annRateSpinBox">
+                                        <property name="minimum">
+                                            <number>1</number>
+                                        </property>
+                                        <property name="value">
+                                            <number>1</number>
+                                        </property>
+                                    </widget>
+                                </item>
+                            </layout>
+                        </item>
+                    </layout>
+                </item>
+            </layout>
+        </widget>
+    </widget>
+    <resources/>
+    <connections/>
+</ui>

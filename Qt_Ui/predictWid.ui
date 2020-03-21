@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+    <class>predictWidget</class>
+    <widget class="QWidget" name="predictWidget">
+        <property name="geometry">
+            <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>500</width>
+                <height>350</height>
+            </rect>
+        </property>
+        <property name="windowTitle">
+            <string>预测设置</string>
+        </property>
+        <widget class="QWidget" name="verticalLayoutWidget">
+            <property name="geometry">
+                <rect>
+                    <x>9</x>
+                    <y>9</y>
+                    <width>481</width>
+                    <height>331</height>
+                </rect>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout">
+                <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout">
+                        <item>
+                            <widget class="QCheckBox" name="wrongOnlyCheckBox">
+                                <property name="baseSize">
+                                    <size>
+                                        <width>0</width>
+                                        <height>0</height>
+                                    </size>
+                                </property>
+                                <property name="autoFillBackground">
+                                    <bool>false</bool>
+                                </property>
+                                <property name="text">
+                                    <string>只展示错分图片</string>
+                                </property>
+                                <property name="tristate">
+                                    <bool>false</bool>
+                                </property>
+                            </widget>
+                        </item>
+                    </layout>
+                </item>
+                <item>
+                    <layout class="QVBoxLayout" name="verticalLayout_2">
+                        <item>
+                            <widget class="QLabel" name="modelLabel">
+                                <property name="text">
+                                    <string>等待设置模型路径...</string>
+                                </property>
+                                <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
+                                </property>
+                            </widget>
+                        </item>
+                        <item>
+                            <widget class="QPushButton" name="modelPushButton">
+                                <property name="text">
+                                    <string>设置模型路径</string>
+                                </property>
+                            </widget>
+                        </item>
+                    </layout>
+                </item>
+                <item>
+                    <layout class="QVBoxLayout" name="verticalLayout_3">
+                        <item>
+                            <widget class="QLabel" name="dataLabel">
+                                <property name="text">
+                                    <string>等待设置数据路径...</string>
+                                </property>
+                                <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
+                                </property>
+                            </widget>
+                        </item>
+                        <item>
+                            <widget class="QPushButton" name="dataPushButton">
+                                <property name="text">
+                                    <string>设置数据路径</string>
+                                </property>
+                            </widget>
+                        </item>
+                    </layout>
+                </item>
+            </layout>
+        </widget>
+    </widget>
+    <resources/>
+    <connections/>
+</ui>

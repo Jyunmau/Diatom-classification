@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+    <class>imageWidget</class>
+    <widget class="QWidget" name="imageWidget">
+        <property name="geometry">
+            <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>500</width>
+                <height>350</height>
+            </rect>
+        </property>
+        <property name="windowTitle">
+            <string>图片预处理设置</string>
+        </property>
+        <widget class="QWidget" name="verticalLayoutWidget">
+            <property name="geometry">
+                <rect>
+                    <x>10</x>
+                    <y>0</y>
+                    <width>481</width>
+                    <height>341</height>
+                </rect>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout">
+                <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout">
+                        <item>
+                            <widget class="QCheckBox" name="fIlterCheckBox">
+                                <property name="text">
+                                    <string>平滑滤波</string>
+                                </property>
+                                <property name="checked">
+                                    <bool>true</bool>
+                                </property>
+                            </widget>
+                        </item>
+                        <item>
+                            <layout class="QVBoxLayout" name="verticalLayout_2">
+                                <item>
+                                    <layout class="QVBoxLayout" name="verticalLayout_4">
+                                        <item>
+                                            <widget class="QLabel" name="label_2">
+                                                <property name="text">
+                                                    <string>卷积核类型：</string>
+                                                </property>
+                                            </widget>
+                                        </item>
+                                        <item>
+                                            <widget class="QComboBox" name="filterComboBox">
+                                                <property name="sizePolicy">
+                                                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                                                        <horstretch>0</horstretch>
+                                                        <verstretch>0</verstretch>
+                                                    </sizepolicy>
+                                                </property>
+                                                <property name="editable">
+                                                    <bool>false</bool>
+                                                </property>
+                                                <property name="currentText">
+                                                    <string>高斯核</string>
+                                                </property>
+                                                <property name="currentIndex">
+                                                    <number>0</number>
+                                                </property>
+                                                <property name="sizeAdjustPolicy">
+                                                    <enum>QComboBox::AdjustToContentsOnFirstShow</enum>
+                                                </property>
+                                                <property name="duplicatesEnabled">
+                                                    <bool>false</bool>
+                                                </property>
+                                                <item>
+                                                    <property name="text">
+                                                        <string>高斯核</string>
+                                                    </property>
+                                                </item>
+                                                <item>
+                                                    <property name="text">
+                                                        <string>中值</string>
+                                                    </property>
+                                                </item>
+                                            </widget>
+                                        </item>
+                                    </layout>
+                                </item>
+                                <item>
+                                    <layout class="QVBoxLayout" name="verticalLayout_3">
+                                        <item>
+                                            <widget class="QLabel" name="label">
+                                                <property name="text">
+                                                    <string>卷积核大小：</string>
+                                                </property>
+                                            </widget>
+                                        </item>
+                                        <item>
+                                            <widget class="QSpinBox" name="filterSpinBox">
+                                                <property name="sizePolicy">
+                                                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                                                        <horstretch>0</horstretch>
+                                                        <verstretch>0</verstretch>
+                                                    </sizepolicy>
+                                                </property>
+                                                <property name="baseSize">
+                                                    <size>
+                                                        <width>0</width>
+                                                        <height>0</height>
+                                                    </size>
+                                                </property>
+                                                <property name="font">
+                                                    <font>
+                                                        <pointsize>13</pointsize>
+                                                    </font>
+                                                </property>
+                                                <property name="alignment">
+                                                    <set>Qt::AlignCenter</set>
+                                                </property>
+                                                <property name="minimum">
+                                                    <number>3</number>
+                                                </property>
+                                                <property name="maximum">
+                                                    <number>7</number>
+                                                </property>
+                                                <property name="singleStep">
+                                                    <number>2</number>
+                                                </property>
+                                                <property name="stepType">
+                                                    <enum>QAbstractSpinBox::DefaultStepType</enum>
+                                                </property>
+                                                <property name="value">
+                                                    <number>3</number>
+                                                </property>
+                                            </widget>
+                                        </item>
+                                    </layout>
+                                </item>
+                            </layout>
+                        </item>
+                    </layout>
+                </item>
+            </layout>
+        </widget>
+    </widget>
+    <resources/>
+    <connections/>
+</ui>
