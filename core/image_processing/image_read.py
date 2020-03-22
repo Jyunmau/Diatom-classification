@@ -5,7 +5,7 @@ import configparser
 import glob
 import numpy as np
 
-from core.path_some import PathSome
+from core.path_some import PathSome as ps
 
 
 class ImageReadInterface(metaclass=abc.ABCMeta):

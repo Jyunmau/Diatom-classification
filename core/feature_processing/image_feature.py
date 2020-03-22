@@ -6,6 +6,7 @@ from sklearn.preprocessing import StandardScaler
 
 import core.path_some as ps
 import core.image_processing.image_read as imr
+import core.data_preprocessing.data_set_read as dsr
 import core.feature_processing.geometric_feature as gmt_feature
 import core.feature_processing.glcm_based_feature as glcm_feature
 import core.feature_processing.fourier_descriptor as fd_feature
@@ -32,8 +33,9 @@ class ImageFeature(QObject):
     features = []
     labels = []
 
-    def __init__(self, geometric_feature: bool, glcm_feature: bool, fourier_descriptor_feature: bool, hog_feature: bool,
-                 sift_feature: bool, lbp_feature: bool, is_scale_1by1: bool = True):
+    def __init__(self, geometric_feature: bool = True, glcm_feature: bool = True,
+                 fourier_descriptor_feature: bool = False, hog_feature: bool = False,
+                 sift_feature: bool = False, lbp_feature: bool = True, is_scale_1by1: bool = True):
         super(ImageFeature, self).__init__()
         self.geometric_feature = geometric_feature
         self.glcm_feature = glcm_feature
@@ -78,18 +80,17 @@ class ImageFeature(QObject):
         self.feature_code = res
         return res
 
-    def fetch_proc(self, img_it, img_read: imr.ImageReadInterface, data_set_num: int):
+    def fetch_proc(self, img_it, img_read: imr.ImageReadInterface, data_set_read: dsr.DataSetReadInterface):
         self._get_feature_code()
         cls = ps.PathSome()
-        if cls.is_file_exists(data_set_num, self.feature_code, 'feature'):
-            # todo: ui要处理这个选择
+        if cls.is_file_exists(data_set_read.data_set_num, self.feature_code, 'feature'):
             print("this feature combination has been fetched, do you want to rewrite it ?")
             self.public_signal.send_rewrite()
             while self.proc is None:
                 continue
             # proc = input("y / n :")
             if self.proc == 'y':
-                cls.delete_file(data_set_num, self.feature_code, 'feature')
+                cls.delete_file(data_set_read.data_set_num, self.feature_code, 'feature')
             else:
                 return
         while True:
@@ -97,7 +98,7 @@ class ImageFeature(QObject):
                 imgfile = next(img_it)
                 print(imgfile)
                 self.public_signal.send_image_path(imgfile)
-                image = img_read.get_image(imgfile, data_set_num)
+                image = img_read.get_image(imgfile, data_set_read.data_set_num)
                 feature = None
                 if self.geometric_feature:
                     gf = gmt_feature.GeometricFeatures()
@@ -185,8 +186,8 @@ class ImageFeature(QObject):
         print(labels.shape)
         print(features.shape)
         print(labels.shape)
-        if not cls.is_file_exists(data_set_num, self.feature_code, 'feature'):
-            np.savetxt(cls.fetch(data_set_num, self.feature_code, 'feature'), features, fmt="%s")
+        if not cls.is_file_exists(data_set_read.data_set_num, self.feature_code, 'feature'):
+            np.savetxt(cls.fetch(data_set_read.data_set_num, self.feature_code, 'feature'), features, fmt="%s")
         # if not cls.is_file_exists(self.data_set_num, '', 'label'):
         #     np.savetxt(cls.fetch(self.data_set_num, '', 'label'), labels)
         print('特征提取完成！，文件已保存')

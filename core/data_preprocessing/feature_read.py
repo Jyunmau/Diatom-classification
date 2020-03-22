@@ -2,9 +2,8 @@ import abc
 
 import numpy as np
 import core.path_some as ps
+import core.data_preprocessing.data_set_read as dsr
 
-
-##todo: 处理batch的问题
 
 class FeatureReadInterface(metaclass=abc.ABCMeta):
     data_set_num: int
@@ -16,14 +15,42 @@ class FeatureReadInterface(metaclass=abc.ABCMeta):
 
 
 class FeatureRead(FeatureReadInterface):
-    # def __init__(self, path_some: ps.PathSome):
-    #     self.path_some = path_some
+    feature_code = '110001'
 
-    def get_feature_label(self, data_set_num: int = 2, feature_code: str = '110001', batch_num: int = 0):
-        self.data_set_num = data_set_num
-        self.feature_code = feature_code
+    def set_feature_code(self, geometric_feature: bool, glcm_feature: bool, fourier_descriptor_feature: bool,
+                         hog_feature: bool, sift_feature: bool, lbp_feature: bool):
+        res = ''
+        if geometric_feature:
+            res += '1'
+        else:
+            res += '0'
+        if glcm_feature:
+            res += '1'
+        else:
+            res += '0'
+        if fourier_descriptor_feature:
+            res += '1'
+        else:
+            res += '0'
+        if hog_feature:
+            res += '1'
+        else:
+            res += '0'
+        if sift_feature:
+            res += '1'
+        else:
+            res += '0'
+        if lbp_feature:
+            res += '1'
+        else:
+            res += '0'
+        self.feature_code = res
+
+    def get_feature_label(self, data_set_read: dsr.DataSetReadInterface, batch_num: int = 0):
+        data_set_num = data_set_read.data_set_num
+        self.feature_code = self.feature_code
         cls = ps.PathSome()
-        features = np.loadtxt(cls.fetch(data_set_num, feature_code, 'feature'))
+        features = np.loadtxt(cls.fetch(data_set_num, self.feature_code, 'feature'))
         labels = np.loadtxt(cls.fetch(data_set_num, '', 'label'))
         if batch_num == 0:
             return features, labels

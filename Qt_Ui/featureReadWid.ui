@@ -13,25 +13,99 @@
         <property name="windowTitle">
             <string>特征组合设置</string>
         </property>
-        <widget class="QWidget" name="verticalLayoutWidget">
+        <widget class="QWidget" name="verticalLayoutWidget_2">
             <property name="geometry">
                 <rect>
                     <x>10</x>
                     <y>10</y>
                     <width>481</width>
-                    <height>331</height>
+                    <height>341</height>
                 </rect>
             </property>
-            <layout class="QVBoxLayout" name="verticalLayout">
+            <layout class="QVBoxLayout" name="verticalLayout_2">
                 <item>
-                    <widget class="QLabel" name="label">
-                        <property name="text">
-                            <string>功能正在开发...</string>
-                        </property>
-                        <property name="alignment">
-                            <set>Qt::AlignCenter</set>
-                        </property>
-                    </widget>
+                    <layout class="QHBoxLayout" name="horizontalLayout_6">
+                        <item>
+                            <widget class="QCheckBox" name="geometricCheckBox">
+                                <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                </property>
+                                <property name="text">
+                                    <string>基于统计和几何的形状特征</string>
+                                </property>
+                                <property name="checked">
+                                    <bool>true</bool>
+                                </property>
+                                <property name="autoExclusive">
+                                    <bool>false</bool>
+                                </property>
+                            </widget>
+                        </item>
+                    </layout>
+                </item>
+                <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_5">
+                        <item>
+                            <widget class="QCheckBox" name="glcmCheckBox">
+                                <property name="text">
+                                    <string>基于灰度共生矩阵的纹理特征</string>
+                                </property>
+                                <property name="checked">
+                                    <bool>true</bool>
+                                </property>
+                            </widget>
+                        </item>
+                    </layout>
+                </item>
+                <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_4">
+                        <item>
+                            <widget class="QCheckBox" name="fdCheckBox">
+                                <property name="text">
+                                    <string>傅立叶描述子特征</string>
+                                </property>
+                            </widget>
+                        </item>
+                    </layout>
+                </item>
+                <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_3">
+                        <item>
+                            <widget class="QCheckBox" name="hogCheckBox">
+                                <property name="text">
+                                    <string>HOG算子特征</string>
+                                </property>
+                            </widget>
+                        </item>
+                    </layout>
+                </item>
+                <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout">
+                        <item>
+                            <widget class="QCheckBox" name="siftCheckBox">
+                                <property name="text">
+                                    <string>SIFT算子特征</string>
+                                </property>
+                            </widget>
+                        </item>
+                    </layout>
+                </item>
+                <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_2">
+                        <item>
+                            <widget class="QCheckBox" name="lbpCheckBox">
+                                <property name="text">
+                                    <string>LBP算子特征</string>
+                                </property>
+                                <property name="checked">
+                                    <bool>true</bool>
+                                </property>
+                            </widget>
+                        </item>
+                    </layout>
                 </item>
             </layout>
         </widget>

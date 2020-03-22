@@ -11,16 +11,15 @@ import core.classifier.image_classifier as imc
 
 
 class MainProcessInterface(metaclass=abc.ABCMeta):
-    def __init__(self, vdr: dr.DataReadInterface, vimr: imr.ImageReadInterface,
+    def __init__(self, vdsr: dsr.DataSetReadInterface, vdr: dr.DataReadInterface, vimr: imr.ImageReadInterface,
                  vimf: imf.ImageFeature, vfr: fr.FeatureReadInterface,
                  vimc: imc.ImageClassifierInterface):
-        # self.data_set_read = vdsr vdsr: dsr.DataSetReadInterface,
+        self.data_set_read = vdsr
         self.data_read = vdr
         self.image_read = vimr
         self.image_feature = vimf
         self.feature_read = vfr
         self.image_classifier = vimc
-        self.data_set_num = None
 
     @abc.abstractmethod
     def do_flow(self):
@@ -28,13 +27,15 @@ class MainProcessInterface(metaclass=abc.ABCMeta):
 
 
 class MainProcess(MainProcessInterface):
-    def do_flow(self, is_feature_fetch: bool = False, is_train_model=False, is_predict=True):
+
+    def do_flow(self, is_feature_fetch: bool = False, is_train_model=False, is_predict=False):
+        cls = ps.PathSome()
         if is_feature_fetch:
             img_it = self.data_read.get_images_iter()
             labels = self.data_read.get_labels()
-            if not self.data_read.data_set.path_some.is_file_exists(self.data_set_num, '', 'label'):
-                np.savetxt(self.data_read.data_set.path_some.fetch(self.data_set_num, '', 'label'), labels)
-            self.image_feature.fetch_proc(img_it, self.image_read, self.data_read.data_set.data_set_num)
+            if not cls.is_file_exists(self.data_set_read.data_set_num, '', 'label'):
+                np.savetxt(cls.fetch(self.data_set_read.data_set_num, '', 'label'), labels)
+            self.image_feature.fetch_proc(img_it, self.image_read, self.data_set_read)
         elif is_train_model:
             self.image_classifier.fit(self.feature_read)
         elif is_predict:
