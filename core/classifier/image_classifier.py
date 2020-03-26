@@ -5,6 +5,7 @@ from sklearn.preprocessing import StandardScaler
 import core.image_processing.image_segmentation as imseg
 import core.data_preprocessing.PCA_processing as pca
 import core.data_preprocessing.feature_read as fr
+import core.data_preprocessing.data_set_read as dsr
 from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import StratifiedKFold
@@ -22,7 +23,7 @@ from sklearn.neural_network import MLPClassifier
 
 class ImageClassifierInterface(metaclass=abc.ABCMeta):
     @abc.abstractmethod
-    def fit(self, feature_read: fr.FeatureReadInterface):
+    def fit(self, feature_read: fr.FeatureReadInterface, data_set_read: dsr.DataSetReadInterface):
         pass
 
     @abc.abstractmethod
@@ -39,15 +40,17 @@ class ImageClassifierInterface(metaclass=abc.ABCMeta):
 
 
 class ImageClassifier(ImageClassifierInterface):
-    def __init__(self, feature_read: fr.FeatureReadInterface
+    def __init__(self, feature_read: fr.FeatureReadInterface, data_set_read: dsr.DataSetReadInterface
                  , model_type: str = 'knn', is_scaler: bool = True, is_pca: bool = False,
-                 is_find_best_suparam: bool = False):
+                 is_find_best_suparam: bool = False, is_save_model=True):
         self.clf = None
         self.model_type = model_type
         self.is_scaler = is_scaler
         self.is_pca = is_pca
         self.is_find_best_suparam = is_find_best_suparam
+        self.is_save_model = is_save_model
         self.feature_read = feature_read
+        self.data_set_read = data_set_read
 
     def set_model_type(self, model_type: str):
         self.model_type = model_type
@@ -61,19 +64,22 @@ class ImageClassifier(ImageClassifierInterface):
     def set_is_find_best_suparam(self, is_find_best_suparam: bool):
         self.is_find_best_suparam = is_find_best_suparam
 
+    def set_is_save_model(self, is_save_model: bool):
+        self.is_save_model = is_save_model
+
     def save(self):
         joblib.dump(self.clf, "models/" + self.model_type + '_' + str(
-            self.feature_read.data_set_num) + '_' + self.feature_read.feature_code + '.m')
+            self.data_set_read.data_set_num) + '_' + self.feature_read.feature_code + '.m')
 
     def load(self):
         joblib.load("models/" + self.model_type + '_' + str(
-            self.feature_read.data_set_num) + '_' + self.feature_read.feature_code + '.m', self.clf)
+            self.data_set_read.data_set_num) + '_' + self.feature_read.feature_code + '.m', self.clf)
 
     def predict(self):
         pass
 
-    def fit(self, feature_read: fr.FeatureReadInterface):
-        features, labels = self.feature_read.get_feature_label(2, '110001', 0)
+    def fit(self, feature_read: fr.FeatureReadInterface, data_set_read: dsr.DataSetReadInterface):
+        features, labels = self.feature_read.get_feature_label(data_set_read)
         ss = StratifiedShuffleSplit(n_splits=1, test_size=0.25, train_size=0.75, random_state=0)
         train_index, test_index = next(ss.split(features, labels))
         train_features, train_labels = features[train_index], labels[train_index]
@@ -119,6 +125,9 @@ class ImageClassifier(ImageClassifierInterface):
             clf.fit(train_features, train_labels)
             self.clf = clf
             print("\n>>====== train finished with %s samples ======<<\n" % train_labels.shape[0])
+            if self.is_save_model:
+                self.save()
+                print('>>====== model saved ! ======<<')
             print('>>======train_set score:======<<')
             print("acc:%s" % clf.score(train_features, train_labels))
             predicted = clf.predict(train_features)
@@ -129,28 +138,15 @@ class ImageClassifier(ImageClassifierInterface):
             # print("Classification report for classifier %s:\n%s\n"
             #       % (clf, metrics.classification_report(expected, predicted)))
             print("Confusion matrix:\n%s" % metrics.confusion_matrix(test_labels, predicted))
+            self.print_confusion_matrix(metrics.confusion_matrix(test_labels, predicted))
 
-    def print_confusion_matrix(self):
-        from sklearn.metrics import confusion_matrix
+    def print_confusion_matrix(self, cm):
         import matplotlib.pyplot as plt
         import numpy as np
 
         # labels表示你不同类别的代号，比如这里的demo中有13个类别
-        labels = ['A', 'B', 'C', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O']
-
-        '''
-        具体解释一下re_label.txt和pr_label.txt这两个文件，比如你有100个样本
-        去做预测，这100个样本中一共有10类，那么首先这100个样本的真实label你一定
-        是知道的，一共有10个类别，用[0,9]表示，则re_label.txt文件中应该有100
-        个数字，第n个数字代表的是第n个样本的真实label（100个样本自然就有100个
-        数字）。
-        同理，pr_label.txt里面也应该有1--个数字，第n个数字代表的是第n个样本经过
-        你训练好的网络预测出来的预测label。
-        这样，re_label.txt和pr_label.txt这两个文件分别代表了你样本的真实label和预测label，然后读到y_true和y_pred这两个变量中计算后面的混淆矩阵。当然，不一定非要使用这种txt格式的文件读入的方式，只要你最后将你的真实
-        label和预测label分别保存到y_true和y_pred这两个变量中即可。
-        '''
-        y_true = np.loadtxt('../Data/re_label.txt')
-        y_pred = np.loadtxt('../Data/pr_label.txt')
+        labels = ["Coscinodiscus", "Cyclotella", "Diatome", "Melosira", "Navicula",
+                  "Nitzschia", "Stephanodiscus", "Synedra", "Thalassiosira"]
 
         tick_marks = np.array(range(len(labels))) + 0.5
 
@@ -159,17 +155,15 @@ class ImageClassifier(ImageClassifierInterface):
             plt.title(title)
             plt.colorbar()
             xlocations = np.array(range(len(labels)))
-            plt.xticks(xlocations, labels, rotation=90)
+            plt.xticks(xlocations, labels, rotation=30)
             plt.yticks(xlocations, labels)
             plt.ylabel('True label')
             plt.xlabel('Predicted label')
 
-        cm = confusion_matrix(y_true, y_pred)
+        cm = cm
         np.set_printoptions(precision=2)
         cm_normalized = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
-        print
-        cm_normalized
-        plt.figure(figsize=(12, 8), dpi=120)
+        plt.figure(figsize=(12, 17), dpi=90)
 
         ind_array = np.arange(len(labels))
         x, y = np.meshgrid(ind_array, ind_array)
@@ -184,9 +178,7 @@ class ImageClassifier(ImageClassifierInterface):
         plt.gca().xaxis.set_ticks_position('none')
         plt.gca().yaxis.set_ticks_position('none')
         plt.grid(True, which='minor', linestyle='-')
-        plt.gcf().subplots_adjust(bottom=0.15)
+        plt.gcf().subplots_adjust(bottom=0.17, left=0.17)
 
         plot_confusion_matrix(cm_normalized, title='Normalized confusion matrix')
-        # show confusion matrix
-        plt.savefig('../Data/confusion_matrix.png', format='png')
         plt.show()

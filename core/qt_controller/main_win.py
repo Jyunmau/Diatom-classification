@@ -52,7 +52,7 @@ class MainWin(QtWidgets.QMainWindow, ui_MainWin.Ui_MainWindow):
         self.image_read = imr.ImageRead()
         self.image_feature = imf.ImageFeature(True, True, False, False, False, True)
         self.feature_read = fr.FeatureRead()
-        self.image_classifier = imc.ImageClassifier(self.feature_read)
+        self.image_classifier = imc.ImageClassifier(self.feature_read, self.data_set_read)
         # 创建全局信号线程实例
         self.public_signal = public_signal.PublicSignal()
         # 信号槽链接
@@ -80,8 +80,8 @@ class MainWin(QtWidgets.QMainWindow, ui_MainWin.Ui_MainWindow):
         main_process = mp.MainProcess(self.data_set_read, self.data_read, self.image_read, self.image_feature,
                                       self.feature_read,
                                       self.image_classifier)
-        main_process.do_flow(self.featureFetchRadioButton.isChecked(), self.modelRadioButton.isChecked(),
-                             self.predictRadioButton.isChecked())
+        main_process.do_flow(self.featureFetchCheckBox.isChecked(), self.modelCheckBox.isChecked(),
+                             self.predictCheckBox.isChecked())
 
     def setting_path(self):
         self.path_wid.show()

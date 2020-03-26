@@ -37,7 +37,7 @@ class MainProcess(MainProcessInterface):
                 np.savetxt(cls.fetch(self.data_set_read.data_set_num, '', 'label'), labels)
             self.image_feature.fetch_proc(img_it, self.image_read, self.data_set_read)
         elif is_train_model:
-            self.image_classifier.fit(self.feature_read)
+            self.image_classifier.fit(self.feature_read, self.data_set_read)
         elif is_predict:
             self.image_classifier.predict()
 

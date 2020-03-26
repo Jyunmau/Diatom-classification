@@ -10,7 +10,7 @@ class FeatureReadInterface(metaclass=abc.ABCMeta):
     feature_code: str
 
     @abc.abstractmethod
-    def get_feature_label(self, data_set_num: int, feature_code: str):
+    def get_feature_label(self, data_set_read: dsr.DataSetReadInterface, batch_num: int = 0):
         pass
 
 

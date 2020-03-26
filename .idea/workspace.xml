@@ -2,23 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b31d3feb-a8b4-4948-90aa-7afcc679c769" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/core/qt_controller/feature_fetch_wid.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/qt_controller/feature_read_wid.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/qt_controller/image_wid.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/qt_controller/model_wid.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/qt_controller/path_wid.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/qt_controller/predict_result_wid.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/qt_controller/predict_wid.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Qt_Ui/featureReadWid.ui" beforeDir="false" afterPath="$PROJECT_DIR$/Qt_Ui/featureReadWid.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/data_preprocessing/data_read.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/data_preprocessing/data_read.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/classifier/image_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/classifier/image_classifier.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/data_preprocessing/feature_read.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/data_preprocessing/feature_read.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/feature_processing/image_feature.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/feature_processing/image_feature.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/image_processing/image_read.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/image_processing/image_read.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/main_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/main_process.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/public_signal.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/public_signal.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/qt_controller/main_win.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/qt_controller/main_win.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +55,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/venv" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.statistic.project.settings" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -192,9 +180,9 @@
     <list>
       <item itemvalue="Python.feature_read" />
       <item itemvalue="Python.freak_descriptor" />
+      <item itemvalue="Python.main" />
       <item itemvalue="Python.main_process" />
       <item itemvalue="Python.starter" />
-      <item itemvalue="Python.main" />
     </list>
     <recent_temporary>
       <list>
@@ -446,7 +434,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584804393112</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="feat：各窗体跳转和路径设置窗体逻辑">
+      <created>1584881079630</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1584881079630</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -466,7 +461,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="工程结构调整" />
     <MESSAGE value="傅里叶描述字实现" />
     <MESSAGE value="sift特征" />
     <MESSAGE value="别人的svm实现" />
@@ -491,7 +485,8 @@
     <MESSAGE value="feat：主窗体逻辑" />
     <MESSAGE value="feat：主窗体flow逻辑" />
     <MESSAGE value="feat：各设置窗体和结果窗体布局" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat：各设置窗体和结果窗体布局" />
+    <MESSAGE value="feat：各窗体跳转和路径设置窗体逻辑" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat：各窗体跳转和路径设置窗体逻辑" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -519,34 +514,34 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="675" y="454" key="#com.jetbrains.python.refactoring.move.PyMakeFunctionTopLevelDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1582777833901" />
-    <state x="1113" y="65" key="CommitChangelistDialog2" timestamp="1584804392565">
+    <state x="1113" y="65" key="CommitChangelistDialog2" timestamp="1584881079370">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="1113" y="65" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1584804392565" />
+    <state x="1113" y="65" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1584881079370" />
     <state x="425" y="112" key="CommitChangelistDialog2/0.23.1920.977@0.23.1920.977" timestamp="1582168367545" />
     <state x="425" y="112" key="CommitChangelistDialog2/0.23.1920.979@0.23.1920.979" timestamp="1582468832136" />
-    <state width="1899" height="485" key="GridCell.Tab.0.bottom" timestamp="1584880919173">
+    <state width="1899" height="485" key="GridCell.Tab.0.bottom" timestamp="1585225734585">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="485" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1584880919173" />
+    <state width="1899" height="485" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1585225734585" />
     <state width="1379" height="250" key="GridCell.Tab.0.bottom/0.23.1920.977@0.23.1920.977" timestamp="1582126730153" />
     <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.23.1920.979@0.23.1920.979" timestamp="1584115807789" />
-    <state width="1899" height="485" key="GridCell.Tab.0.center" timestamp="1584880919171">
+    <state width="1899" height="485" key="GridCell.Tab.0.center" timestamp="1585225734583">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="485" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1584880919171" />
+    <state width="1899" height="485" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1585225734583" />
     <state width="1379" height="250" key="GridCell.Tab.0.center/0.23.1920.977@0.23.1920.977" timestamp="1582126730152" />
     <state width="1899" height="282" key="GridCell.Tab.0.center/0.23.1920.979@0.23.1920.979" timestamp="1584115807788" />
-    <state width="1899" height="485" key="GridCell.Tab.0.left" timestamp="1584880919170">
+    <state width="1899" height="485" key="GridCell.Tab.0.left" timestamp="1585225734582">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="485" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1584880919170" />
+    <state width="1899" height="485" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1585225734582" />
     <state width="1379" height="250" key="GridCell.Tab.0.left/0.23.1920.977@0.23.1920.977" timestamp="1582126730152" />
     <state width="1899" height="282" key="GridCell.Tab.0.left/0.23.1920.979@0.23.1920.979" timestamp="1584115807787" />
-    <state width="1899" height="485" key="GridCell.Tab.0.right" timestamp="1584880919172">
+    <state width="1899" height="485" key="GridCell.Tab.0.right" timestamp="1585225734584">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="485" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1584880919172" />
+    <state width="1899" height="485" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1585225734584" />
     <state width="1379" height="250" key="GridCell.Tab.0.right/0.23.1920.977@0.23.1920.977" timestamp="1582126730152" />
     <state width="1899" height="282" key="GridCell.Tab.0.right/0.23.1920.979@0.23.1920.979" timestamp="1584115807788" />
     <state width="929" height="375" key="GridCell.Tab.1.bottom" timestamp="1582461617398">
@@ -569,28 +564,32 @@
     </state>
     <state width="929" height="375" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1582456548071" />
     <state width="929" height="375" key="GridCell.Tab.1.right/0.23.1920.979@0.23.1920.979" timestamp="1582461617397" />
-    <state x="475" y="101" key="SettingsEditor" timestamp="1584589482944">
+    <state x="475" y="101" key="SettingsEditor" timestamp="1584882944273">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="475" y="101" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1584589482944" />
+    <state x="475" y="101" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1584882944273" />
     <state x="469" y="150" key="SettingsEditor/0.23.1920.977@0.23.1920.977" timestamp="1582162591434" />
     <state x="469" y="150" key="SettingsEditor/0.23.1920.979@0.23.1920.979" timestamp="1582465982595" />
-    <state x="560" y="252" key="Vcs.Push.Dialog.v2" timestamp="1584804394867">
+    <state x="560" y="252" key="Vcs.Push.Dialog.v2" timestamp="1584882951230">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="560" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1584804394867" />
+    <state x="560" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1584882951230" />
     <state x="560" y="251" key="Vcs.Push.Dialog.v2/0.23.1920.977@0.23.1920.977" timestamp="1582168375016" />
     <state x="560" y="251" key="Vcs.Push.Dialog.v2/0.23.1920.979@0.23.1920.979" timestamp="1582468835324" />
-    <state x="653" y="366" key="com.intellij.ide.util.TipDialog" timestamp="1584689942875">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="653" y="366" key="com.intellij.ide.util.TipDialog" timestamp="1585021603623">
+      <screen x="0" y="23" width="1920" height="979" />
     </state>
     <state x="653" y="366" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1584689942875" />
     <state x="653" y="344" key="com.intellij.ide.util.TipDialog/0.23.1920.977@0.23.1920.977" timestamp="1582162486023" />
-    <state x="653" y="366" key="com.intellij.ide.util.TipDialog/0.23.1920.979@0.23.1920.979" timestamp="1584588429430" />
+    <state x="653" y="366" key="com.intellij.ide.util.TipDialog/0.23.1920.979@0.23.1920.979" timestamp="1585021603623" />
     <state x="717" y="252" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1582168403128">
       <screen x="0" y="23" width="1920" height="977" />
     </state>
     <state x="717" y="252" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.23.1920.977@0.23.1920.977" timestamp="1582168403128" />
+    <state x="722" y="178" key="refactoring.ChangeSignatureDialog" timestamp="1585216010115">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="722" y="178" key="refactoring.ChangeSignatureDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1585216010115" />
     <state x="625" y="241" width="670" height="676" key="search.everywhere.popup" timestamp="1583595034259">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
