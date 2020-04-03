@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b31d3feb-a8b4-4948-90aa-7afcc679c769" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/core/data_preprocessing/singgle_feature_proc.py" afterDir="false" />
+    <list default="true" id="b31d3feb-a8b4-4948-90aa-7afcc679c769" name="Default Changelist" comment="feat：特征预处理">
+      <change afterPath="$PROJECT_DIR$/core/data_preprocessing/feature selection.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/data_preprocessing/singgle_feature_proc.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/data_preprocessing/feature_preproc.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +68,28 @@
       <recent name="C:\Users\JyunmauChan\Documents\GitHub\Diatom-classification\data_preprocessing" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.singgle_feature_proc">
+  <component name="RunManager" selected="Python.feature_preproc">
+    <configuration name="feature_preproc" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Diatom-classification" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/core/data_preprocessing" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/core/data_preprocessing/feature_preproc.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="feature_read" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Diatom-classification" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -131,27 +153,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="singgle_feature_proc" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Diatom-classification" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/core/data_preprocessing" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/core/data_preprocessing/singgle_feature_proc.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="starter" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Diatom-classification" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -175,15 +176,15 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.feature_preproc" />
       <item itemvalue="Python.feature_read" />
       <item itemvalue="Python.main" />
       <item itemvalue="Python.main_process" />
-      <item itemvalue="Python.singgle_feature_proc" />
       <item itemvalue="Python.starter" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.singgle_feature_proc" />
+        <item itemvalue="Python.feature_preproc" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.starter" />
         <item itemvalue="Python.main_process" />
@@ -445,7 +446,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585232010670</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="feat：特征预处理">
+      <created>1585801591894</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1585801591894</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -465,7 +473,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="sift特征" />
     <MESSAGE value="别人的svm实现" />
     <MESSAGE value="测试代码微调&amp;新数据集的特征" />
     <MESSAGE value="可通过编码参数选择特征和数据集" />
@@ -490,7 +497,8 @@
     <MESSAGE value="feat：各设置窗体和结果窗体布局" />
     <MESSAGE value="feat：各窗体跳转和路径设置窗体逻辑" />
     <MESSAGE value="feat：混淆矩阵ui输出" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat：混淆矩阵ui输出" />
+    <MESSAGE value="feat：特征预处理" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat：特征预处理" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -518,10 +526,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="675" y="454" key="#com.jetbrains.python.refactoring.move.PyMakeFunctionTopLevelDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1582777833901" />
-    <state x="1113" y="65" key="CommitChangelistDialog2" timestamp="1585232010336">
+    <state x="1113" y="65" key="CommitChangelistDialog2" timestamp="1585841158245">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="1113" y="65" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1585232010336" />
+    <state x="1113" y="65" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1585841158245" />
     <state x="425" y="112" key="CommitChangelistDialog2/0.23.1920.977@0.23.1920.977" timestamp="1582168367545" />
     <state x="425" y="112" key="CommitChangelistDialog2/0.23.1920.979@0.23.1920.979" timestamp="1582468832136" />
     <state width="1899" height="375" key="GridCell.Tab.0.bottom" timestamp="1585800627364">
@@ -574,16 +582,16 @@
     <state x="475" y="101" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1584882944273" />
     <state x="469" y="150" key="SettingsEditor/0.23.1920.977@0.23.1920.977" timestamp="1582162591434" />
     <state x="469" y="150" key="SettingsEditor/0.23.1920.979@0.23.1920.979" timestamp="1582465982595" />
-    <state x="560" y="252" key="Vcs.Push.Dialog.v2" timestamp="1585237767045">
+    <state x="560" y="252" key="Vcs.Push.Dialog.v2" timestamp="1585841162414">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="560" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1585237767045" />
+    <state x="560" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1585841162414" />
     <state x="560" y="251" key="Vcs.Push.Dialog.v2/0.23.1920.977@0.23.1920.977" timestamp="1582168375016" />
     <state x="560" y="251" key="Vcs.Push.Dialog.v2/0.23.1920.979@0.23.1920.979" timestamp="1582468835324" />
-    <state x="653" y="366" key="com.intellij.ide.util.TipDialog" timestamp="1585800645374">
+    <state x="653" y="366" key="com.intellij.ide.util.TipDialog" timestamp="1585882172413">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="653" y="366" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1585800645373" />
+    <state x="653" y="366" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1585882172413" />
     <state x="653" y="344" key="com.intellij.ide.util.TipDialog/0.23.1920.977@0.23.1920.977" timestamp="1582162486023" />
     <state x="653" y="366" key="com.intellij.ide.util.TipDialog/0.23.1920.979@0.23.1920.979" timestamp="1585021603623" />
     <state x="717" y="252" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1582168403128">
