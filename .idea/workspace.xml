@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b31d3feb-a8b4-4948-90aa-7afcc679c769" name="Default Changelist" comment="feat：特征预处理">
-      <change afterPath="$PROJECT_DIR$/core/data_preprocessing/feature selection.py" afterDir="false" />
+    <list default="true" id="b31d3feb-a8b4-4948-90aa-7afcc679c769" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/data_preprocessing/singgle_feature_proc.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/data_preprocessing/feature_preproc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Qt_Ui/featureReadWid.ui" beforeDir="false" afterPath="$PROJECT_DIR$/Qt_Ui/featureReadWid.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/data_preprocessing/feature selection.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/data_preprocessing/feature_selection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/data_preprocessing/feature_read.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/data_preprocessing/feature_read.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/data_preprocessing/format_processing.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -453,7 +455,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585801591894</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="feat：特征选择">
+      <created>1585926280732</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1585926280732</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -473,7 +482,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="别人的svm实现" />
     <MESSAGE value="测试代码微调&amp;新数据集的特征" />
     <MESSAGE value="可通过编码参数选择特征和数据集" />
     <MESSAGE value="可通过编码参数选择特征(组合)和数据集" />
@@ -498,7 +506,8 @@
     <MESSAGE value="feat：各窗体跳转和路径设置窗体逻辑" />
     <MESSAGE value="feat：混淆矩阵ui输出" />
     <MESSAGE value="feat：特征预处理" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat：特征预处理" />
+    <MESSAGE value="feat：特征选择" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat：特征选择" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -526,10 +535,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="675" y="454" key="#com.jetbrains.python.refactoring.move.PyMakeFunctionTopLevelDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1582777833901" />
-    <state x="1113" y="65" key="CommitChangelistDialog2" timestamp="1585841158245">
+    <state x="1113" y="65" key="CommitChangelistDialog2" timestamp="1585926280280">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="1113" y="65" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1585841158245" />
+    <state x="1113" y="65" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1585926280280" />
     <state x="425" y="112" key="CommitChangelistDialog2/0.23.1920.977@0.23.1920.977" timestamp="1582168367545" />
     <state x="425" y="112" key="CommitChangelistDialog2/0.23.1920.979@0.23.1920.979" timestamp="1582468832136" />
     <state width="1899" height="375" key="GridCell.Tab.0.bottom" timestamp="1585800627364">
@@ -582,16 +591,16 @@
     <state x="475" y="101" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1584882944273" />
     <state x="469" y="150" key="SettingsEditor/0.23.1920.977@0.23.1920.977" timestamp="1582162591434" />
     <state x="469" y="150" key="SettingsEditor/0.23.1920.979@0.23.1920.979" timestamp="1582465982595" />
-    <state x="560" y="252" key="Vcs.Push.Dialog.v2" timestamp="1585841162414">
+    <state x="560" y="252" key="Vcs.Push.Dialog.v2" timestamp="1585926497485">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="560" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1585841162414" />
+    <state x="560" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1585926497485" />
     <state x="560" y="251" key="Vcs.Push.Dialog.v2/0.23.1920.977@0.23.1920.977" timestamp="1582168375016" />
     <state x="560" y="251" key="Vcs.Push.Dialog.v2/0.23.1920.979@0.23.1920.979" timestamp="1582468835324" />
-    <state x="653" y="366" key="com.intellij.ide.util.TipDialog" timestamp="1585882172413">
+    <state x="653" y="366" key="com.intellij.ide.util.TipDialog" timestamp="1586057721401">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="653" y="366" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1585882172413" />
+    <state x="653" y="366" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1586057721401" />
     <state x="653" y="344" key="com.intellij.ide.util.TipDialog/0.23.1920.977@0.23.1920.977" timestamp="1582162486023" />
     <state x="653" y="366" key="com.intellij.ide.util.TipDialog/0.23.1920.979@0.23.1920.979" timestamp="1585021603623" />
     <state x="717" y="252" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1582168403128">

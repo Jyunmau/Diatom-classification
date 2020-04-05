@@ -3,6 +3,7 @@ import abc
 import numpy as np
 import core.path_some as ps
 import core.data_preprocessing.data_set_read as dsr
+import core.data_preprocessing.feature_selection as fs
 
 
 class FeatureReadInterface(metaclass=abc.ABCMeta):
@@ -68,6 +69,7 @@ class FeatureRead(FeatureReadInterface):
                 count = (count + 1 if (count < batch_num - 1) else 0)
             except StopIteration:
                 break
+        fs.transform(np.array(feature_batch), np.array(label_batch))
         return np.array(feature_batch), np.array(label_batch)
 
 
