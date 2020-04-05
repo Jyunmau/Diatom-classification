@@ -114,16 +114,96 @@
                 <item>
                     <layout class="QVBoxLayout" name="verticalLayout_3">
                         <item>
-                            <layout class="QVBoxLayout" name="verticalLayout_5"/>
+                            <layout class="QHBoxLayout" name="horizontalLayout_7">
+                                <item>
+                                    <widget class="QLabel" name="label">
+                                        <property name="text">
+                                            <string>特征维数:</string>
+                                        </property>
+                                    </widget>
+                                </item>
+                                <item>
+                                    <widget class="QSpinBox" name="featureNumSpinBox">
+                                        <property name="minimum">
+                                            <number>-2</number>
+                                        </property>
+                                        <property name="maximum">
+                                            <number>600</number>
+                                        </property>
+                                        <property name="value">
+                                            <number>450</number>
+                                        </property>
+                                    </widget>
+                                </item>
+                            </layout>
                         </item>
                         <item>
-                            <layout class="QVBoxLayout" name="verticalLayout_4"/>
+                            <layout class="QHBoxLayout" name="horizontalLayout_11">
+                                <item>
+                                    <widget class="QLabel" name="label_2">
+                                        <property name="text">
+                                            <string>特征选择方法:</string>
+                                        </property>
+                                    </widget>
+                                </item>
+                                <item>
+                                    <widget class="QComboBox" name="featureSelectionComboBox">
+                                        <item>
+                                            <property name="text">
+                                                <string>filter</string>
+                                            </property>
+                                        </item>
+                                        <item>
+                                            <property name="text">
+                                                <string>wrapper</string>
+                                            </property>
+                                        </item>
+                                        <item>
+                                            <property name="text">
+                                                <string>embedded</string>
+                                            </property>
+                                        </item>
+                                    </widget>
+                                </item>
+                            </layout>
                         </item>
                         <item>
-                            <layout class="QHBoxLayout" name="horizontalLayout_10"/>
+                            <layout class="QHBoxLayout" name="horizontalLayout_10">
+                                <item>
+                                    <widget class="QCheckBox" name="NormalizeCheckBox">
+                                        <property name="text">
+                                            <string>归一化</string>
+                                        </property>
+                                        <property name="checked">
+                                            <bool>true</bool>
+                                        </property>
+                                    </widget>
+                                </item>
+                                <item>
+                                    <widget class="QCheckBox" name="regularizaCheckBox">
+                                        <property name="text">
+                                            <string>正则化</string>
+                                        </property>
+                                        <property name="checked">
+                                            <bool>true</bool>
+                                        </property>
+                                    </widget>
+                                </item>
+                            </layout>
                         </item>
                         <item>
-                            <layout class="QHBoxLayout" name="horizontalLayout_11"/>
+                            <layout class="QHBoxLayout" name="horizontalLayout_8">
+                                <item>
+                                    <widget class="QCheckBox" name="checkBox_3">
+                                        <property name="text">
+                                            <string>数据变换（默认第一特征）</string>
+                                        </property>
+                                        <property name="checked">
+                                            <bool>true</bool>
+                                        </property>
+                                    </widget>
+                                </item>
+                            </layout>
                         </item>
                     </layout>
                 </item>
