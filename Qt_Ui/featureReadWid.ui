@@ -170,7 +170,7 @@
                         <item>
                             <layout class="QHBoxLayout" name="horizontalLayout_10">
                                 <item>
-                                    <widget class="QCheckBox" name="NormalizeCheckBox">
+                                    <widget class="QCheckBox" name="normalizeCheckBox">
                                         <property name="text">
                                             <string>归一化</string>
                                         </property>
@@ -180,7 +180,7 @@
                                     </widget>
                                 </item>
                                 <item>
-                                    <widget class="QCheckBox" name="regularizaCheckBox">
+                                    <widget class="QCheckBox" name="regularizeCheckBox">
                                         <property name="text">
                                             <string>正则化</string>
                                         </property>
@@ -194,7 +194,7 @@
                         <item>
                             <layout class="QHBoxLayout" name="horizontalLayout_8">
                                 <item>
-                                    <widget class="QCheckBox" name="checkBox_3">
+                                    <widget class="QCheckBox" name="transformCheckBox">
                                         <property name="text">
                                             <string>数据变换（默认第一特征）</string>
                                         </property>

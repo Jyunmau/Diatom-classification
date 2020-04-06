@@ -26,6 +26,7 @@ class PublicSignal(QThread):
     signal_rewrite = Signal()
     signal_rewrite_choose = Signal(str)
     signal_data_set_num = Signal(int)
+    signal_feature_read_wid_close = Signal()
 
     def send_image_path(self, image_path: str):
         self.signal_path.emit(image_path)
@@ -40,4 +41,7 @@ class PublicSignal(QThread):
         self.signal_rewrite_choose.emit(choose)
 
     def send_data_set_num(self, data_set_num: int):
-        self.signal_data_set_num(data_set_num)
+        self.signal_data_set_num.emit(data_set_num)
+
+    def send_signal_feature_read_wid_close(self):
+        self.signal_feature_read_wid_close.emit()

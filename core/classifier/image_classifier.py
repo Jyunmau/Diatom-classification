@@ -51,6 +51,9 @@ class ImageClassifier(ImageClassifierInterface):
         self.is_save_model = is_save_model
         self.feature_read = feature_read
         self.data_set_read = data_set_read
+        self.train_image_path = None
+        self.test_image_path = None
+        self.model = None
 
     def set_model_type(self, model_type: str):
         self.model_type = model_type
@@ -72,18 +75,24 @@ class ImageClassifier(ImageClassifierInterface):
             self.data_set_read.data_set_num) + '_' + self.feature_read.feature_code + '.m')
 
     def load(self):
-        joblib.load("models/" + self.model_type + '_' + str(
+        self.model = joblib.load("models/" + self.model_type + '_' + str(
             self.data_set_read.data_set_num) + '_' + self.feature_read.feature_code + '.m', self.clf)
 
     def predict(self):
-        pass
+        if self.test_image_path is None:
+            raise ValueError('test_image_path is None, please run func fit first!')
+        else:
+            pass
 
     def fit(self, feature_read: fr.FeatureReadInterface, data_set_read: dsr.DataSetReadInterface):
         features, labels = self.feature_read.get_feature_label(data_set_read)
         ss = StratifiedShuffleSplit(n_splits=1, test_size=0.25, train_size=0.75, random_state=0)
         train_index, test_index = next(ss.split(features, labels))
+        image_path = data_set_read.get_data()
         train_features, train_labels = features[train_index], labels[train_index]
         test_features, test_labels = features[test_index], labels[test_index]
+        self.train_image_path = image_path[train_index]
+        self.test_image_path = image_path[test_index]
         if self.is_pca:
             features = pca.pca_reduce(features)
         if self.is_scaler:

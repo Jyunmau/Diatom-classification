@@ -75,6 +75,7 @@ class MainWin(QtWidgets.QMainWindow, ui_MainWin.Ui_MainWindow):
         self.public_signal.signal_finish.connect(self.fetch_finished)
         self.public_signal.signal_rewrite.connect(self.file_rewrite)
         self.public_signal.signal_data_set_num.connect(self.set_data_path)
+        self.public_signal.signal_feature_read_wid_close(self.set_featrue_read)
 
     def start(self):
         main_process = mp.MainProcess(self.data_set_read, self.data_read, self.image_read, self.image_feature,
@@ -94,6 +95,13 @@ class MainWin(QtWidgets.QMainWindow, ui_MainWin.Ui_MainWindow):
 
     def setting_featrue_read(self):
         self.feature_read_wid.show()
+
+    def set_featrue_read(self):
+        self.feature_read.set_selection_func(self.feature_read_wid.selection_func)
+        self.feature_read.set_k(self.feature_read_wid.k)
+        self.feature_read.set_is_normalize(self.feature_read_wid.is_normalize)
+        self.feature_read.set_is_regularize(self.feature_read_wid.is_regularize)
+        self.feature_read.set_is_transform(self.feature_read_wid.is_transform)
 
     def setting_model(self):
         self.model_wid.show()

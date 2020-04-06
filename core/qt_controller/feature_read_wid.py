@@ -8,3 +8,15 @@ class FeatureReadWid(QtWidgets.QWidget, frw.Ui_featureReadWidget):
     def __init__(self):
         super(FeatureReadWid, self).__init__()
         self.setupUi(self)
+        self.k = self.featureNumSpinBox.text()
+        self.selection_func = self.featureSelectionComboBox.currentText()
+        self.is_regularize = self.regularizeCheckBox.isChecked()
+        self.is_normalize = self.normalizeCheckBox.isChecked()
+        self.is_transform = self.transformCheckBox.isChecked()
+
+    def closeEvent(self, event):
+        self.k = self.featureNumSpinBox.text()
+        self.selection_func = self.featureSelectionComboBox.currentText()
+        self.is_regularize = self.regularizeCheckBox.isChecked()
+        self.is_normalize = self.normalizeCheckBox.isChecked()
+        self.is_transform = self.transformCheckBox.isChecked()

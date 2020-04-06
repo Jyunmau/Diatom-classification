@@ -4,6 +4,7 @@ import numpy
 
 class SiftFeature:
     dest = None
+    split_num = None
 
     def calculate_sift(self, img):
         sift = cv2.xfeatures2d.SIFT_create()
@@ -13,4 +14,8 @@ class SiftFeature:
     def get_sift_feature(self, img):
         self.calculate_sift(img)
         print(self.dest.shape)
+        self.split_num = self.dest[1].shape[0]
         return self.dest[1]
+
+    def get_split_num(self):
+        return self.split_num

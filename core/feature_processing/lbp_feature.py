@@ -47,6 +47,7 @@ def Tran(src, drc):
 
 class LbpFeature:
     lbp_img = None
+    split_num = None
     g_mapping = [
         0, 1, 2, 3, 4, 58, 5, 6, 7, 58, 58, 58, 8, 58, 9, 10,
         11, 58, 58, 58, 58, 58, 58, 58, 12, 58, 58, 58, 13, 58, 14, 15,
@@ -99,7 +100,11 @@ class LbpFeature:
         self.calculate_lbp_img(gray_image)
         res = self.calculate_lbp_histogram()
         res = res.flatten()
+        self.split_num = res.shape[0]
         return res
+
+    def get_split_num(self):
+        return self.split_num
 
 
 def normalize(data):

@@ -93,6 +93,7 @@ class ImageFeature(QObject):
                 cls.delete_file(data_set_read.data_set_num, self.feature_code, 'feature')
             else:
                 return
+        split_list = []
         while True:
             try:
                 imgfile = next(img_it)
@@ -103,6 +104,7 @@ class ImageFeature(QObject):
                 if self.geometric_feature:
                     gf = gmt_feature.GeometricFeatures()
                     geometric = gf.get_geometric_features(image)
+                    split_list.append(gf.get_split_num())
                     if self.is_scale_1by1:
                         scaler = StandardScaler()
                         scaler.fit(geometric)
@@ -114,6 +116,7 @@ class ImageFeature(QObject):
                 if self.glcm_feature:
                     gbf = glcm_feature.GlcmBasedFeature()
                     texture = gbf.get_glcm_features(image)
+                    split_list.append(gbf.get_split_num())
                     if self.is_scale_1by1:
                         scaler = StandardScaler()
                         scaler.fit(texture)
@@ -125,6 +128,7 @@ class ImageFeature(QObject):
                 if self.fourier_descriptor_feature:
                     fdf = fd_feature.FourierDescriptorFeature()
                     fourier = fdf.get_fourier_descriptor(image)
+                    split_list.append(fdf.get_split_num())
                     if self.is_scale_1by1:
                         scaler = StandardScaler()
                         scaler.fit(fourier)
@@ -142,6 +146,7 @@ class ImageFeature(QObject):
                     # cv的hog
                     hog = hog_feature.hog_compute(image)
                     hog = np.array(hog).flatten()
+                    split_list.append(hog_feature.get_split_num())
                     if self.is_scale_1by1:
                         scaler = StandardScaler()
                         scaler.fit(hog)
@@ -153,6 +158,7 @@ class ImageFeature(QObject):
                 if self.sift_feature:
                     sf = sift_feature.SiftFeature()
                     sift = sf.get_sift_feature(image)
+                    split_list.append(sf.get_split_num())
                     if self.is_scale_1by1:
                         scaler = StandardScaler()
                         scaler.fit(sift)
@@ -165,6 +171,7 @@ class ImageFeature(QObject):
                     # lbp = lbp_feature.LBP(image)
                     lbp_f = lbp_feature.LbpFeature()
                     lbp = lbp_f.get_lbp_feature(image)
+                    split_list.append(lbp_f.get_split_num())
                     if self.is_scale_1by1:
                         scaler = StandardScaler()
                         scaler.fit(lbp)
@@ -178,6 +185,7 @@ class ImageFeature(QObject):
                 # self.labels.append(label)
             except StopIteration:
                 break
+        cls.fetch_feature_split(self.feature_code, split_list)
         features = np.array(self.features)
         labels = np.array(self.labels, dtype=np.int)
         print('>>>>===============================<<<<')

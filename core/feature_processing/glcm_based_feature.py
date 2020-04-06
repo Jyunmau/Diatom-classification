@@ -10,6 +10,8 @@ class GlcmBasedFeature:
     mean = None
     # 方差
     variance = None
+    # 特征维数
+    split_num = None
 
     def glcm(self, grayimg, d_x=2, d_y=2, gray_level=32):
         """
@@ -204,4 +206,8 @@ class GlcmBasedFeature:
         # features[4] = self._standard_deviation()
         # features[5] = self._correlation()
         # features[6] = self._dissimilarity()
+        self.split_num = features.shape[0]
         return features
+
+    def get_split_num(self):
+        return self.split_num

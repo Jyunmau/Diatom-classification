@@ -7,6 +7,8 @@ np.set_printoptions(suppress=True)
 class GeometricFeatures:
     """提取几何特征"""
 
+    split_num = None
+
     def contours(self, gray_img):
         """
         提取矩形度、延长度、周长比、似圆度、形状复杂性
@@ -57,4 +59,8 @@ class GeometricFeatures:
         cont = self.contours(gray_img)
         hu = self.hu_moments(gray_img)
         features = np.concatenate([cont, hu])
+        self.split_num = features.shape[0]
         return features
+
+    def get_split_num(self):
+        return self.split_num

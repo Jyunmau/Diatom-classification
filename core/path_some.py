@@ -1,4 +1,5 @@
 # -*- coding:utf-8 -*-
+import configparser
 import glob
 import os
 import numpy as np
@@ -55,6 +56,13 @@ class PathSome(object):
             yield image
 
     def fetch(self, data_set_num: int, s_n: str, f_or_l):
+        """
+        获取特征文件路径，以参数在features文件下创建或搜索文件名
+        :param data_set_num: 数据集编号
+        :param s_n: sign_of _num，用以区分包含何种特征的编码
+        :param f_or_l: feature_or_label
+        :return: 文件路径
+        """
         fetch_path = self.features + '/' + 'ds' + str(data_set_num) + '_' + f_or_l + s_n + '.txt'
         return fetch_path
 
@@ -70,6 +78,19 @@ class PathSome(object):
     def delete_file(self, data_set_num: int, s_n: str, f_or_l):
         fetch_path = self.features + '/' + 'ds' + str(data_set_num) + '_' + f_or_l + s_n + '.txt'
         os.remove(fetch_path)
+
+    def get_feature_split(self, s_n: str):
+        cp = configparser.ConfigParser()
+        fetch_path = self.features + '/' + 'config.cfg'
+        cp.read(fetch_path)
+        split_list = cp.get('feature_split', s_n).split('.')
+        return split_list
+
+    def fetch_feature_split(self, s_n: str, split_list: list):
+        cp = configparser.ConfigParser()
+        fetch_path = self.features + '/' + 'config.cfg'
+        cp.read(fetch_path)
+        cp.set('feature_split', s_n, '.'.join(split_list))
 
 
 if __name__ == '__main__':

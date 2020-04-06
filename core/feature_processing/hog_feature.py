@@ -88,6 +88,9 @@ class Hog_descriptor():
         return image
 
 
+split_num = None
+
+
 def hog_compute(gray_img):
     winSize = (256, 256)
     blockSize = (128, 128)
@@ -98,8 +101,12 @@ def hog_compute(gray_img):
     gray_img = np.resize(gray_img, (256, 256))
     hist = hog.compute(gray_img, winStride=(32, 32))
     print(hist.shape)
+    split_num = hist.shape[0]
     return hist
 
+
+def get_split_num():
+    return split_num
 # img = cv2.imread('person_037.png', cv2.IMREAD_GRAYSCALE)
 # hog = Hog_descriptor(img, cell_size=8, bin_size=8)
 # vector, image = hog.extract()

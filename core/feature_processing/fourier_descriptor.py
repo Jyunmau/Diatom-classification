@@ -7,6 +7,7 @@ class FourierDescriptorFeature:
     binary_image = None
     image_contour = None
     fd = None
+    split_num = None
 
     def _binary_morphology(self, gray_image):
         """二值化&形态学闭操作"""
@@ -58,4 +59,8 @@ class FourierDescriptorFeature:
         self._binary_morphology(gray_image)
         self._extract_contour()
         self._calculate_fourier_descriptor()
+        self.split_num = len(self.fd)
         return self.fd
+
+    def get_split_num(self):
+        return self.split_num

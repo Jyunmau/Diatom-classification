@@ -9,17 +9,20 @@ def transform(data, label, selection_func='filter', k=450):
     if selection_func == 'embedded':
         # Embedded：基于树模型的特征选择法
         # GBDT作为基模型的特征选择
-        SelectFromModel(GradientBoostingClassifier(), max_features=k).fit_transform(data, label)
+        tran_data = SelectFromModel(GradientBoostingClassifier(), max_features=k).fit_transform(data, label)
+        return tran_data
     elif selection_func == 'wrapper':
         # wrapper：递归特征消除法
         # 递归特征消除法，返回特征选择后的数据
         # 参数estimator为基模型
         # 参数n_features_to_select为选择的特征个数
-        RFE(estimator=LogisticRegression(), n_features_to_select=k).fit_transform(data, label)
+        tran_data = RFE(estimator=LogisticRegression(), n_features_to_select=k).fit_transform(data, label)
+        return tran_data
     elif selection_func == 'filter':
         # filter卡方检验
         # 选择K个最好的特征，返回选择特征后的数据
-        SelectKBest(chi2, k=k).fit_transform(data, label)
+        tran_data = SelectKBest(chi2, k=k).fit_transform(data, label)
+        return tran_data
     elif selection_func == 'embedded_scores':
         # Embedded：随机森林
         names = []
