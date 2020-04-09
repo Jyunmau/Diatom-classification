@@ -75,7 +75,7 @@ class MainWin(QtWidgets.QMainWindow, ui_MainWin.Ui_MainWindow):
         self.public_signal.signal_finish.connect(self.fetch_finished)
         self.public_signal.signal_rewrite.connect(self.file_rewrite)
         self.public_signal.signal_data_set_num.connect(self.set_data_path)
-        self.public_signal.signal_feature_read_wid_close(self.set_featrue_read)
+        self.public_signal.signal_feature_read_wid_close.connect(self.set_featrue_read)
 
     def start(self):
         main_process = mp.MainProcess(self.data_set_read, self.data_read, self.image_read, self.image_feature,
@@ -117,6 +117,7 @@ class MainWin(QtWidgets.QMainWindow, ui_MainWin.Ui_MainWindow):
         self.data_set_read.data_set_num = data_set_num
 
     def set_image_path(self, image_path: str):
+        """更新主窗体图片"""
         self.infoLabel.setText(str(image_path))
         self.imageLabel.setPixmap(QPixmap(image_path).scaled(self.imageLabel.height(), self.imageLabel.height()))
         QApplication.processEvents()

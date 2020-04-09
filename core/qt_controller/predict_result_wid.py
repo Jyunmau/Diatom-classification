@@ -1,5 +1,6 @@
 from PySide2 import QtWidgets
 import Qt_Ui.predictResultWid as prw
+import core.public_signal as ps
 
 
 class PredictResultWid(QtWidgets.QWidget, prw.Ui_predictResltWid):
@@ -10,6 +11,7 @@ class PredictResultWid(QtWidgets.QWidget, prw.Ui_predictResltWid):
     def __init__(self):
         super(PredictResultWid, self).__init__()
         self.setupUi(self)
+        self.public_signal = ps.PublicSignal()
 
     def set_result_data(self, data):
         self.data = data

@@ -6,6 +6,8 @@ import core.image_processing.image_segmentation as imseg
 import core.data_preprocessing.PCA_processing as pca
 import core.data_preprocessing.feature_read as fr
 import core.data_preprocessing.data_set_read as dsr
+import core.public_signal as ps
+
 from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import StratifiedKFold
@@ -23,7 +25,7 @@ from sklearn.neural_network import MLPClassifier
 
 class ImageClassifierInterface(metaclass=abc.ABCMeta):
     @abc.abstractmethod
-    def fit(self, feature_read: fr.FeatureReadInterface, data_set_read: dsr.DataSetReadInterface):
+    def fit(self):
         pass
 
     @abc.abstractmethod
@@ -80,15 +82,20 @@ class ImageClassifier(ImageClassifierInterface):
 
     def predict(self):
         if self.test_image_path is None:
-            raise ValueError('test_image_path is None, please run func fit first!')
-        else:
-            pass
+            self.test_image_path = self.data_set_read.get_data()['images']
+        features, labels = self.feature_read.get_feature_label(self.data_set_read)
+        self.load()
+        results = self.model.predict(features)
+        public_signal = ps.PublicSignal()
+        for i in range(len(results)):
+            public_signal.send_signal_predict_result(labels[i], results[i], self.test_image_path[i])
+            yield labels[i], results[i], self.test_image_path[i]
 
-    def fit(self, feature_read: fr.FeatureReadInterface, data_set_read: dsr.DataSetReadInterface):
-        features, labels = self.feature_read.get_feature_label(data_set_read)
+    def fit(self):
+        features, labels = self.feature_read.get_feature_label(self.data_set_read)
         ss = StratifiedShuffleSplit(n_splits=1, test_size=0.25, train_size=0.75, random_state=0)
         train_index, test_index = next(ss.split(features, labels))
-        image_path = data_set_read.get_data()
+        image_path = self.data_set_read.get_data()['images']
         train_features, train_labels = features[train_index], labels[train_index]
         test_features, test_labels = features[test_index], labels[test_index]
         self.train_image_path = image_path[train_index]
