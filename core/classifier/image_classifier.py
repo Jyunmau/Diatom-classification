@@ -43,7 +43,7 @@ class ImageClassifierInterface(metaclass=abc.ABCMeta):
 
 class ImageClassifier(ImageClassifierInterface):
     def __init__(self, feature_read: fr.FeatureReadInterface, data_set_read: dsr.DataSetReadInterface
-                 , model_type: str = 'knn', is_scaler: bool = True, is_pca: bool = False,
+                 , model_type: str = 'svm', is_scaler: bool = True, is_pca: bool = False,
                  is_find_best_suparam: bool = False, is_save_model=True):
         self.clf = None
         self.model_type = model_type
@@ -93,13 +93,15 @@ class ImageClassifier(ImageClassifierInterface):
 
     def fit(self):
         features, labels = self.feature_read.get_feature_label(self.data_set_read)
+        print(features.shape)
+        print(labels.shape)
         ss = StratifiedShuffleSplit(n_splits=1, test_size=0.25, train_size=0.75, random_state=0)
         train_index, test_index = next(ss.split(features, labels))
         image_path = self.data_set_read.get_data()['images']
         train_features, train_labels = features[train_index], labels[train_index]
         test_features, test_labels = features[test_index], labels[test_index]
-        self.train_image_path = image_path[train_index]
-        self.test_image_path = image_path[test_index]
+        self.train_image_path = np.array(image_path)[train_index]
+        self.test_image_path = np.array(image_path)[test_index]
         if self.is_pca:
             features = pca.pca_reduce(features)
         if self.is_scaler:

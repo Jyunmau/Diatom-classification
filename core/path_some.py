@@ -90,6 +90,7 @@ class PathSome(object):
         cp = configparser.ConfigParser()
         fetch_path = self.features + '/' + 'config.cfg'
         cp.read(fetch_path)
+        print(type(s_n))
         cp.set('feature_split', s_n, '.'.join(split_list))
 
 

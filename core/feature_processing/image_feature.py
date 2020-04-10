@@ -83,6 +83,7 @@ class ImageFeature(QObject):
     def fetch_proc(self, img_it, img_read: imr.ImageReadInterface, data_set_read: dsr.DataSetReadInterface):
         self._get_feature_code()
         cls = ps.PathSome()
+        self.labels = data_set_read.get_data()['labels']
         if cls.is_file_exists(data_set_read.data_set_num, self.feature_code, 'feature'):
             print("this feature combination has been fetched, do you want to rewrite it ?")
             self.public_signal.send_rewrite()
@@ -104,11 +105,7 @@ class ImageFeature(QObject):
                 if self.geometric_feature:
                     gf = gmt_feature.GeometricFeatures()
                     geometric = gf.get_geometric_features(image)
-                    split_list.append(gf.get_split_num())
-                    if self.is_scale_1by1:
-                        scaler = StandardScaler()
-                        scaler.fit(geometric)
-                        geometric = scaler.transform(geometric)
+                    split_list.append(str(gf.get_split_num()))
                     if feature is None:
                         feature = geometric
                     else:
@@ -116,11 +113,7 @@ class ImageFeature(QObject):
                 if self.glcm_feature:
                     gbf = glcm_feature.GlcmBasedFeature()
                     texture = gbf.get_glcm_features(image)
-                    split_list.append(gbf.get_split_num())
-                    if self.is_scale_1by1:
-                        scaler = StandardScaler()
-                        scaler.fit(texture)
-                        texture = scaler.transform(texture)
+                    split_list.append(str(gbf.get_split_num()))
                     if feature is None:
                         feature = texture
                     else:
@@ -128,11 +121,7 @@ class ImageFeature(QObject):
                 if self.fourier_descriptor_feature:
                     fdf = fd_feature.FourierDescriptorFeature()
                     fourier = fdf.get_fourier_descriptor(image)
-                    split_list.append(fdf.get_split_num())
-                    if self.is_scale_1by1:
-                        scaler = StandardScaler()
-                        scaler.fit(fourier)
-                        fourier = scaler.transform(fourier)
+                    split_list.append(str(fdf.get_split_num()))
                     if feature is None:
                         feature = fourier
                     else:
@@ -146,11 +135,7 @@ class ImageFeature(QObject):
                     # cv的hog
                     hog = hog_feature.hog_compute(image)
                     hog = np.array(hog).flatten()
-                    split_list.append(hog_feature.get_split_num())
-                    if self.is_scale_1by1:
-                        scaler = StandardScaler()
-                        scaler.fit(hog)
-                        hog = scaler.transform(hog)
+                    split_list.append(str(hog_feature.get_split_num()))
                     if feature is None:
                         feature = hog
                     else:
@@ -158,11 +143,7 @@ class ImageFeature(QObject):
                 if self.sift_feature:
                     sf = sift_feature.SiftFeature()
                     sift = sf.get_sift_feature(image)
-                    split_list.append(sf.get_split_num())
-                    if self.is_scale_1by1:
-                        scaler = StandardScaler()
-                        scaler.fit(sift)
-                        sift = scaler.transform(sift)
+                    split_list.append(str(sf.get_split_num()))
                     if feature is None:
                         feature = sift
                     else:
@@ -171,11 +152,7 @@ class ImageFeature(QObject):
                     # lbp = lbp_feature.LBP(image)
                     lbp_f = lbp_feature.LbpFeature()
                     lbp = lbp_f.get_lbp_feature(image)
-                    split_list.append(lbp_f.get_split_num())
-                    if self.is_scale_1by1:
-                        scaler = StandardScaler()
-                        scaler.fit(lbp)
-                        lbp = scaler.transform(lbp)
+                    split_list.append(str(lbp_f.get_split_num()))
                     if feature is None:
                         feature = lbp
                     else:
@@ -196,8 +173,8 @@ class ImageFeature(QObject):
         print(labels.shape)
         if not cls.is_file_exists(data_set_read.data_set_num, self.feature_code, 'feature'):
             np.savetxt(cls.fetch(data_set_read.data_set_num, self.feature_code, 'feature'), features, fmt="%s")
-        # if not cls.is_file_exists(self.data_set_num, '', 'label'):
-        #     np.savetxt(cls.fetch(self.data_set_num, '', 'label'), labels)
+        if not cls.is_file_exists(self.data_set_num, '', 'label'):
+            np.savetxt(cls.fetch(self.data_set_num, '', 'label'), labels)
         print('特征提取完成！，文件已保存')
         self.public_signal.send_finished()
 

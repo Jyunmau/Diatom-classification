@@ -39,8 +39,8 @@ class DataSetReadInterface(metaclass=abc.ABCMeta):
 
 class DataSetRead(DataSetReadInterface):
     """处理用于特征提取的各数据集的读取"""
-    label_id = {"Coscinodiscus": "0", "Cyclotella": "1", "Diatome": "2", "Melosira": "3", "Navicula": "4",
-                "Nitzschia": "5", "Stephanodiscus": "6", "Synedra": "7", "Thalassiosira": "8"}
+    label_id = {"Coscinodiscus": 0, "Cyclotella": 1, "Diatome": 2, "Melosira": 3, "Navicula": 4,
+                "Nitzschia": 5, "Stephanodiscus": 6, "Synedra": 7, "Thalassiosira": 8}
 
     def get_data(self):
         """
@@ -86,7 +86,7 @@ class DataSetRead(DataSetReadInterface):
         return data
 
     def _2_set(self, path):
-        img_path = glob.glob(path + '/' + '*' + '/*/*' + 'png')
+        img_path = glob.glob(path + '/' + '*' + '/stage_1/*' + 'png')
         labels = [self.label_id[img_file.split('/')[4]] for img_file in img_path]
         data = {'images': img_path, 'labels': labels}
         return data

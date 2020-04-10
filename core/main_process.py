@@ -31,8 +31,8 @@ class MainProcess(MainProcessInterface):
     def do_flow(self, is_feature_fetch: bool = False, is_train_model=False, is_predict=False):
         cls = ps.PathSome()
         if is_feature_fetch:
-            img_it = self.data_read.get_images_iter()
-            labels = self.data_read.get_labels()
+            img_it = self.data_read.get_images_iter(self.data_set_read)
+            labels = self.data_read.get_labels(self.data_set_read)
             if not cls.is_file_exists(self.data_set_read.data_set_num, '', 'label'):
                 np.savetxt(cls.fetch(self.data_set_read.data_set_num, '', 'label'), labels)
             self.image_feature.fetch_proc(img_it, self.image_read, self.data_set_read)
