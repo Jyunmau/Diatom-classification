@@ -80,6 +80,58 @@ class ImageFeature(QObject):
         self.feature_code = res
         return res
 
+    def _resolve_feature_code(self, feature_code: str):
+        if feature_code[0] == '1':
+            self.geometric_feature = True
+        else:
+            self.geometric_feature = False
+        if feature_code[1] == '1':
+            self.glcm_feature = True
+        else:
+            self.glcm_feature = False
+        if feature_code[2] == '1':
+            self.fourier_descriptor_feature = True
+        else:
+            self.fourier_descriptor_feature = False
+        if feature_code[3] == '1':
+            self.hog_feature = True
+        else:
+            self.hog_feature = False
+        if feature_code[4] == '1':
+            self.sift_feature = True
+        else:
+            self.sift_feature = False
+        if feature_code[5] == '1':
+            self.lbp_feature = True
+        else:
+            self.lbp_feature = False
+
+    def setter_feature_code(self, geo: bool, glcm: bool, fd: bool, hog: bool, sift: bool, lbp: bool):
+        self.geometric_feature = geo
+        self.glcm_feature = glcm
+        self.fourier_descriptor_feature = fd
+        self.hog_feature = hog
+        self.sift_feature = sift
+        self.lbp_feature = lbp
+
+    def _setter_geometric_feature(self, is_feature: bool):
+        self.geometric_feature = is_feature
+
+    def _setter_glcm_feature(self, is_feature: bool):
+        self.glcm_feature = is_feature
+
+    def _setter_lbp_feature(self, is_feature: bool):
+        self.lbp_feature = is_feature
+
+    def _setter_hog_feature(self, is_feature: bool):
+        self.hog_feature = is_feature
+
+    def _setter_sift_feature(self, is_feature: bool):
+        self.sift_feature = is_feature
+
+    def _setter_fourier_descriptor_feature(self, is_feature: bool):
+        self.fourier_descriptor_feature = is_feature
+
     def fetch_proc(self, img_it, img_read: imr.ImageReadInterface, data_set_read: dsr.DataSetReadInterface):
         self._get_feature_code()
         cls = ps.PathSome()

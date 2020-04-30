@@ -76,6 +76,8 @@ class MainWin(QtWidgets.QMainWindow, ui_MainWin.Ui_MainWindow):
         self.public_signal.signal_rewrite.connect(self.file_rewrite)
         self.public_signal.signal_data_set_num.connect(self.set_data_path)
         self.public_signal.signal_feature_read_wid_close.connect(self.set_featrue_read)
+        self.public_signal.signal_predict_result.connect(self.show_predict_result)
+        self.public_signal.signal_feature_code.connect(self.set_feature_code)
 
     def start(self):
         main_process = mp.MainProcess(self.data_set_read, self.data_read, self.image_read, self.image_feature,
@@ -96,6 +98,9 @@ class MainWin(QtWidgets.QMainWindow, ui_MainWin.Ui_MainWindow):
     def setting_featrue_read(self):
         self.feature_read_wid.show()
 
+    def set_feature_code(self, geo: bool, glcm: bool, fd: bool, hog: bool, sift: bool, lbp: bool):
+        self.image_feature.setter_feature_code(geo, glcm, fd, hog, sift, lbp)
+
     def set_featrue_read(self):
         self.feature_read.set_selection_func(self.feature_read_wid.selection_func)
         self.feature_read.set_k(self.feature_read_wid.k)
@@ -109,8 +114,7 @@ class MainWin(QtWidgets.QMainWindow, ui_MainWin.Ui_MainWindow):
     def setting_predict(self):
         self.predict_wid.show()
 
-    def show_predict_result(self, data):
-        self.predict_result_wid.set_result_data(data)
+    def show_predict_result(self):
         self.predict_result_wid.show()
 
     def set_data_path(self, data_set_num: int):

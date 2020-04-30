@@ -12,6 +12,11 @@ class PredictResultWid(QtWidgets.QWidget, prw.Ui_predictResltWid):
         super(PredictResultWid, self).__init__()
         self.setupUi(self)
         self.public_signal = ps.PublicSignal()
+        self.public_signal.signal_predict_result.connect(self.set_result_data)
 
-    def set_result_data(self, data):
-        self.data = data
+    def set_result_data(self, predict, real, img_path):
+        print(predict)
+        print(real)
+        self.imageLabel.setText(img_path)
+        self.predictLabel.setText(predict)
+        self.realLabel.setText(real)

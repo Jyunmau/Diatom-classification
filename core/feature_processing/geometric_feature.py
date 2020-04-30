@@ -24,8 +24,6 @@ class GeometricFeatures:
         for i in range(len(contours)):
             area.append(cv2.contourArea(contours[i]))
         cnt = contours[area.index(max(area))]
-        # 计算傅里叶形状描述子
-
         # 计算各参数
         db_area = np.fabs(cv2.contourArea(cnt))
         db_length = cv2.arcLength(cnt, True)
@@ -37,9 +35,6 @@ class GeometricFeatures:
         roundness = 4 * np.pi * db_area / (db_length * db_length)
         shape_complexity = (db_length * db_length) / db_area
         return np.array([rectangularity, extension, perimeter_ratio, roundness, shape_complexity])
-
-    def fourier_descriptor(self, contour):
-        pass
 
     def hu_moments(self, gray_img):
         """

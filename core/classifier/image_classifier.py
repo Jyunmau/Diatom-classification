@@ -89,7 +89,6 @@ class ImageClassifier(ImageClassifierInterface):
         public_signal = ps.PublicSignal()
         for i in range(len(results)):
             public_signal.send_signal_predict_result(labels[i], results[i], self.test_image_path[i])
-            yield labels[i], results[i], self.test_image_path[i]
 
     def fit(self):
         features, labels = self.feature_read.get_feature_label(self.data_set_read)
