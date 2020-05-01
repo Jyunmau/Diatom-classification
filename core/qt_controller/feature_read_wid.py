@@ -1,5 +1,6 @@
 from PySide2 import QtWidgets
 import Qt_Ui.featureReadWid as frw
+import core.public_signal as public_signal
 
 
 class FeatureReadWid(QtWidgets.QWidget, frw.Ui_featureReadWidget):
@@ -13,6 +14,7 @@ class FeatureReadWid(QtWidgets.QWidget, frw.Ui_featureReadWidget):
         self.is_regularize = self.regularizeCheckBox.isChecked()
         self.is_normalize = self.normalizeCheckBox.isChecked()
         self.is_transform = self.transformCheckBox.isChecked()
+        self.public_signal = public_signal.PublicSignal()
 
     def closeEvent(self, event):
         self.k = self.featureNumSpinBox.text()
@@ -20,3 +22,6 @@ class FeatureReadWid(QtWidgets.QWidget, frw.Ui_featureReadWidget):
         self.is_regularize = self.regularizeCheckBox.isChecked()
         self.is_normalize = self.normalizeCheckBox.isChecked()
         self.is_transform = self.transformCheckBox.isChecked()
+        self.public_signal.send_feature_code_read(self.geometricCheckBox.isChecked(), self.glcmCheckBox.isChecked(),
+                                                  self.fdCheckBox.isChecked(), self.hogCheckBox.isChecked(),
+                                                  self.siftCheckBox.isChecked(), self.lbpCheckBox.isChecked())

@@ -11,9 +11,9 @@ class FeatureFetchWid(QtWidgets.QWidget, ffw.Ui_featureFetchWidget):
         self.setupUi(self)
         # 创建全局信号线程实例
         self.public_signal = public_signal.PublicSignal()
-        self.yesButton.clicked.connect(self.chg_feature_code)
+        # self.yesButton.clicked.connect(self.chg_feature_code)
 
-    def chg_feature_code(self):
-        self.public_signal.send_feature_code(self.geometricCheckBox.isChecked(), self.glcmCheckBox.isChecked(),
-                                             self.fdCheckBox.isChecked(), self.hogCheckBox.isChecked(),
-                                             self.siftCheckBox.isChecked(), self.lbpCheckBox.isChecked())
+    def closeEvent(self, event):
+        self.public_signal.send_feature_code_fetch(self.geometricCheckBox.isChecked(), self.glcmCheckBox.isChecked(),
+                                                   self.fdCheckBox.isChecked(), self.hogCheckBox.isChecked(),
+                                                   self.siftCheckBox.isChecked(), self.lbpCheckBox.isChecked())

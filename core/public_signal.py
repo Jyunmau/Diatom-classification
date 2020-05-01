@@ -28,7 +28,8 @@ class PublicSignal(QThread):
     signal_data_set_num = Signal(int)
     signal_feature_read_wid_close = Signal()
     signal_predict_result = Signal(str, str, str)
-    signal_feature_code = Signal(bool, bool, bool, bool, bool, bool)
+    signal_feature_code_fetch = Signal(bool, bool, bool, bool, bool, bool)
+    signal_feature_code_read = Signal(bool, bool, bool, bool, bool, bool)
 
     def send_image_path(self, image_path: str):
         self.signal_path.emit(image_path)
@@ -51,5 +52,8 @@ class PublicSignal(QThread):
     def send_signal_predict_result(self, real_label: str, predict_label: str, image_path: str):
         self.signal_predict_result.emit(real_label, predict_label, image_path)
 
-    def send_feature_code(self, geo: bool, glcm: bool, fd: bool, hog: bool, sift: bool, lbp: bool):
-        self.signal_feature_code.emit(geo, glcm, fd, hog, sift, lbp)
+    def send_feature_code_fetch(self, geo: bool, glcm: bool, fd: bool, hog: bool, sift: bool, lbp: bool):
+        self.signal_feature_code_fetch.emit(geo, glcm, fd, hog, sift, lbp)
+
+    def send_feature_code_read(self, geo: bool, glcm: bool, fd: bool, hog: bool, sift: bool, lbp: bool):
+        self.signal_feature_code_read.emit(geo, glcm, fd, hog, sift, lbp)

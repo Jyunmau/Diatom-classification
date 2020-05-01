@@ -112,6 +112,9 @@ class Ui_featureReadWidget(object):
         self.transformCheckBox.setObjectName("transformCheckBox")
         self.horizontalLayout_8.addWidget(self.transformCheckBox)
         self.verticalLayout_3.addLayout(self.horizontalLayout_8)
+        self.yesButton = QtWidgets.QPushButton(self.horizontalLayoutWidget)
+        self.yesButton.setObjectName("yesButton")
+        self.verticalLayout_3.addWidget(self.yesButton)
         self.horizontalLayout_9.addLayout(self.verticalLayout_3)
 
         self.retranslateUi(featureReadWidget)
@@ -134,3 +137,4 @@ class Ui_featureReadWidget(object):
         self.normalizeCheckBox.setText(_translate("featureReadWidget", "归一化"))
         self.regularizeCheckBox.setText(_translate("featureReadWidget", "正则化"))
         self.transformCheckBox.setText(_translate("featureReadWidget", "数据变换（默认第一特征）"))
+        self.yesButton.setText(_translate("featureReadWidget", "确定"))
