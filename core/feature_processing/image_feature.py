@@ -147,6 +147,7 @@ class ImageFeature(QObject):
             else:
                 return
         split_list = []
+        self.features.clear()
         while True:
             try:
                 imgfile = next(img_it)
@@ -225,8 +226,8 @@ class ImageFeature(QObject):
         print(labels.shape)
         if not cls.is_file_exists(data_set_read.data_set_num, self.feature_code, 'feature'):
             np.savetxt(cls.fetch(data_set_read.data_set_num, self.feature_code, 'feature'), features, fmt="%s")
-        if not cls.is_file_exists(self.data_set_num, '', 'label'):
-            np.savetxt(cls.fetch(self.data_set_num, '', 'label'), labels)
+        if not cls.is_file_exists(data_set_read.data_set_num, '', 'label'):
+            np.savetxt(cls.fetch(data_set_read.data_set_num, '', 'label'), labels)
         print('特征提取完成！，文件已保存')
         self.public_signal.send_finished()
 

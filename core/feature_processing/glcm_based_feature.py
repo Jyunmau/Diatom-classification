@@ -198,15 +198,21 @@ class GlcmBasedFeature:
             print("In class 'GlcmBasedFeature': variable 'ret' is None, "
                   "please run method 'glcm()' for calculate glcm first.")
             return
-        features = np.zeros((4), np.float)
-        features[0] = self._angular_second_moment()
-        features[1] = self._contrast_ratio()
-        features[2] = self._entropy()
-        features[3] = self._inverse_differential_moment()
+        # features = np.zeros((4), np.float)
+        # features[0] = self._angular_second_moment()
+        # features[1] = self._contrast_ratio()
+        # features[2] = self._entropy()
+        # features[3] = self._inverse_differential_moment()
+        features = []
+        features.append(self._angular_second_moment())
+        features.append(self._contrast_ratio())
+        features.append(self._entropy())
+        features.append(self._inverse_differential_moment())
+        # features = np.array(features).reshape((4))
         # features[4] = self._standard_deviation()
         # features[5] = self._correlation()
         # features[6] = self._dissimilarity()
-        self.split_num = features.shape[0]
+        # self.split_num = features.shape[0]
         return features
 
     def get_split_num(self):
