@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b31d3feb-a8b4-4948-90aa-7afcc679c769" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/feature_processing/glcm_based_feature.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/feature_processing/glcm_based_feature.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/feature_processing/image_feature.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/feature_processing/image_feature.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/ds2_feature000010.txt" beforeDir="false" afterPath="$PROJECT_DIR$/features/ds2_feature000010.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/feature_processing/hog_feature.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/feature_processing/hog_feature.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -510,7 +508,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588326179681</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="fix: 连续提取特征变量不清零&#10;test: 单个特征提取">
+      <created>1588515702743</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1588515702743</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -530,7 +535,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="所有特征已调至最优状态" />
     <MESSAGE value="feat:cifar-10&amp;opencv_svm&amp;freak" />
     <MESSAGE value="生日快乐！" />
     <MESSAGE value="结构调整" />
@@ -555,7 +559,8 @@
     <MESSAGE value="test: 去异常数据&amp;特征工程" />
     <MESSAGE value="feat: 特征提取设置UI" />
     <MESSAGE value="feat: 特征读取设置UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 特征读取设置UI" />
+    <MESSAGE value="fix: 连续提取特征变量不清零&#10;test: 单个特征提取" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: 连续提取特征变量不清零&#10;test: 单个特征提取" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -587,34 +592,34 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="675" y="454" key="#com.jetbrains.python.refactoring.move.PyMakeFunctionTopLevelDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1582777833901" />
-    <state x="1113" y="65" key="CommitChangelistDialog2" timestamp="1588326179292">
+    <state x="1113" y="65" key="CommitChangelistDialog2" timestamp="1588748853582">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="1113" y="65" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1588326179292" />
+    <state x="1113" y="65" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1588748853582" />
     <state x="425" y="112" key="CommitChangelistDialog2/0.23.1920.977@0.23.1920.977" timestamp="1582168367545" />
     <state x="425" y="112" key="CommitChangelistDialog2/0.23.1920.979@0.23.1920.979" timestamp="1582468832136" />
-    <state width="1899" height="356" key="GridCell.Tab.0.bottom" timestamp="1588511279875">
+    <state width="1899" height="356" key="GridCell.Tab.0.bottom" timestamp="1588748769996">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="356" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1588511279875" />
+    <state width="1899" height="356" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1588748769996" />
     <state width="1379" height="250" key="GridCell.Tab.0.bottom/0.23.1920.977@0.23.1920.977" timestamp="1582126730153" />
     <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.23.1920.979@0.23.1920.979" timestamp="1584115807789" />
-    <state width="1899" height="356" key="GridCell.Tab.0.center" timestamp="1588511279874">
+    <state width="1899" height="356" key="GridCell.Tab.0.center" timestamp="1588748769994">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="356" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1588511279874" />
+    <state width="1899" height="356" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1588748769994" />
     <state width="1379" height="250" key="GridCell.Tab.0.center/0.23.1920.977@0.23.1920.977" timestamp="1582126730152" />
     <state width="1899" height="282" key="GridCell.Tab.0.center/0.23.1920.979@0.23.1920.979" timestamp="1584115807788" />
-    <state width="1899" height="356" key="GridCell.Tab.0.left" timestamp="1588511279873">
+    <state width="1899" height="356" key="GridCell.Tab.0.left" timestamp="1588748769994">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="356" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1588511279873" />
+    <state width="1899" height="356" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1588748769994" />
     <state width="1379" height="250" key="GridCell.Tab.0.left/0.23.1920.977@0.23.1920.977" timestamp="1582126730152" />
     <state width="1899" height="282" key="GridCell.Tab.0.left/0.23.1920.979@0.23.1920.979" timestamp="1584115807787" />
-    <state width="1899" height="356" key="GridCell.Tab.0.right" timestamp="1588511279875">
+    <state width="1899" height="356" key="GridCell.Tab.0.right" timestamp="1588748769995">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="356" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1588511279875" />
+    <state width="1899" height="356" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1588748769995" />
     <state width="1379" height="250" key="GridCell.Tab.0.right/0.23.1920.977@0.23.1920.977" timestamp="1582126730152" />
     <state width="1899" height="282" key="GridCell.Tab.0.right/0.23.1920.979@0.23.1920.979" timestamp="1584115807788" />
     <state width="1899" height="375" key="GridCell.Tab.1.bottom" timestamp="1585800627365">
@@ -643,16 +648,16 @@
     <state x="475" y="101" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1586447991924" />
     <state x="469" y="150" key="SettingsEditor/0.23.1920.977@0.23.1920.977" timestamp="1582162591434" />
     <state x="469" y="150" key="SettingsEditor/0.23.1920.979@0.23.1920.979" timestamp="1582465982595" />
-    <state x="560" y="252" key="Vcs.Push.Dialog.v2" timestamp="1588326181218">
+    <state x="560" y="252" key="Vcs.Push.Dialog.v2" timestamp="1588515710914">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="560" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1588326181218" />
+    <state x="560" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1588515710914" />
     <state x="560" y="251" key="Vcs.Push.Dialog.v2/0.23.1920.977@0.23.1920.977" timestamp="1582168375016" />
     <state x="560" y="251" key="Vcs.Push.Dialog.v2/0.23.1920.979@0.23.1920.979" timestamp="1582468835324" />
-    <state x="653" y="366" key="com.intellij.ide.util.TipDialog" timestamp="1588482893964">
+    <state x="653" y="366" key="com.intellij.ide.util.TipDialog" timestamp="1588731071939">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="653" y="366" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1588482893964" />
+    <state x="653" y="366" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1588731071939" />
     <state x="653" y="344" key="com.intellij.ide.util.TipDialog/0.23.1920.977@0.23.1920.977" timestamp="1582162486023" />
     <state x="653" y="366" key="com.intellij.ide.util.TipDialog/0.23.1920.979@0.23.1920.979" timestamp="1588234299990" />
     <state x="717" y="252" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1582168403128">

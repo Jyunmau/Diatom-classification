@@ -94,8 +94,8 @@ split_num = None
 def hog_compute(gray_img):
     winSize = (256, 256)
     blockSize = (128, 128)
-    blockStride = (128, 128)
-    cellSize = (64, 64)
+    blockStride = (64, 64)
+    cellSize = (32, 32)
     nbins = 9
     hog = cv2.HOGDescriptor(winSize, blockSize, blockStride, cellSize, nbins)
     gray_img = np.resize(gray_img, (256, 256))
