@@ -1,3 +1,10 @@
+"""
+@File : feature_preproc.py
+@Time : 2020/06/09 16:05:40
+@Author : Jyunmau
+@Version : 1.0
+"""
+
 from sklearn.preprocessing import StandardScaler, Normalizer, PolynomialFeatures, FunctionTransformer
 from numpy import log1p
 import numpy as np

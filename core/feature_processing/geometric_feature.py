@@ -1,3 +1,10 @@
+"""
+@File : geometric_feature.py
+@Time : 2020/06/09 14:07:13
+@Author : Jyunmau
+@Version : 1.0
+"""
+
 import cv2
 import numpy as np
 
@@ -51,6 +58,11 @@ class GeometricFeatures:
         return np.concatenate([humoments[:2].flatten(), m])
 
     def get_geometric_features(self, gray_img):
+        """
+        提取一张图片的统计学形态特征向量
+        :param gray_img: 要提取的特征的一张灰度图
+        :return: 包含5个统计学形态特征值、7维矩特征、2维Hu矩
+        """
         cont = self.contours(gray_img)
         hu = self.hu_moments(gray_img)
         features = np.concatenate([cont, hu])
@@ -58,4 +70,8 @@ class GeometricFeatures:
         return features
 
     def get_split_num(self):
+        """
+        获得统计学形态特征向量的长度，方便后续做多项式扩增时划分向量
+        :return:
+        """
         return self.split_num

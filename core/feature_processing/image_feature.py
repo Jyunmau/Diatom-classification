@@ -1,3 +1,9 @@
+"""
+@File : image_feature.py
+@Time : 2020/06/09 14:18:01
+@Author : Jyunmau
+@Version : 1.0
+"""
 import abc
 import time
 
@@ -21,13 +27,16 @@ import core.public_signal as public_signal
 import numpy as np
 
 
-# class ImageFeatureInterface(metaclass=abc.ABCMeta):
-#     @abc.abstractmethod
-#     def fetch_proc(self, image_it, img_read: imr.ImageReadInterface, data_set_num: int):
-#         pass
+class ImageFeatureInterface(metaclass=abc.ABCMeta):
+    @abc.abstractmethod
+    def fetch_proc(self, image_it, img_read: imr.ImageReadInterface, data_set_num: int):
+        pass
 
 
 class ImageFeature(QObject):
+    """
+    特征提取的主控制类，提供特征参数调整，不同特征组合提取的功能
+    """
     label_id = {"Coscinodiscus": "0", "Cyclotella": "1", "Diatome": "2", "Melosira": "3", "Navicula": "4",
                 "Nitzschia": "5", "Stephanodiscus": "6", "Synedra": "7", "Thalassiosira": "8"}
     features = []
@@ -49,9 +58,18 @@ class ImageFeature(QObject):
         self.is_scale_1by1 = is_scale_1by1
 
     def _set_proc(self, choose: str):
+        """
+        设置是否覆写同名特征文件，即相同数据集上的相同特征组合，有可能参数不同或做了别的图片预处理
+        :param choose: 'y'或'n'，表示'是'或'否'将覆写
+        :return:
+        """
         self.proc = choose
 
     def _get_feature_code(self):
+        """
+        按照如下顺序可以得到一个6位的特征组合编码，每位1表示该特征在提取的组合中，0则是该特征不被提取
+        :return: 6位特征编码
+        """
         res = ''
         if self.geometric_feature:
             res += '1'
@@ -81,6 +99,11 @@ class ImageFeature(QObject):
         return res
 
     def _resolve_feature_code(self, feature_code: str):
+        """
+        将特征编码解码存入本类的各特征参数中，与本类的_get_feature_code互为反函数
+        :param feature_code: 6位特征编码
+        :return:
+        """
         if feature_code[0] == '1':
             self.geometric_feature = True
         else:
@@ -133,6 +156,13 @@ class ImageFeature(QObject):
         self.fourier_descriptor_feature = is_feature
 
     def fetch_proc(self, img_it, img_read: imr.ImageReadInterface, data_set_read: dsr.DataSetReadInterface):
+        """
+        特征提取的流程调用函数，按照初始化函数规定的特征和特征码规定的组合进行提取，保存到"数据集名-特征编码"命名的文件中
+        :param img_it: 一个图像路径构成的向量，形状为(n_samples,)
+        :param img_read: 图像读取实例
+        :param data_set_read: 数据集读取实例
+        :return:
+        """
         self._get_feature_code()
         cls = ps.PathSome()
         self.labels = data_set_read.get_data()['labels']

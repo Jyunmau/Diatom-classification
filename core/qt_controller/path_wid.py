@@ -1,3 +1,10 @@
+"""
+@File : path_wid.py
+@Time : 2020/06/09 16:27:49
+@Author : Jyunmau
+@Version : 1.0
+"""
+
 from PySide2 import QtWidgets
 import Qt_Ui.pathWid as pw
 import core.public_signal as ps

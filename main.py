@@ -1,3 +1,10 @@
+"""
+@File : main.py
+@Time : 2020/06/09 16:25:00
+@Author : Jyunmau
+@Version : 1.0
+"""
+
 import sys
 
 from PyQt5 import QtWidgets
@@ -18,6 +25,10 @@ from core.qt_controller.predict_result_wid import PredictResultWid
 
 
 def main():
+    """
+    QT窗体程序的主入口文件
+    :return:
+    """
     app = QtWidgets.QApplication(sys.argv)
     # image_recognition = ImageRecognition()
     # result_wid = ResultWid(image_recognition)

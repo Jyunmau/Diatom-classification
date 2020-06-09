@@ -1,4 +1,11 @@
 # -*- coding:utf-8 -*-
+"""
+@File : path_some.py
+@Time : 2020/06/09 16:24:53
+@Author : Jyunmau
+@Version : 1.0
+"""
+
 import configparser
 import glob
 import os

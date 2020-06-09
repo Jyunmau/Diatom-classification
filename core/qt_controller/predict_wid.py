@@ -1,3 +1,10 @@
+"""
+@File : predict_wid.py
+@Time : 2020/06/09 16:28:12
+@Author : Jyunmau
+@Version : 1.0
+"""
+
 from PySide2 import QtWidgets
 import Qt_Ui.predictWid as pw
 

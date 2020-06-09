@@ -1,3 +1,10 @@
+"""
+@File : image_segmentation.py
+@Time : 2020/06/09 16:15:39
+@Author : Jyunmau
+@Version : 1.0
+"""
+
 import cv2
 import numpy as np
 from skimage import img_as_ubyte
@@ -6,6 +13,12 @@ import core.image_processing.image_read as imr
 
 
 def strokEdges(blurKsize=7, edgeKsize=5):
+    """
+    硅藻图像ROI区域分割，弹窗显示原图及识别的ROI区域矩形线框
+    :param blurKsize: 中值滤波的卷积核大小
+    :param edgeKsize: 边缘检测的卷积核大小
+    :return:
+    """
     cls = ps.PathSome()
     img_it = cls.seg_img()
     while True:

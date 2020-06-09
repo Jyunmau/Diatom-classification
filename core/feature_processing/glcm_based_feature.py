@@ -1,3 +1,10 @@
+"""
+@File : glcm_based_feature.py
+@Time : 2020/06/09 13:50:39
+@Author : Jyunmau
+@Version : 1.0
+"""
+
 import numpy as np
 
 

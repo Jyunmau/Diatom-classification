@@ -1,10 +1,17 @@
+"""
+@File : feature_read_wid.py
+@Time : 2020/06/09 16:29:26
+@Author : Jyunmau
+@Version : 1.0
+"""
+
 from PySide2 import QtWidgets
 import Qt_Ui.featureReadWid as frw
 import core.public_signal as public_signal
 
 
 class FeatureReadWid(QtWidgets.QWidget, frw.Ui_featureReadWidget):
-    """单张图片识别结果的窗体逻辑"""
+    """特征读取参数设置的窗体逻辑"""
 
     def __init__(self):
         super(FeatureReadWid, self).__init__()

@@ -1,3 +1,10 @@
+"""
+@File : image_classifier.py
+@Time : 2020/06/09 14:41:24
+@Author : Jyunmau
+@Version : 1.0
+"""
+
 import abc
 import core.image_processing.image_read as imread
 from sklearn.preprocessing import scale
@@ -22,6 +29,8 @@ from sklearn.externals import joblib
 
 from sklearn.neural_network import MLPClassifier
 
+from PySide2.QtCore import QThread, Signal
+
 
 class ImageClassifierInterface(metaclass=abc.ABCMeta):
     @abc.abstractmethod
@@ -42,6 +51,10 @@ class ImageClassifierInterface(metaclass=abc.ABCMeta):
 
 
 class ImageClassifier(ImageClassifierInterface):
+    """
+    控制模型训练与预测的类
+    """
+
     def __init__(self, feature_read: fr.FeatureReadInterface, data_set_read: dsr.DataSetReadInterface
                  , model_type: str = 'svm', is_scaler: bool = True, is_pca: bool = False,
                  is_find_best_suparam: bool = False, is_save_model=True):
@@ -56,6 +69,9 @@ class ImageClassifier(ImageClassifierInterface):
         self.train_image_path = None
         self.test_image_path = None
         self.model = None
+        self.public_signal = ps.PublicSignal()
+        self.public_signal.signal_predict_next.connect(self.next_predict)
+        self.predict_iter = self.predict()
 
     def set_model_type(self, model_type: str):
         self.model_type = model_type
@@ -73,24 +89,65 @@ class ImageClassifier(ImageClassifierInterface):
         self.is_save_model = is_save_model
 
     def save(self):
+        """
+        保存模型参数
+        :return:
+        """
         joblib.dump(self.clf, "models/" + self.model_type + '_' + str(
             self.data_set_read.data_set_num) + '_' + self.feature_read.feature_code + '.m')
 
     def load(self):
+        """
+        加载模型参数
+        :return:
+        """
         self.model = joblib.load("models/" + self.model_type + '_' + str(
             self.data_set_read.data_set_num) + '_' + self.feature_read.feature_code + '.m', self.clf)
 
     def predict(self):
+        """
+        预测测试集结果，每次调用前需要先执行训练，每次迭代发送一张测试集图片的预测结果信号至UI
+        :return: 一个可迭代对象，在发送结果信号至UI的位置中断
+        """
         if self.test_image_path is None:
             self.test_image_path = self.data_set_read.get_data()['images']
-        features, labels = self.feature_read.get_feature_label(self.data_set_read)
-        self.load()
-        results = self.model.predict(features)
-        public_signal = ps.PublicSignal()
+        # features, labels = self.feature_read.get_feature_label(self.data_set_read)
+        features, labels = self.test_features, self.test_labels
+        print(features.shape)
+        # self.load()
+        results = self.clf.predict(features)
+        # print(results)
+        label_id = {0: "Coscinodiscus", 1: "Cyclotella", 2: "Diatome", 3: "Melosira", 4: "Navicula", 5:
+            "Nitzschia", 6: "Stephanodiscus", 7: "Synedra", 8: "Thalassiosira"}
+        print(labels.shape)
+        wrong_index = []
         for i in range(len(results)):
-            public_signal.send_signal_predict_result(labels[i], results[i], self.test_image_path[i])
+            if labels[i] != results[i]:
+                wrong_index.append(i)
+        # for i in range(len(results)):
+        print('wrong_index')
+        print(len(wrong_index))
+        for i in wrong_index:
+            # print(labels[i]
+            print('run_predict')
+            print(i)
+            yield self.public_signal.send_signal_predict_result(str(label_id[labels[i]]), str(label_id[results[i]]),
+                                                                self.test_image_path[i])
+            # yield
+
+    def next_predict(self):
+        """
+        本类predict函数的执行函数，调用next进行迭代
+        :return:
+        """
+        print('run_next_predict_in_imc')
+        next(self.predict_iter)
 
     def fit(self):
+        """
+        训练模型并计算模型评价参数，可选多种模型
+        :return:
+        """
         features, labels = self.feature_read.get_feature_label(self.data_set_read)
         print(features.shape)
         print(labels.shape)
@@ -104,10 +161,12 @@ class ImageClassifier(ImageClassifierInterface):
         if self.is_pca:
             features = pca.pca_reduce(features)
         if self.is_scaler:
-            scaler = StandardScaler()
-            scaler.fit(train_features)
-            train_features = scaler.transform(train_features)
-            test_features = scaler.transform(test_features)
+            self.scaler = StandardScaler()
+            self.scaler.fit(train_features)
+            train_features = self.scaler.transform(train_features)
+            test_features = self.scaler.transform(test_features)
+            self.test_features = test_features
+            self.test_labels = test_labels
         # print(labels)
         # labels = labels.reshape((labels.shape[0], 1))
         # # labels = labels.reshape((labels.shape[0]))
@@ -152,12 +211,22 @@ class ImageClassifier(ImageClassifierInterface):
             print('\n>>======test_set score:======<<')
             print("acc:%s" % clf.score(test_features, test_labels))
             predicted = clf.predict(test_features)
+            # print(test_features.shape)
             # print("Classification report for classifier %s:\n%s\n"
             #       % (clf, metrics.classification_report(expected, predicted)))
             print("Confusion matrix:\n%s" % metrics.confusion_matrix(test_labels, predicted))
             self.print_confusion_matrix(metrics.confusion_matrix(test_labels, predicted))
+            # ds2_labels = ["Coscinodiscus", "Cyclotella", "Diatome", "Melosira", "Navicula",
+            #           "Nitzschia", "Stephanodiscus", "Synedra", "Thalassiosira"]
+            # print(metrics.classification_report(test_labels, predicted, target_names=ds2_labels))
+            print(metrics.classification_report(test_labels, predicted))
 
     def print_confusion_matrix(self, cm):
+        """
+        控制台打印输出混淆矩阵
+        :param cm: 混淆矩阵，大小为(n_samples,n_samples)
+        :return:
+        """
         import matplotlib.pyplot as plt
         import numpy as np
 

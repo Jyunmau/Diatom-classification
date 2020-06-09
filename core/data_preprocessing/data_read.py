@@ -1,3 +1,10 @@
+"""
+@File : data_read.py
+@Time : 2020/06/09 16:14:49
+@Author : Jyunmau
+@Version : 1.0
+"""
+
 import abc
 
 import numpy as np

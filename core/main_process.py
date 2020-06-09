@@ -1,3 +1,10 @@
+"""
+@File : main_process.py
+@Time : 2020/06/09 16:19:20
+@Author : Jyunmau
+@Version : 1.0
+"""
+
 import abc
 import numpy as np
 
@@ -8,6 +15,7 @@ import core.image_processing.image_read as imr
 import core.feature_processing.image_feature as imf
 import core.data_preprocessing.feature_read as fr
 import core.classifier.image_classifier as imc
+import core.public_signal as public_signal
 
 
 class MainProcessInterface(metaclass=abc.ABCMeta):
@@ -27,8 +35,25 @@ class MainProcessInterface(metaclass=abc.ABCMeta):
 
 
 class MainProcess(MainProcessInterface):
+    """
+    模版模式的流程执行主类
+    """
+
+    def __init__(self, vdsr: dsr.DataSetReadInterface, vdr: dr.DataReadInterface, vimr: imr.ImageReadInterface,
+                 vimf: imf.ImageFeature, vfr: fr.FeatureReadInterface,
+                 vimc: imc.ImageClassifierInterface):
+        super(MainProcess, self).__init__(vdsr, vdr, vimr, vimf, vfr, vimc)
+        self.public_signal = public_signal.PublicSignal()
+        # self.public_signal.signal_predict_next.connect(self.next_predict)
 
     def do_flow(self, is_feature_fetch: bool = False, is_train_model=False, is_predict=False):
+        """
+        调用各流程实例执行指定的流程：特征提取、模型训练、图片预测，各流程互斥不能并行
+        :param is_feature_fetch: 是否进行特征提取
+        :param is_train_model: 是否进行模型训练
+        :param is_predict: 是否进行图片预测
+        :return:
+        """
         cls = ps.PathSome()
         if is_feature_fetch:
             img_it = self.data_read.get_images_iter(self.data_set_read)
@@ -39,7 +64,8 @@ class MainProcess(MainProcessInterface):
         elif is_train_model:
             self.image_classifier.fit()
         elif is_predict:
-            self.image_classifier.predict()
+            self.predict = self.image_classifier.predict()
+            next(self.predict)
 
 
 if __name__ == '__main__':

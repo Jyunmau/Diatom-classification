@@ -1,3 +1,10 @@
+"""
+@File : glcm_based_feature.py
+@Time : 2020/06/09 13:50:39
+@Author : Jyunmau
+@Version : 1.0
+"""
+
 import numpy as np
 from sklearn.model_selection import cross_val_score, ShuffleSplit
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingClassifier
@@ -6,6 +13,14 @@ from sklearn.linear_model import LogisticRegression
 
 
 def transform(data, label, selection_func='filter', k=450):
+    """
+    特征筛选
+    :param data: 样本特征，大小为(n_samples,n_features)
+    :param label: 样本标签
+    :param selection_func: 特征筛选所用的方法，可选填'embedded','wrapper','filter'
+    :param k: 筛选后的特征维数
+    :return: 筛选后得到的特征向量，'filter'会改变特征顺序
+    """
     if selection_func == 'embedded':
         # Embedded：基于树模型的特征选择法
         # GBDT作为基模型的特征选择

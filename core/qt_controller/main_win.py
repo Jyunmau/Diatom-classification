@@ -1,3 +1,10 @@
+"""
+@File : main_win.py
+@Time : 2020/06/09 16:26:39
+@Author : Jyunmau
+@Version : 1.0
+"""
+
 import time
 
 from PySide2.QtCore import Signal, Qt

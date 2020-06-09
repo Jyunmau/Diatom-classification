@@ -1,4 +1,11 @@
 # -*- coding:utf-8 -*-
+"""
+@File : public_signal.py
+@Time : 2020/06/09 16:22:38
+@Author : Jyunmau
+@Version : 1.0
+"""
+
 import glob
 import os
 import numpy as np
@@ -21,6 +28,9 @@ def singleton(cls, *args, **kw):
 
 @singleton
 class PublicSignal(QThread):
+    """
+    用于主逻辑与QT_UI交互的信号槽，单例
+    """
     signal_path = Signal(str)
     signal_finish = Signal()
     signal_rewrite = Signal()
@@ -28,6 +38,7 @@ class PublicSignal(QThread):
     signal_data_set_num = Signal(int)
     signal_feature_read_wid_close = Signal()
     signal_predict_result = Signal(str, str, str)
+    signal_predict_next = Signal()
     signal_feature_code_fetch = Signal(bool, bool, bool, bool, bool, bool)
     signal_feature_code_read = Signal(bool, bool, bool, bool, bool, bool)
 
@@ -51,6 +62,9 @@ class PublicSignal(QThread):
 
     def send_signal_predict_result(self, real_label: str, predict_label: str, image_path: str):
         self.signal_predict_result.emit(real_label, predict_label, image_path)
+
+    def send_signal_predict_next(self):
+        self.signal_predict_next.emit()
 
     def send_feature_code_fetch(self, geo: bool, glcm: bool, fd: bool, hog: bool, sift: bool, lbp: bool):
         self.signal_feature_code_fetch.emit(geo, glcm, fd, hog, sift, lbp)

@@ -22,6 +22,14 @@ class Ui_predictResltWid(object):
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setObjectName("verticalLayout")
+        self.infoLabel = QtWidgets.QLabel(self.horizontalLayoutWidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.infoLabel.sizePolicy().hasHeightForWidth())
+        self.infoLabel.setSizePolicy(sizePolicy)
+        self.infoLabel.setObjectName("infoLabel")
+        self.verticalLayout.addWidget(self.infoLabel)
         self.imageLabel = QtWidgets.QLabel(self.horizontalLayoutWidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
@@ -68,6 +76,7 @@ class Ui_predictResltWid(object):
     def retranslateUi(self, predictResltWid):
         _translate = QtCore.QCoreApplication.translate
         predictResltWid.setWindowTitle(_translate("predictResltWid", "图片预测"))
+        self.infoLabel.setText(_translate("predictResltWid", "TextLabel"))
         self.imageLabel.setText(_translate("predictResltWid", "等待加载图片..."))
         self.lastPushButton.setText(_translate("predictResltWid", "上一张"))
         self.nextPushButton.setText(_translate("predictResltWid", "下一张"))

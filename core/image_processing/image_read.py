@@ -1,3 +1,10 @@
+"""
+@File : image_read.py
+@Time : 2020/06/09 13:51:23
+@Author : Jyunmau
+@Version : 1.0
+"""
+
 import abc
 
 import cv2
@@ -50,7 +57,13 @@ class ImageRead(ImageReadInterface):
         return gray_image
 
     def image_preprocessing(self, image):
-        img = cv2.GaussianBlur(image, (5, 5), 0)
+        """
+        对读取出的图像做预处理，这里做了中值滤波
+        :param image: 单张图像
+        :return: 处理后的图像
+        """
+        img = cv2.medianBlur(image, (5, 5), 0)
+        # img = cv2.GaussianBlur(image, (5, 5), 0)
         return img
 
 

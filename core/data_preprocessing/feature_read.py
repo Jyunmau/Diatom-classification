@@ -1,3 +1,10 @@
+"""
+@File : feature_read.py
+@Time : 2020/06/09 16:10:27
+@Author : Jyunmau
+@Version : 1.0
+"""
+
 import abc
 
 import numpy as np
@@ -17,6 +24,9 @@ class FeatureReadInterface(metaclass=abc.ABCMeta):
 
 
 class FeatureRead(FeatureReadInterface):
+    """
+    特征读取控制类，提供不同组合特征文件读取，拆分特征并做扩增、筛选、标准化处理功能
+    """
     feature_code = '110001'
     selection_func = 'filter'
     k = 450
@@ -57,6 +67,11 @@ class FeatureRead(FeatureReadInterface):
         self.selection_func = selection_func
 
     def set_k(self, k):
+        """
+        设置筛选后的特征维数
+        :param k: 筛选后的特征维数
+        :return:
+        """
         self.k = k
 
     def set_is_regularize(self, is_regularize):
@@ -69,6 +84,12 @@ class FeatureRead(FeatureReadInterface):
         self.is_transform = is_transform
 
     def get_feature_label(self, data_set_read: dsr.DataSetReadInterface, batch_num: int = 0):
+        """
+        获取已保存的特征并按设定做扩增、筛选和标准化处理
+        :param data_set_read: 数据集读取实例
+        :param batch_num: 划分的批次数
+        :return:
+        """
         data_set_num = data_set_read.data_set_num
         self.feature_code = self.feature_code
         cls = ps.PathSome()
