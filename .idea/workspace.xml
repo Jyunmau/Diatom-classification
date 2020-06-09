@@ -1,41 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b31d3feb-a8b4-4948-90aa-7afcc679c769" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/jyunmau.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Qt_Ui/predictResultWid.py" beforeDir="false" afterPath="$PROJECT_DIR$/Qt_Ui/predictResultWid.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Qt_Ui/predictResultWid.ui" beforeDir="false" afterPath="$PROJECT_DIR$/Qt_Ui/predictResultWid.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/classifier/classifier_interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/classifier/classifier_interface.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/classifier/image_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/classifier/image_classifier.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/classifier/knn_classifier.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/classifier/opencv_svm_classifier.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/classifier/svm_classifier.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/classifier/tree_classifier.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/data_preprocessing/data_read.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/data_preprocessing/data_read.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/data_preprocessing/data_set_read.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/data_preprocessing/data_set_read.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/data_preprocessing/feature_preproc.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/data_preprocessing/feature_preproc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/data_preprocessing/feature_read.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/data_preprocessing/feature_read.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/data_preprocessing/feature_selection.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/data_preprocessing/feature_selection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/feature_processing/geometric_feature.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/feature_processing/geometric_feature.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/feature_processing/glcm_based_feature.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/feature_processing/glcm_based_feature.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/feature_processing/image_feature.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/feature_processing/image_feature.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/image_processing/image_read.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/image_processing/image_read.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/image_processing/image_segmentation.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/image_processing/image_segmentation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/main_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/main_process.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/path_some.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/path_some.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/public_signal.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/public_signal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/qt_controller/feature_fetch_wid.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/qt_controller/feature_fetch_wid.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/qt_controller/feature_read_wid.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/qt_controller/feature_read_wid.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/qt_controller/image_wid.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/qt_controller/image_wid.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/qt_controller/main_win.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/qt_controller/main_win.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/qt_controller/model_wid.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/qt_controller/model_wid.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/qt_controller/path_wid.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/qt_controller/path_wid.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/qt_controller/predict_result_wid.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/qt_controller/predict_result_wid.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/qt_controller/predict_wid.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/qt_controller/predict_wid.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="b31d3feb-a8b4-4948-90aa-7afcc679c769" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -567,7 +533,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588779416748</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="feat：添加版权信息&#10;feat：预测图片逐张翻">
+      <created>1591699230340</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1591699230340</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -587,7 +560,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="结构调整" />
     <MESSAGE value="refactor: 定下架构" />
     <MESSAGE value="refactor: data_read" />
     <MESSAGE value="refactor: 数据读取" />
@@ -612,7 +584,8 @@
     <MESSAGE value="fix: 连续提取特征变量不清零&#10;test: 单个特征提取" />
     <MESSAGE value="feat: 各特征及组合提取好的文件" />
     <MESSAGE value="upgrade: requirements.txt&#10;feat: 更多的特征组合文件" />
-    <option name="LAST_COMMIT_MESSAGE" value="upgrade: requirements.txt&#10;feat: 更多的特征组合文件" />
+    <MESSAGE value="feat：添加版权信息&#10;feat：预测图片逐张翻" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat：添加版权信息&#10;feat：预测图片逐张翻" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -640,10 +613,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="737" y="299" key="#com.intellij.tools.ToolEditorDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1584589440856" />
-    <state x="1113" y="65" key="CommitChangelistDialog2" timestamp="1588779416320">
+    <state x="1113" y="65" key="CommitChangelistDialog2" timestamp="1591699229873">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="1113" y="65" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1588779416320" />
+    <state x="1113" y="65" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1591699229873" />
     <state width="1899" height="422" key="GridCell.Tab.0.bottom" timestamp="1591631818969">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -696,10 +669,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="560" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1588779418467" />
-    <state x="653" y="366" key="com.intellij.ide.util.TipDialog" timestamp="1591698978192">
+    <state x="653" y="366" key="com.intellij.ide.util.TipDialog" timestamp="1591699325050">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="653" y="366" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1591698978192" />
+    <state x="653" y="366" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1591699325050" />
     <state x="653" y="366" key="com.intellij.ide.util.TipDialog/0.23.1920.979@0.23.1920.979" timestamp="1588234299990" />
     <state x="653" y="366" key="com.intellij.ide.util.TipDialog/1920.23.1920.1057/0.23.1920.979@1920.23.1920.1057" timestamp="1591622474372" />
     <state x="569" y="127" width="782" height="825" key="find.popup" timestamp="1585799152058">
